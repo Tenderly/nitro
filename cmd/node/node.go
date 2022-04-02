@@ -397,7 +397,7 @@ func NodeConfigAddOptions(f *flag.FlagSet) {
 	conf.HTTPConfigAddOptions("http", f)
 	conf.WSConfigAddOptions("ws", f)
 	f.Bool("dev-init", NodeConfigDefault.DevInit, "init with dev data (1 account with balance) instead of file import")
-	f.Bool("no-init", NodeConfigDefault.DevInit, "Do not init chain. Data must be valid in database.")
+	f.Bool("no-init", NodeConfigDefault.NoInit, "Do not init chain. Data must be valid in database.")
 	f.String("import-file", NodeConfigDefault.ImportFile, "path for json data to import")
 }
 

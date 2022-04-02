@@ -4,12 +4,10 @@ import { namedAccount, namedAddress } from './accounts'
 import * as fs from 'fs';
 const path = require("path");
 
-async function bridgeFunds(provider: ethers.providers.Provider, from: ethers.Wallet, ethamount: string): Promise<ethers.providers.TransactionResponse> {
-    const deploydata = JSON.parse(fs.readFileSync(path.join(consts.configpath, "deployment.json")).toString())
-
+async function bridgeFunds(provider: ethers.providers.Provider, from: ethers.Wallet, ethamount: string, inboxAddress: string): Promise<ethers.providers.TransactionResponse> {
     return from.connect(provider)
         .sendTransaction({
-            to: deploydata.Inbox,
+            to: inboxAddress,
             value: ethers.utils.parseEther(ethamount),
             data: "0x0f4d14e9000000000000000000000000000000000000000000000000000082f79cd90000",
         })
@@ -21,11 +19,28 @@ export const bridgeFundsCommand = {
     builder: {
         ethamount: { string: true, describe: 'amount to transfer (in eth)', default: "10" },
         account: { string: true, describe: 'account name', default: "funnel" },
+        privatekey: { string: true },
+        inboxAddress: { string: true },
+        url: { string: true, default: consts.l1url }
     },
     handler: async (argv: any) => {
-        let provider = new ethers.providers.WebSocketProvider(consts.l1url)
+        let provider = new ethers.providers.WebSocketProvider(argv.url)
 
-        let response = await bridgeFunds(provider, namedAccount(argv.account), argv.ethamount)
+        let wallet: ethers.Wallet
+        if (argv.privatekey !== "") {
+            wallet = new ethers.Wallet(argv.privatekey)
+        } else {
+            wallet = namedAccount(argv.account)
+        }
+
+        let inboxAddress: string;
+        if (argv.inboxAddress !== "") {
+            inboxAddress = argv.inboxAddress
+        } else {
+            inboxAddress = JSON.parse(fs.readFileSync(path.join(consts.configpath, "deployment.json")).toString()).Inbox
+        }
+
+        let response = await bridgeFunds(provider, wallet, argv.ethamount, inboxAddress)
 
         console.log("bridged funds")
         console.log(response)
