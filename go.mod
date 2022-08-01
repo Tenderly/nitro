@@ -148,7 +148,9 @@ require (
 	github.com/aws/aws-sdk-go-v2/internal/ini v1.3.11 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sso v1.11.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sts v1.16.4 // indirect
+	github.com/btcsuite/btcd v0.20.1-beta // indirect
 	github.com/deepmap/oapi-codegen v1.8.2 // indirect
+	github.com/ethereum/go-ethereum v1.10.16 // indirect
 	github.com/garslo/gogen v0.0.0-20170306192744-1d203ffc1f61 // indirect
 	github.com/influxdata/line-protocol v0.0.0-20210311194329-9aa0e372d097 // indirect
 	github.com/kylelemons/godebug v1.1.0 // indirect
