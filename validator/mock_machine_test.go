@@ -6,7 +6,7 @@ package validator
 import (
 	"context"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/common"
 )
 
 type IncorrectMachine struct {

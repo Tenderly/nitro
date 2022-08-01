@@ -16,13 +16,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/solgen/go/rollupgen"
-	"github.com/offchainlabs/nitro/util/colors"
-	"github.com/offchainlabs/nitro/validator"
+	"github.com/tenderly/nitro/go-ethereum/accounts/abi/bind"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/params"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/solgen/go/rollupgen"
+	"github.com/tenderly/nitro/util/colors"
+	"github.com/tenderly/nitro/validator"
 )
 
 func makeBackgroundTxs(ctx context.Context, l2info *BlockchainTestInfo, l2clientA arbutil.L1Interface, l2clientB arbutil.L1Interface, faultyStaker bool) error {

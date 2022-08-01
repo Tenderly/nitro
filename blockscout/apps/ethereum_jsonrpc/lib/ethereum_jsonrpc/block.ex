@@ -47,7 +47,7 @@ defmodule EthereumJSONRPC.Block do
    * `"miner"` - `t:EthereumJSONRPC.address/0` of the beneficiary to whom the mining rewards were given.  Aliased by
       `"author"`.
    * `"mixHash"` - Generated from [DAG](https://ethereum.stackexchange.com/a/10353) as part of Proof-of-Work for EthHash
-     algorithm.  **[Geth](https://github.com/ethereum/go-ethereum/wiki/geth) + Proof-of-Work-only**
+     algorithm.  **[Geth](https://github.com/tenderly/nitro/go-ethereum/wiki/geth) + Proof-of-Work-only**
    * `"nonce"` -  `t:EthereumJSONRPC.nonce/0`. `nil` when its pending block.
    * `"number"` - the block number `t:EthereumJSONRPC.quantity/0`. `nil` when block is pending.
    * `"parentHash" - the `t:EthereumJSONRPC.hash/0` of the parent block.

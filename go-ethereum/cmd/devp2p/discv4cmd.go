@@ -22,12 +22,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ethereum/go-ethereum/cmd/devp2p/internal/v4test"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/p2p/discover"
-	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/tenderly/nitro/go-ethereum/cmd/devp2p/internal/v4test"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
+	"github.com/tenderly/nitro/go-ethereum/p2p/discover"
+	"github.com/tenderly/nitro/go-ethereum/p2p/enode"
+	"github.com/tenderly/nitro/go-ethereum/params"
 	"gopkg.in/urfave/cli.v1"
 )
 

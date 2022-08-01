@@ -42,7 +42,7 @@ That message must not be too large as to prevent it from being supplied for prov
 which is enforced by the inboxes.
 
 The current length limit is 117,964 bytes, which is 90% of the
-[max transaction size Geth will accept](https://github.com/ethereum/go-ethereum/blob/356bbe343a30789e77bb38f25983c8f2f2bfbb47/core/tx_pool.go#L53),
+[max transaction size Geth will accept](https://github.com/tenderly/nitro/go-ethereum/blob/356bbe343a30789e77bb38f25983c8f2f2bfbb47/core/tx_pool.go#L53),
 leaving 13,108 bytes for other proving data.
 
 ## Requested preimages must be known and not too large

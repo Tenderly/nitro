@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ethereum/go-ethereum/cmd/evm/internal/compiler"
+	"github.com/tenderly/nitro/go-ethereum/cmd/evm/internal/compiler"
 
 	"gopkg.in/urfave/cli.v1"
 )

@@ -9,9 +9,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/offchainlabs/nitro/arbstate"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/common/hexutil"
+	"github.com/tenderly/nitro/arbstate"
 )
 
 var ErrNotFound = errors.New("Not found")

@@ -16,7 +16,7 @@ import (
 	"github.com/gobwas/ws"
 	"github.com/gobwas/ws/wsutil"
 	"github.com/mailru/easygo/netpoll"
-	"github.com/offchainlabs/nitro/util/stopwaiter"
+	"github.com/tenderly/nitro/util/stopwaiter"
 )
 
 // ClientConnection represents client connection.

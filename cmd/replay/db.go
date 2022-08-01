@@ -9,9 +9,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/offchainlabs/nitro/wavmio"
+	"github.com/tenderly/nitro/go-ethereum/core/rawdb"
+	"github.com/tenderly/nitro/go-ethereum/ethdb"
+	"github.com/tenderly/nitro/wavmio"
 )
 
 type PreimageDb struct{}

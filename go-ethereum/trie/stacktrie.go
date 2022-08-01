@@ -25,9 +25,9 @@ import (
 	"io"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/ethdb"
+	"github.com/tenderly/nitro/go-ethereum/log"
 )
 
 var ErrCommitDisabled = errors.New("no database for committing")

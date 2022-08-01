@@ -5,9 +5,9 @@ package das
 
 import (
 	"context"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/offchainlabs/nitro/solgen/go/bridgegen"
+	"github.com/tenderly/nitro/go-ethereum/accounts/abi/bind"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/solgen/go/bridgegen"
 	"sync"
 	"time"
 )

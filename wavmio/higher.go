@@ -6,7 +6,7 @@
 
 package wavmio
 
-import "github.com/ethereum/go-ethereum/common"
+import "github.com/tenderly/nitro/go-ethereum/common"
 
 const INITIAL_CAPACITY = 128
 const QUERY_SIZE = 32

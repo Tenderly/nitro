@@ -4,16 +4,16 @@
 package addressSet
 
 import (
-	"github.com/ethereum/go-ethereum/common/math"
+	"github.com/tenderly/nitro/go-ethereum/common/math"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/offchainlabs/nitro/arbos/burn"
-	"github.com/offchainlabs/nitro/arbos/storage"
-	"github.com/offchainlabs/nitro/util/colors"
-	"github.com/offchainlabs/nitro/util/testhelpers"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core/state"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
+	"github.com/tenderly/nitro/arbos/burn"
+	"github.com/tenderly/nitro/arbos/storage"
+	"github.com/tenderly/nitro/util/colors"
+	"github.com/tenderly/nitro/util/testhelpers"
 )
 
 func TestEmptyAddressSet(t *testing.T) {

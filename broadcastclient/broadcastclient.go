@@ -19,12 +19,12 @@ import (
 	"github.com/pkg/errors"
 	flag "github.com/spf13/pflag"
 
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/offchainlabs/nitro/arbstate"
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/broadcaster"
-	"github.com/offchainlabs/nitro/util/stopwaiter"
-	"github.com/offchainlabs/nitro/wsbroadcastserver"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/arbstate"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/broadcaster"
+	"github.com/tenderly/nitro/util/stopwaiter"
+	"github.com/tenderly/nitro/wsbroadcastserver"
 )
 
 type FeedConfig struct {

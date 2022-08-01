@@ -4,8 +4,8 @@
 package conf
 
 import (
-	"github.com/offchainlabs/nitro/arbnode"
-	"github.com/offchainlabs/nitro/cmd/genericconf"
+	"github.com/tenderly/nitro/arbnode"
+	"github.com/tenderly/nitro/cmd/genericconf"
 	flag "github.com/spf13/pflag"
 )
 

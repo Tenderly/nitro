@@ -24,14 +24,14 @@ import (
 	"os"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rlp"
-	"github.com/ethereum/go-ethereum/tests"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/common/hexutil"
+	"github.com/tenderly/nitro/go-ethereum/core"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/params"
+	"github.com/tenderly/nitro/go-ethereum/rlp"
+	"github.com/tenderly/nitro/go-ethereum/tests"
 	"gopkg.in/urfave/cli.v1"
 )
 

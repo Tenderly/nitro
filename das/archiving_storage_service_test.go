@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/offchainlabs/nitro/arbstate"
-	"github.com/offchainlabs/nitro/das/dastree"
+	"github.com/tenderly/nitro/arbstate"
+	"github.com/tenderly/nitro/das/dastree"
 )
 
 func TestArchivingStorageService(t *testing.T) {

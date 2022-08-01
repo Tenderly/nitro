@@ -11,18 +11,18 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/math"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/tenderly/nitro/go-ethereum"
+	"github.com/tenderly/nitro/go-ethereum/accounts/abi"
+	"github.com/tenderly/nitro/go-ethereum/accounts/abi/bind"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/common/math"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
 
-	"github.com/offchainlabs/nitro/arbos"
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/solgen/go/bridgegen"
-	"github.com/offchainlabs/nitro/util/arbmath"
+	"github.com/tenderly/nitro/arbos"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/solgen/go/bridgegen"
+	"github.com/tenderly/nitro/util/arbmath"
 )
 
 var messageDeliveredID common.Hash

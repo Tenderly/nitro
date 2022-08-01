@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/offchainlabs/nitro/util/testhelpers"
+	"github.com/tenderly/nitro/util/testhelpers"
 )
 
 func TestSeqConfig(t *testing.T) {

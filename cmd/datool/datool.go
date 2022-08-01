@@ -13,13 +13,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/offchainlabs/nitro/cmd/genericconf"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/common/hexutil"
+	"github.com/tenderly/nitro/cmd/genericconf"
 
-	"github.com/offchainlabs/nitro/cmd/util"
-	"github.com/offchainlabs/nitro/das"
-	"github.com/offchainlabs/nitro/das/dasrpc"
+	"github.com/tenderly/nitro/cmd/util"
+	"github.com/tenderly/nitro/das"
+	"github.com/tenderly/nitro/das/dasrpc"
 	flag "github.com/spf13/pflag"
 )
 

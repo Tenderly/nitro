@@ -6,8 +6,8 @@ package arbnode
 import (
 	"context"
 
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/ethclient"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/ethclient"
 	"github.com/pkg/errors"
 )
 

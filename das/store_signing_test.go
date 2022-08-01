@@ -5,7 +5,7 @@ package das
 
 import (
 	"crypto/ecdsa"
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
 	"testing"
 	"time"
 )

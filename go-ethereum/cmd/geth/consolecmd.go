@@ -21,11 +21,11 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/cmd/utils"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/console"
-	"github.com/ethereum/go-ethereum/node"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/tenderly/nitro/go-ethereum/cmd/utils"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/console"
+	"github.com/tenderly/nitro/go-ethereum/node"
+	"github.com/tenderly/nitro/go-ethereum/rpc"
 	"gopkg.in/urfave/cli.v1"
 )
 

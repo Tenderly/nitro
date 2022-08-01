@@ -9,15 +9,15 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/log"
 	flag "github.com/spf13/pflag"
 
-	"github.com/offchainlabs/nitro/arbos"
-	"github.com/offchainlabs/nitro/util/arbmath"
-	"github.com/offchainlabs/nitro/util/headerreader"
-	"github.com/offchainlabs/nitro/util/stopwaiter"
+	"github.com/tenderly/nitro/arbos"
+	"github.com/tenderly/nitro/util/arbmath"
+	"github.com/tenderly/nitro/util/headerreader"
+	"github.com/tenderly/nitro/util/stopwaiter"
 )
 
 type DelayedSequencer struct {

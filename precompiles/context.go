@@ -7,14 +7,14 @@ import (
 	"log"
 	"math/big"
 
-	"github.com/offchainlabs/nitro/arbos"
-	"github.com/offchainlabs/nitro/arbos/arbosState"
-	"github.com/offchainlabs/nitro/arbos/burn"
-	"github.com/offchainlabs/nitro/arbos/util"
+	"github.com/tenderly/nitro/arbos"
+	"github.com/tenderly/nitro/arbos/arbosState"
+	"github.com/tenderly/nitro/arbos/burn"
+	"github.com/tenderly/nitro/arbos/util"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/core/vm"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/core/vm"
 )
 
 type addr = common.Address

@@ -13,14 +13,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind/backends"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/offchainlabs/nitro/solgen/go/mocksgen"
-	"github.com/offchainlabs/nitro/solgen/go/ospgen"
+	"github.com/tenderly/nitro/go-ethereum/accounts/abi/bind"
+	"github.com/tenderly/nitro/go-ethereum/accounts/abi/bind/backends"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/solgen/go/mocksgen"
+	"github.com/tenderly/nitro/solgen/go/ospgen"
 )
 
 func DeployOneStepProofEntry(t *testing.T, auth *bind.TransactOpts, client bind.ContractBackend) common.Address {

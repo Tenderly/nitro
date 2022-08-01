@@ -1,6 +1,6 @@
 defmodule EthereumJSONRPC.Geth.Call do
   @moduledoc """
-  A single call returned from [debug_traceTransaction](https://github.com/ethereum/go-ethereum/wiki/Management-APIs#debug_tracetransaction)
+  A single call returned from [debug_traceTransaction](https://github.com/tenderly/nitro/go-ethereum/wiki/Management-APIs#debug_tracetransaction)
   using a custom tracer (`priv/js/ethereum_jsonrpc/geth/debug_traceTransaction/tracer.js`).
   """
   import EthereumJSONRPC, only: [quantity_to_integer: 1]

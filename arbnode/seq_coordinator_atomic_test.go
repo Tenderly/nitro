@@ -17,8 +17,8 @@ import (
 	"time"
 
 	"github.com/go-redis/redis/v8"
-	"github.com/offchainlabs/nitro/arbstate"
-	"github.com/offchainlabs/nitro/arbutil"
+	"github.com/tenderly/nitro/arbstate"
+	"github.com/tenderly/nitro/arbutil"
 )
 
 const messagesPerRound = 20

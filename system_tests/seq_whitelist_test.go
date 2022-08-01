@@ -8,8 +8,8 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/offchainlabs/nitro/arbnode"
+	"github.com/tenderly/nitro/go-ethereum/params"
+	"github.com/tenderly/nitro/arbnode"
 )
 
 func TestSequencerWhitelist(t *testing.T) {

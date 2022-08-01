@@ -4,8 +4,8 @@
 package burn
 
 import (
-	glog "github.com/ethereum/go-ethereum/log"
-	"github.com/offchainlabs/nitro/arbos/util"
+	glog "github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/arbos/util"
 )
 
 type Burner interface {

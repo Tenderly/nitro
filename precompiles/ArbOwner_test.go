@@ -6,16 +6,16 @@ package precompiles
 import (
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common/math"
+	"github.com/tenderly/nitro/go-ethereum/common/math"
 
-	"github.com/offchainlabs/nitro/arbos/arbosState"
-	"github.com/offchainlabs/nitro/arbos/burn"
-	"github.com/offchainlabs/nitro/util/testhelpers"
+	"github.com/tenderly/nitro/arbos/arbosState"
+	"github.com/tenderly/nitro/arbos/burn"
+	"github.com/tenderly/nitro/util/testhelpers"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/offchainlabs/nitro/arbos/util"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
+	"github.com/tenderly/nitro/arbos/util"
 )
 
 func TestArbOwner(t *testing.T) {

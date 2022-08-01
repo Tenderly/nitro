@@ -9,12 +9,12 @@ import (
 	"net"
 	"time"
 
-	"github.com/offchainlabs/nitro/arbstate"
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/broadcastclient"
-	"github.com/offchainlabs/nitro/broadcaster"
-	"github.com/offchainlabs/nitro/util/stopwaiter"
-	"github.com/offchainlabs/nitro/wsbroadcastserver"
+	"github.com/tenderly/nitro/arbstate"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/broadcastclient"
+	"github.com/tenderly/nitro/broadcaster"
+	"github.com/tenderly/nitro/util/stopwaiter"
+	"github.com/tenderly/nitro/wsbroadcastserver"
 )
 
 type Relay struct {

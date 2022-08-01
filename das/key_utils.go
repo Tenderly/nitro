@@ -9,7 +9,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/offchainlabs/nitro/blsSignatures"
+	"github.com/tenderly/nitro/blsSignatures"
 )
 
 // Note for Decode functions

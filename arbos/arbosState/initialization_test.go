@@ -8,13 +8,13 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/offchainlabs/nitro/arbos/burn"
-	"github.com/offchainlabs/nitro/statetransfer"
-	"github.com/offchainlabs/nitro/util/testhelpers"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core/rawdb"
+	"github.com/tenderly/nitro/go-ethereum/core/state"
+	"github.com/tenderly/nitro/go-ethereum/params"
+	"github.com/tenderly/nitro/arbos/burn"
+	"github.com/tenderly/nitro/statetransfer"
+	"github.com/tenderly/nitro/util/testhelpers"
 )
 
 func TestJsonMarshalUnmarshal(t *testing.T) {

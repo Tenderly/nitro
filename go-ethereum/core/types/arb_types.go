@@ -7,10 +7,10 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/common/math"
+	"github.com/tenderly/nitro/go-ethereum/common/hexutil"
+	"github.com/tenderly/nitro/go-ethereum/common/math"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/common"
 )
 
 var ErrUseFallback = errors.New("missing trie node 0000000000000000000000000000000000000000000000000000000000000000 (path )")

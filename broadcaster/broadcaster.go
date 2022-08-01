@@ -9,11 +9,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/log"
 
-	"github.com/offchainlabs/nitro/arbstate"
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/wsbroadcastserver"
+	"github.com/tenderly/nitro/arbstate"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/wsbroadcastserver"
 )
 
 type Broadcaster struct {

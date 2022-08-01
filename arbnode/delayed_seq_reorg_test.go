@@ -8,9 +8,9 @@ import (
 	"encoding/binary"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/offchainlabs/nitro/arbos"
-	"github.com/offchainlabs/nitro/solgen/go/bridgegen"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/arbos"
+	"github.com/tenderly/nitro/solgen/go/bridgegen"
 )
 
 func TestSequencerReorgFromDelayed(t *testing.T) {

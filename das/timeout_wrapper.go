@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/offchainlabs/nitro/arbstate"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/arbstate"
 )
 
 type TimeoutWrapper struct {

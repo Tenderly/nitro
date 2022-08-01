@@ -9,26 +9,26 @@ import (
 	"log"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common/math"
+	"github.com/tenderly/nitro/go-ethereum/common/math"
 
-	"github.com/offchainlabs/nitro/arbos/blockhash"
-	"github.com/offchainlabs/nitro/arbos/l2pricing"
+	"github.com/tenderly/nitro/arbos/blockhash"
+	"github.com/tenderly/nitro/arbos/l2pricing"
 
-	"github.com/offchainlabs/nitro/arbos/addressSet"
-	"github.com/offchainlabs/nitro/arbos/burn"
+	"github.com/tenderly/nitro/arbos/addressSet"
+	"github.com/tenderly/nitro/arbos/burn"
 
-	"github.com/offchainlabs/nitro/arbos/addressTable"
-	"github.com/offchainlabs/nitro/arbos/l1pricing"
-	"github.com/offchainlabs/nitro/arbos/merkleAccumulator"
-	"github.com/offchainlabs/nitro/arbos/retryables"
-	"github.com/offchainlabs/nitro/arbos/storage"
-	"github.com/offchainlabs/nitro/arbos/util"
+	"github.com/tenderly/nitro/arbos/addressTable"
+	"github.com/tenderly/nitro/arbos/l1pricing"
+	"github.com/tenderly/nitro/arbos/merkleAccumulator"
+	"github.com/tenderly/nitro/arbos/retryables"
+	"github.com/tenderly/nitro/arbos/storage"
+	"github.com/tenderly/nitro/arbos/util"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/core/vm"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core/rawdb"
+	"github.com/tenderly/nitro/go-ethereum/core/state"
+	"github.com/tenderly/nitro/go-ethereum/core/vm"
+	"github.com/tenderly/nitro/go-ethereum/params"
 )
 
 // ArbosState contains ArbOS-related state. It is backed by ArbOS's storage in the persistent stateDB.

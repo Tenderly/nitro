@@ -8,10 +8,10 @@ import (
 	"math"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/offchainlabs/nitro/arbos/addressSet"
-	"github.com/offchainlabs/nitro/arbos/storage"
-	"github.com/offchainlabs/nitro/util/arbmath"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/arbos/addressSet"
+	"github.com/tenderly/nitro/arbos/storage"
+	"github.com/tenderly/nitro/util/arbmath"
 )
 
 const totalFundsDueOffset = 0

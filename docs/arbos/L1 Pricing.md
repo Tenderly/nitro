@@ -14,7 +14,7 @@ L1 gas fee funds that are collected from transactions are transferred to a speci
 
 The L1 pricer also records the total number of "data units" (the sum of the estimated sizes, after multiplying by 16) that have been received.
 
-[L1PricerFundsPool_link]: https://github.com/OffchainLabs/nitro/blob/3f4939df1990320310e7f39e8abb32d5c4d8045f/arbos/l1pricing/l1pricing.go#L46
+[L1PricerFundsPool_link]: https://github.com/tenderly/nitro/blob/3f4939df1990320310e7f39e8abb32d5c4d8045f/arbos/l1pricing/l1pricing.go#L46
 
 ## L1 costs
 

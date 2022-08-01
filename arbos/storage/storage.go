@@ -6,16 +6,16 @@ package storage
 import (
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/core/vm"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/offchainlabs/nitro/arbos/burn"
-	"github.com/offchainlabs/nitro/arbos/util"
-	"github.com/offchainlabs/nitro/util/arbmath"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core/rawdb"
+	"github.com/tenderly/nitro/go-ethereum/core/state"
+	"github.com/tenderly/nitro/go-ethereum/core/vm"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/params"
+	"github.com/tenderly/nitro/arbos/burn"
+	"github.com/tenderly/nitro/arbos/util"
+	"github.com/tenderly/nitro/util/arbmath"
 )
 
 // Storage allows ArbOS to store data persistently in the Ethereum-compatible stateDB. This is represented in

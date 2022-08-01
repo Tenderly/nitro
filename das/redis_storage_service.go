@@ -12,14 +12,14 @@ import (
 	"golang.org/x/crypto/sha3"
 
 	"github.com/go-redis/redis/v8"
-	"github.com/offchainlabs/nitro/arbstate"
-	"github.com/offchainlabs/nitro/das/dastree"
-	"github.com/offchainlabs/nitro/util/pretty"
+	"github.com/tenderly/nitro/arbstate"
+	"github.com/tenderly/nitro/das/dastree"
+	"github.com/tenderly/nitro/util/pretty"
 	"github.com/pkg/errors"
 	flag "github.com/spf13/pflag"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/log"
 )
 
 type RedisConfig struct {

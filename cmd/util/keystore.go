@@ -5,14 +5,14 @@ package util
 
 import (
 	"errors"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/offchainlabs/nitro/cmd/genericconf"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
+	"github.com/tenderly/nitro/cmd/genericconf"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/accounts"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/accounts/keystore"
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/accounts"
+	"github.com/tenderly/nitro/go-ethereum/accounts/abi/bind"
+	"github.com/tenderly/nitro/go-ethereum/accounts/keystore"
+	"github.com/tenderly/nitro/go-ethereum/common"
 )
 
 func GetTransactOptsFromWallet(walletConfig *genericconf.WalletConfig, chainId *big.Int) (*bind.TransactOpts, error) {

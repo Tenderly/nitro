@@ -11,10 +11,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/offchainlabs/nitro/arbstate"
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/broadcaster"
-	"github.com/offchainlabs/nitro/wsbroadcastserver"
+	"github.com/tenderly/nitro/arbstate"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/broadcaster"
+	"github.com/tenderly/nitro/wsbroadcastserver"
 )
 
 func TestReceiveMessages(t *testing.T) {

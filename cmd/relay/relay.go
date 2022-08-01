@@ -12,14 +12,14 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/offchainlabs/nitro/cmd/util"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/cmd/util"
 	flag "github.com/spf13/pflag"
 
-	"github.com/offchainlabs/nitro/broadcastclient"
-	"github.com/offchainlabs/nitro/cmd/genericconf"
-	"github.com/offchainlabs/nitro/relay"
-	"github.com/offchainlabs/nitro/wsbroadcastserver"
+	"github.com/tenderly/nitro/broadcastclient"
+	"github.com/tenderly/nitro/cmd/genericconf"
+	"github.com/tenderly/nitro/relay"
+	"github.com/tenderly/nitro/wsbroadcastserver"
 )
 
 func init() {

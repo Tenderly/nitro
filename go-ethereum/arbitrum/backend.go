@@ -3,12 +3,12 @@ package arbitrum
 import (
 	"context"
 
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/bloombits"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/event"
-	"github.com/ethereum/go-ethereum/node"
+	"github.com/tenderly/nitro/go-ethereum/core"
+	"github.com/tenderly/nitro/go-ethereum/core/bloombits"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/ethdb"
+	"github.com/tenderly/nitro/go-ethereum/event"
+	"github.com/tenderly/nitro/go-ethereum/node"
 )
 
 type Backend struct {

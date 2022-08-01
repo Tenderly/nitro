@@ -11,17 +11,17 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/offchainlabs/nitro/arbos/l2pricing"
-	"github.com/offchainlabs/nitro/util"
+	"github.com/tenderly/nitro/arbos/l2pricing"
+	"github.com/tenderly/nitro/util"
 
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/offchainlabs/nitro/statetransfer"
+	"github.com/tenderly/nitro/go-ethereum/accounts/abi/bind"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/params"
+	"github.com/tenderly/nitro/statetransfer"
 )
 
 var simulatedChainID = big.NewInt(1337)

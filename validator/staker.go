@@ -10,17 +10,17 @@ import (
 	"strings"
 	"time"
 
-	"github.com/offchainlabs/nitro/arbstate"
+	"github.com/tenderly/nitro/arbstate"
 
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/accounts/abi/bind"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/pkg/errors"
 	flag "github.com/spf13/pflag"
 
-	"github.com/offchainlabs/nitro/util/stopwaiter"
+	"github.com/tenderly/nitro/util/stopwaiter"
 )
 
 type StakerStrategy uint8

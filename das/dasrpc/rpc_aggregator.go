@@ -7,12 +7,12 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/offchainlabs/nitro/solgen/go/bridgegen"
+	"github.com/tenderly/nitro/solgen/go/bridgegen"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/offchainlabs/nitro/arbutil"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/arbutil"
 
-	"github.com/offchainlabs/nitro/das"
+	"github.com/tenderly/nitro/das"
 )
 
 type BackendConfig struct {

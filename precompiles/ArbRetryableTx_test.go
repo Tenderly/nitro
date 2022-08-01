@@ -4,12 +4,12 @@
 package precompiles
 
 import (
-	"github.com/offchainlabs/nitro/arbos/storage"
+	"github.com/tenderly/nitro/arbos/storage"
 	"math/big"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	templates "github.com/offchainlabs/nitro/solgen/go/precompilesgen"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	templates "github.com/tenderly/nitro/solgen/go/precompilesgen"
 )
 
 func TestRetryableRedeem(t *testing.T) {

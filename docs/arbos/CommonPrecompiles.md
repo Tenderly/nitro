@@ -10,10 +10,10 @@ From the perspective of user applications, precompiles live as contracts at the 
 | [`ArbRetryableTx`](#ArbRetryableTx) &nbsp; | `0x6e`         | Managing retryables                 |
 | [`ArbSys`](#ArbSys)                        | `0x64`         | System-level functionality          |
 
-[ArbAggregator_link]: https://github.com/OffchainLabs/nitro/blob/master/precompiles/ArbAddressTable.go
-[ArbGasInfo_link]: https://github.com/OffchainLabs/nitro/blob/master/precompiles/ArbGasInfo.go
-[ArbRetryableTx_link]: https://github.com/OffchainLabs/nitro/blob/master/precompiles/ArbRetryableTx.go
-[ArbSys_link]: https://github.com/OffchainLabs/nitro/blob/master/precompiles/ArbSys.go
+[ArbAggregator_link]: https://github.com/tenderly/nitro/blob/master/precompiles/ArbAddressTable.go
+[ArbGasInfo_link]: https://github.com/tenderly/nitro/blob/master/precompiles/ArbGasInfo.go
+[ArbRetryableTx_link]: https://github.com/tenderly/nitro/blob/master/precompiles/ArbRetryableTx.go
+[ArbSys_link]: https://github.com/tenderly/nitro/blob/master/precompiles/ArbSys.go
 
 # [ArbAggregator][ArbAggregator_link]
 Provides aggregators and their users methods for configuring how they participate in L1 aggregation. Arbitrum One's default aggregator is the Sequencer, which a user will prefer unless `SetPreferredAggregator` is invoked to change it.
@@ -24,13 +24,13 @@ Provides aggregators and their users methods for configuring how they participat
 | [![](e.png)][As1] [`SetPreferredAggregator`][A1]`(aggregator)` | Sets the caller's preferred aggregator to that provided |
 | [![](e.png)][As2] [`GetDefaultAggregator`][A2]`()`             | Gets the chain's default aggregator                     |
 
-[A0]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbAggregator.go#L22
-[A1]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbAggregator.go#L39
-[A2]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbAggregator.go#L48
+[A0]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbAggregator.go#L22
+[A1]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbAggregator.go#L39
+[A2]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbAggregator.go#L48
 
-[As0]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbAggregator.sol#L28
-[As1]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbAggregator.sol#L32
-[As2]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbAggregator.sol#L35
+[As0]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbAggregator.sol#L28
+[As1]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbAggregator.sol#L32
+[As2]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbAggregator.sol#L35
 
 
 # [ArbGasInfo][ArbGasInfo_link]
@@ -43,15 +43,15 @@ Provides insight into the cost of using the chain. These methods have been adjus
 | [![](e.png)][GIs4] [`GetGasAccountingParams`][GI4]`()` | Get the chain speed limit, pool size, and tx gas limit            |
 | [![](e.png)][GIs11] [`GetL1BaseFeeEstimate`][GI11]`()` | Get ArbOS's estimate of the L1 basefee in wei                     |
 
-[GI1]: https://github.com/OffchainLabs/nitro/blob/3f504c57fba8ddf0759b7a55b4108e0bf5a078b3/precompiles/ArbGasInfo.go#L63
-[GI3]: https://github.com/OffchainLabs/nitro/blob/3f504c57fba8ddf0759b7a55b4108e0bf5a078b3/precompiles/ArbGasInfo.go#L99
-[GI4]: https://github.com/OffchainLabs/nitro/blob/3f504c57fba8ddf0759b7a55b4108e0bf5a078b3/precompiles/ArbGasInfo.go#L111
-[GI11]: https://github.com/OffchainLabs/nitro/blob/3f504c57fba8ddf0759b7a55b4108e0bf5a078b3/precompiles/ArbGasInfo.go#L150
+[GI1]: https://github.com/tenderly/nitro/blob/3f504c57fba8ddf0759b7a55b4108e0bf5a078b3/precompiles/ArbGasInfo.go#L63
+[GI3]: https://github.com/tenderly/nitro/blob/3f504c57fba8ddf0759b7a55b4108e0bf5a078b3/precompiles/ArbGasInfo.go#L99
+[GI4]: https://github.com/tenderly/nitro/blob/3f504c57fba8ddf0759b7a55b4108e0bf5a078b3/precompiles/ArbGasInfo.go#L111
+[GI11]: https://github.com/tenderly/nitro/blob/3f504c57fba8ddf0759b7a55b4108e0bf5a078b3/precompiles/ArbGasInfo.go#L150
 
-[GIs1]: https://github.com/OffchainLabs/nitro/blob/3f504c57fba8ddf0759b7a55b4108e0bf5a078b3/solgen/src/precompiles/ArbGasInfo.sol#L58
-[GIs3]: https://github.com/OffchainLabs/nitro/blob/3f504c57fba8ddf0759b7a55b4108e0bf5a078b3/solgen/src/precompiles/ArbGasInfo.sol#L83
-[GIs4]: https://github.com/OffchainLabs/nitro/blob/3f504c57fba8ddf0759b7a55b4108e0bf5a078b3/solgen/src/precompiles/ArbGasInfo.sol#L94
-[GIs11]: https://github.com/OffchainLabs/nitro/blob/3f504c57fba8ddf0759b7a55b4108e0bf5a078b3/solgen/src/precompiles/ArbGasInfo.sol#L122
+[GIs1]: https://github.com/tenderly/nitro/blob/3f504c57fba8ddf0759b7a55b4108e0bf5a078b3/solgen/src/precompiles/ArbGasInfo.sol#L58
+[GIs3]: https://github.com/tenderly/nitro/blob/3f504c57fba8ddf0759b7a55b4108e0bf5a078b3/solgen/src/precompiles/ArbGasInfo.sol#L83
+[GIs4]: https://github.com/tenderly/nitro/blob/3f504c57fba8ddf0759b7a55b4108e0bf5a078b3/solgen/src/precompiles/ArbGasInfo.sol#L94
+[GIs11]: https://github.com/tenderly/nitro/blob/3f504c57fba8ddf0759b7a55b4108e0bf5a078b3/solgen/src/precompiles/ArbGasInfo.sol#L122
 
 # [ArbRetryableTx][ArbRetryableTx_link]
 Provides methods for managing retryables. The model has been adjusted for Nitro, most notably in terms of how retry transactions are scheduled. For more information on retryables, please see [the retryable documentation](ArbOS.md#Retryables).
@@ -65,17 +65,17 @@ Provides methods for managing retryables. The model has been adjusted for Nitro,
 | [![](e.png)][RTs4] [`Keepalive`][RT4]`(ticket)`             | Adds one lifetime period to the ticket's expiry                                    | Doesn't add callvalue  |
 | [![](e.png)][RTs5] [`Redeem`][RT5]`(ticket)`                | Schedule an attempt to redeem the retryable, donating all of the call's gas &nbsp; | Happens in a future tx |
 
-[RT0]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbRetryableTx.go#L184
-[RT1]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbRetryableTx.go#L171
-[RT3]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbRetryableTx.go#L115
-[RT4]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbRetryableTx.go#L132
-[RT5]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbRetryableTx.go#L36
+[RT0]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbRetryableTx.go#L184
+[RT1]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbRetryableTx.go#L171
+[RT3]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbRetryableTx.go#L115
+[RT4]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbRetryableTx.go#L132
+[RT5]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbRetryableTx.go#L36
 
-[RTs0]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbRetryableTx.sol#L70
-[RTs1]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbRetryableTx.sol#L63
-[RTs3]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbRetryableTx.sol#L45
-[RTs4]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbRetryableTx.sol#L55
-[RTs5]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbRetryableTx.sol#L32
+[RTs0]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbRetryableTx.sol#L70
+[RTs1]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbRetryableTx.sol#L63
+[RTs3]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbRetryableTx.sol#L45
+[RTs4]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbRetryableTx.sol#L55
+[RTs5]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbRetryableTx.sol#L32
 
 
 # [ArbSys][ArbSys_link]
@@ -89,14 +89,14 @@ Provides system-level functionality for interacting with L1 and understanding th
 | [![](e.png)][Ss9] [`SendTxToL1`][S9]`(destination, calldataForL1)` | Sends a transaction to L1, adding it to the outbox          |
 | [![](e.png)][Ss11] [`WithdrawEth`][S11]`(destination)`             | Send paid eth to the destination on L1                      |
 
-[S0]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbSys.go#L30
-[S1]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbSys.go#L35
-[S5]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbSys.go#L66
-[S9]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbSys.go#L98
-[S11]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbSys.go#L187
+[S0]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbSys.go#L30
+[S1]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbSys.go#L35
+[S5]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbSys.go#L66
+[S9]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbSys.go#L98
+[S11]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/precompiles/ArbSys.go#L187
 
-[Ss0]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbSys.sol#L31
-[Ss1]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbSys.sol#L37
-[Ss5]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbSys.sol#L61
-[Ss9]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbSys.sol#L100
-[Ss11]: https://github.com/OffchainLabs/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbSys.sol#L92
+[Ss0]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbSys.sol#L31
+[Ss1]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbSys.sol#L37
+[Ss5]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbSys.sol#L61
+[Ss9]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbSys.sol#L100
+[Ss11]: https://github.com/tenderly/nitro/blob/704e82bb38ae3ccd70c35e31934c7b45f6c25561/solgen/src/precompiles/ArbSys.sol#L92

@@ -14,23 +14,23 @@ The calling, dispatching, and recording of precompile methods is done via runtim
 
 Each time a tx calls a method of an L2-specific precompile, a [`call context`][call_context_link] is created to track and record the gas burnt. For convenience, it also provides access to the public fields of the underlying [`TxProcessor`][TxProcessor_link]. Because sub-transactions could revert without updates to this struct, the [`TxProcessor`][TxProcessor_link] only makes public that which is safe, such as the amount of L1 calldata paid by the top level transaction.
 
-[nitro_precompiles_dir]: https://github.com/OffchainLabs/nitro/tree/master/contracts/src/precompiles
-[precompiles_dir]: https://github.com/OffchainLabs/nitro/tree/master/precompiles
-[installer_link]: https://github.com/OffchainLabs/nitro/blob/bc6b52daf7232af2ca2fec3f54a5b546f1196c45/precompiles/precompile.go#L379
-[installation_link]: https://github.com/OffchainLabs/nitro/blob/bc6b52daf7232af2ca2fec3f54a5b546f1196c45/precompiles/precompile.go#L403
-[gen_file]: https://github.com/OffchainLabs/nitro/blob/master/solgen/gen.go
-[ownerOnly_link]: https://github.com/OffchainLabs/nitro/blob/f11ba39cf91ee1fe1b5f6b67e8386e5efd147667/precompiles/wrapper.go#L58
-[debugOnly_link]: https://github.com/OffchainLabs/nitro/blob/f11ba39cf91ee1fe1b5f6b67e8386e5efd147667/precompiles/wrapper.go#L23
-[precompilesgen_link]: https://github.com/OffchainLabs/nitro/blob/f11ba39cf91ee1fe1b5f6b67e8386e5efd147667/solgen/gen.go#L55
-[packing_link]: https://github.com/OffchainLabs/nitro/blob/bc6b52daf7232af2ca2fec3f54a5b546f1196c45/precompiles/precompile.go#L438
-[call_context_link]: https://github.com/OffchainLabs/nitro/blob/f11ba39cf91ee1fe1b5f6b67e8386e5efd147667/precompiles/context.go#L26
+[nitro_precompiles_dir]: https://github.com/tenderly/nitro/tree/master/contracts/src/precompiles
+[precompiles_dir]: https://github.com/tenderly/nitro/tree/master/precompiles
+[installer_link]: https://github.com/tenderly/nitro/blob/bc6b52daf7232af2ca2fec3f54a5b546f1196c45/precompiles/precompile.go#L379
+[installation_link]: https://github.com/tenderly/nitro/blob/bc6b52daf7232af2ca2fec3f54a5b546f1196c45/precompiles/precompile.go#L403
+[gen_file]: https://github.com/tenderly/nitro/blob/master/solgen/gen.go
+[ownerOnly_link]: https://github.com/tenderly/nitro/blob/f11ba39cf91ee1fe1b5f6b67e8386e5efd147667/precompiles/wrapper.go#L58
+[debugOnly_link]: https://github.com/tenderly/nitro/blob/f11ba39cf91ee1fe1b5f6b67e8386e5efd147667/precompiles/wrapper.go#L23
+[precompilesgen_link]: https://github.com/tenderly/nitro/blob/f11ba39cf91ee1fe1b5f6b67e8386e5efd147667/solgen/gen.go#L55
+[packing_link]: https://github.com/tenderly/nitro/blob/bc6b52daf7232af2ca2fec3f54a5b546f1196c45/precompiles/precompile.go#L438
+[call_context_link]: https://github.com/tenderly/nitro/blob/f11ba39cf91ee1fe1b5f6b67e8386e5efd147667/precompiles/context.go#L26
 
 ## Messages
 
 An [`L1IncomingMessage`][L1IncomingMessage_link] represents an incoming sequencer message. A message includes one or more user transactions depending on load, and is made into a [unique L2 block][ProduceBlockAdvanced_link]. The L2 block may include additional system transactions added in while processing the message's user txes, but ultimately the relationship is still bijective: for every [`L1IncomingMessage`][L1IncomingMessage_link] there is an L2 block with a unique L2 block hash, and for every L2 block after chain initialization there was an [`L1IncomingMessage`][L1IncomingMessage_link] that made it. A sequencer batch may contain more than one [`L1IncomingMessage`][L1IncomingMessage_link].
 
-[L1IncomingMessage_link]: https://github.com/OffchainLabs/nitro/blob/4ac7e9268e9885a025e0060c9ec30f9612f9e651/arbos/incomingmessage.go#L54
-[ProduceBlockAdvanced_link]: https://github.com/OffchainLabs/nitro/blob/4ac7e9268e9885a025e0060c9ec30f9612f9e651/arbos/block_processor.go#L118
+[L1IncomingMessage_link]: https://github.com/tenderly/nitro/blob/4ac7e9268e9885a025e0060c9ec30f9612f9e651/arbos/incomingmessage.go#L54
+[ProduceBlockAdvanced_link]: https://github.com/tenderly/nitro/blob/4ac7e9268e9885a025e0060c9ec30f9612f9e651/arbos/block_processor.go#L118
 
 ## Retryables
 
@@ -38,8 +38,8 @@ A Retryable is a transaction whose *submission* is separable from its *execution
 
 In the common case a Retryable's submission is followed by an attempt to execute the transaction. If the attempt fails or isn't scheduled after the Retryable is submitted, anyone can try to *redeem* it, by calling the [`redeem`](Precompiles.md#ArbRetryableTx) method of the [`ArbRetryableTx`](Precompiles.md#ArbRetryableTx) precompile. The party requesting the redeem provides the gas that will be used to execute the Retryable. If execution of the Retryable succeeds, the Retryable is deleted. If execution fails, the Retryable continues to exist and further attempts can be made to redeem it.  If a fixed period (currently one week) elapses without a successful redeem, the Retryable expires and will be [automatically discarded][discard_link], unless some party has paid a fee to [*renew*][renew_link] the Retryable for another full period. A Retryable can live indefinitely as long as it is renewed each time before it expires.
 
-[discard_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/retryables/retryable.go#L262
-[renew_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/retryables/retryable.go#L207
+[discard_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/retryables/retryable.go#L262
+[renew_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/retryables/retryable.go#L207
 
 
 ### Submitting a Retryable
@@ -58,7 +58,7 @@ When a Retryable is redeemed, it will execute with the sender, destination, call
 
 A Retryable's beneficiary has the unique power to [`cancel`](Precompiles.md#ArbRetryableTx) the Retryable. This has the same effect as the Retryable timing out.
 
-[moved_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/tx_processor.go#L191
+[moved_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/tx_processor.go#L191
 
 ### Redeeming a Retryable
 
@@ -68,8 +68,8 @@ On success, the `To` address keeps the escrowed callvalue, and any unused gas is
 
 During redemption of a retryable, attempts to cancel the same retryable, or to schedule another redeem of the same retryable, will revert. In this manner retryables are not self-modifying.
 
-[enqueue_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/block_processor.go#L245
-[exhaust_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/block_processor.go#L135
+[enqueue_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/block_processor.go#L245
+[exhaust_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/block_processor.go#L135
 
 ## ArbOS State
 
@@ -79,30 +79,30 @@ Because two [`ArbosState`][ArbosState_link] objects with the same [`backingStora
 
 Much of ArbOS's state exists to facilitate its [precompiles](Precompiles.md). The parts that aren't are detailed below.
 
-[ArbosState_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/arbosState/arbosstate.go#L36
-[BackingStorage_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/storage/storage.go#L51
+[ArbosState_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/arbosState/arbosstate.go#L36
+[BackingStorage_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/storage/storage.go#L51
 [stateDB_link]: https://github.com/OffchainLabs/go-ethereum/blob/0ba62aab54fd7d6f1570a235f4e3a877db9b2bd0/core/state/statedb.go#L66
-[subspace_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/storage/storage.go#L21
-[OpenArbosState_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/arbosState/arbosstate.go#L57
-[Burner_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/burn/burn.go#L11
+[subspace_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/storage/storage.go#L21
+[OpenArbosState_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/arbosState/arbosstate.go#L57
+[Burner_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/burn/burn.go#L11
 
 ### [`arbosVersion`][arbosVersion_link], [`upgradeVersion`][upgradeVersion_link] and [`upgradeTimestamp`][upgradeTimestamp_link]
 
 ArbOS upgrades are scheduled to happen [when finalizing the first block][FinalizeBlock_link] after the [`upgradeTimestamp`][upgradeTimestamp_link].
 
-[arbosVersion_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/arbosState/arbosstate.go#L37
-[upgradeVersion_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/arbosState/arbosstate.go#L38
-[upgradeTimestamp_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/arbosState/arbosstate.go#L39
-[FinalizeBlock_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/block_processor.go#L350
+[arbosVersion_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/arbosState/arbosstate.go#L37
+[upgradeVersion_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/arbosState/arbosstate.go#L38
+[upgradeTimestamp_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/arbosState/arbosstate.go#L39
+[FinalizeBlock_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/block_processor.go#L350
 
 ### [`blockhashes`][blockhashes_link]
 
 This component maintains the last 256 L1 block hashes in a circular buffer. This allows the [`TxProcessor`][TxProcessor_link] to implement the `BLOCKHASH` and `NUMBER` opcodes as well as support precompile methods that involve the outbox. To avoid changing ArbOS state outside of a transaction, blocks made from messages with a new L1 block number update this info during an [`InternalTxUpdateL1BlockNumber`][InternalTxUpdateL1BlockNumber_link] [`ArbitrumInternalTx`][ArbitrumInternalTx_link] that is included as the first tx in the block.
 
-[blockhashes_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/blockhash/blockhash.go#L15
-[InternalTxUpdateL1BlockNumber_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/internal_tx.go#L24
-[ArbitrumInternalTx_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/block_processor.go#L116
-[TxProcessor_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/tx_processor.go#L33
+[blockhashes_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/blockhash/blockhash.go#L15
+[InternalTxUpdateL1BlockNumber_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/internal_tx.go#L24
+[ArbitrumInternalTx_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/block_processor.go#L116
+[TxProcessor_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/tx_processor.go#L33
 
 ### [`l1PricingState`][l1PricingState_link]
 
@@ -112,7 +112,7 @@ Based on this information, ArbOS maintains an L1 data fee, also tracked as part 
 
 
 
-[l1PricingState_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/l1pricing/l1pricing.go#L16
+[l1PricingState_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/l1pricing/l1pricing.go#L16
 
 ### [`l2PricingState`][l2PricingState_link]
 
@@ -126,15 +126,15 @@ The reason we need a per-block gas limit is that Arbitrator WAVM execution is mu
 
 ArbOS's per-block gas limit is distinct from geth's block limit, which ArbOS [sets sufficiently high][geth_pool_set_link] so as to never run out. This is safe since geth's block limit exists to constrain the amount of work done per block, which ArbOS already does via its own per-block gas limit. Though it'll never run out, a block's txes use the [same geth gas pool][same_geth_pool_link] to maintain the invariant that the pool decreases monotonically after each tx. Block headers [use the geth block limit][use_geth_pool_link] for internal consistency and to ensure gas estimation works. These are both distinct from the [`gasLeft`][per_block_limit_link] variable, which ephemerally exists outside of global state to both keep L2 blocks from exceeding ArbOS's per-block gas limit and to [deduct space][deduct_space_link] in situations where the state transition failed or [used negligable amounts][neglibale_amounts_link] of compute gas. ArbOS does not need to persist [`gasLeft`][per_block_limit_link] because it is its _pool_ that induces a revert and because txes use the geth block limit during EVM execution.
 
-[l2PricingState_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/l2pricing/l2pricing.go#L14
-[block_production_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/block_processor.go#L77
-[notify_pricer_link]: https://github.com/OffchainLabs/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/block_processor.go#L336
+[l2PricingState_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/l2pricing/l2pricing.go#L14
+[block_production_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/block_processor.go#L77
+[notify_pricer_link]: https://github.com/tenderly/nitro/blob/fa36a0f138b8a7e684194f9840315d80c390f324/arbos/block_processor.go#L336
 
-[maintain_limit_link]: https://github.com/OffchainLabs/nitro/blob/2ba6d1aa45abcc46c28f3d4f560691ce5a396af8/arbos/l2pricing/pools.go#L98
-[per_block_limit_link]: https://github.com/OffchainLabs/nitro/blob/2ba6d1aa45abcc46c28f3d4f560691ce5a396af8/arbos/block_processor.go#L146
-[first_transaction_link]: https://github.com/OffchainLabs/nitro/blob/2ba6d1aa45abcc46c28f3d4f560691ce5a396af8/arbos/block_processor.go#L237
-[geth_pool_set_link]: https://github.com/OffchainLabs/nitro/blob/2ba6d1aa45abcc46c28f3d4f560691ce5a396af8/arbos/block_processor.go#L166
-[same_geth_pool_link]: https://github.com/OffchainLabs/nitro/blob/2ba6d1aa45abcc46c28f3d4f560691ce5a396af8/arbos/block_processor.go#L199
-[use_geth_pool_link]: https://github.com/OffchainLabs/nitro/blob/2ba6d1aa45abcc46c28f3d4f560691ce5a396af8/arbos/block_processor.go#L67
-[deduct_space_link]: https://github.com/OffchainLabs/nitro/blob/faf55a1da8afcabb1f3c406b291e721bfde71a05/arbos/block_processor.go#L272
-[neglibale_amounts_link]: https://github.com/OffchainLabs/nitro/blob/faf55a1da8afcabb1f3c406b291e721bfde71a05/arbos/block_processor.go#L328
+[maintain_limit_link]: https://github.com/tenderly/nitro/blob/2ba6d1aa45abcc46c28f3d4f560691ce5a396af8/arbos/l2pricing/pools.go#L98
+[per_block_limit_link]: https://github.com/tenderly/nitro/blob/2ba6d1aa45abcc46c28f3d4f560691ce5a396af8/arbos/block_processor.go#L146
+[first_transaction_link]: https://github.com/tenderly/nitro/blob/2ba6d1aa45abcc46c28f3d4f560691ce5a396af8/arbos/block_processor.go#L237
+[geth_pool_set_link]: https://github.com/tenderly/nitro/blob/2ba6d1aa45abcc46c28f3d4f560691ce5a396af8/arbos/block_processor.go#L166
+[same_geth_pool_link]: https://github.com/tenderly/nitro/blob/2ba6d1aa45abcc46c28f3d4f560691ce5a396af8/arbos/block_processor.go#L199
+[use_geth_pool_link]: https://github.com/tenderly/nitro/blob/2ba6d1aa45abcc46c28f3d4f560691ce5a396af8/arbos/block_processor.go#L67
+[deduct_space_link]: https://github.com/tenderly/nitro/blob/faf55a1da8afcabb1f3c406b291e721bfde71a05/arbos/block_processor.go#L272
+[neglibale_amounts_link]: https://github.com/tenderly/nitro/blob/faf55a1da8afcabb1f3c406b291e721bfde71a05/arbos/block_processor.go#L328

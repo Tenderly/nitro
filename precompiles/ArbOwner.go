@@ -7,7 +7,7 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/common"
 )
 
 // This precompile provides owners with tools for managing the rollup.

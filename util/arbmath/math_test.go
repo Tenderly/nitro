@@ -8,7 +8,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/offchainlabs/nitro/util/testhelpers"
+	"github.com/tenderly/nitro/util/testhelpers"
 )
 
 func TestMath(t *testing.T) {

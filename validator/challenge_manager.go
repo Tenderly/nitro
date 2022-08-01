@@ -9,17 +9,17 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/offchainlabs/nitro/arbstate"
+	"github.com/tenderly/nitro/arbstate"
 
-	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind/backends"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/solgen/go/challengegen"
+	"github.com/tenderly/nitro/go-ethereum"
+	"github.com/tenderly/nitro/go-ethereum/accounts/abi/bind"
+	"github.com/tenderly/nitro/go-ethereum/accounts/abi/bind/backends"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/solgen/go/challengegen"
 	"github.com/pkg/errors"
 )
 

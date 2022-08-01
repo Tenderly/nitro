@@ -8,7 +8,7 @@ Though subject to change when batch-compression pricing is fully implemented, [t
 
 [The L2 component](ArbOS.md#l2pricingstate) consists of the traditional fees geth would pay to miners in a vanilla L1 chain, such as the computation and storage charges applying the state transition function entails. ArbOS charges additional fees for executing its L2-specific [precompiles](Precompiles.md), whose fees are dynamically priced according to the specific resources used while executing the call.
 
-[drop_l1_link]: https://github.com/OffchainLabs/nitro/blob/2ba6d1aa45abcc46c28f3d4f560691ce5a396af8/arbos/l1pricing/l1pricing.go#L232
+[drop_l1_link]: https://github.com/tenderly/nitro/blob/2ba6d1aa45abcc46c28f3d4f560691ce5a396af8/arbos/l1pricing/l1pricing.go#L232
 
 ## Tips in L2
 The sequencer prioritizes transactions on a first-come first-served basis. Because tips do not make sense in this model, they are ignored. Arbitrum users always just pay the basefee regardless of the tip they choose.
@@ -21,7 +21,7 @@ Because a call to [`redeem`](Precompiles.md#ArbRetryableTx) donates all of the c
 Gas estimation for Retryable submissions is possible via [`NodeInterface.sol`][node_interface_link] and similarly requires the auto-redeem attempt succeed.
 
 [estimation_inclusion_link]: https://github.com/OffchainLabs/go-ethereum/blob/edf6a19157606070b6a6660c8decc513e2408cb7/internal/ethapi/api.go#L955
-[node_interface_link]: https://github.com/OffchainLabs/nitro/blob/master/solgen/src/node-interface/NodeInterface.sol
+[node_interface_link]: https://github.com/tenderly/nitro/blob/master/solgen/src/node-interface/NodeInterface.sol
 
 ## NodeInterface.sol
 To avoid creating new RPC methods for client-side tooling, nitro geth's [`InterceptRPCMessage`][InterceptRPCMessage_link] hook provides an opportunity to swap out the message its handling before deriving a transaction from it. The node [uses this hook][use_hook_link] to detect messages sent to the address `0xc8`, the location of the fictional `NodeInterface` contract specified in [`NodeInterface.sol`][node_interface_link].
@@ -33,5 +33,5 @@ To avoid creating new RPC methods for client-side tooling, nitro geth's [`Interc
 | [`estimateRetryableTicket`][estimateRetryableTicket_link] &nbsp; | Estimates the gas needed for a retryable submission |
 
 [InterceptRPCMessage_link]: https://github.com/OffchainLabs/go-ethereum/blob/f31341b3dfa987719b012bc976a6f4fe3b8a1221/internal/ethapi/api.go#L929
-[use_hook_link]: https://github.com/OffchainLabs/nitro/blob/57e03322926f796f75a21f8735cc64ea0a2d11c3/arbstate/node-interface.go#L17
-[estimateRetryableTicket_link]: https://github.com/OffchainLabs/nitro/blob/8ab1d6730164e18d0ca1bd5635ca12aadf36a640/solgen/src/node_interface/NodeInterface.sol#L21
+[use_hook_link]: https://github.com/tenderly/nitro/blob/57e03322926f796f75a21f8735cc64ea0a2d11c3/arbstate/node-interface.go#L17
+[estimateRetryableTicket_link]: https://github.com/tenderly/nitro/blob/8ab1d6730164e18d0ca1bd5635ca12aadf36a640/solgen/src/node_interface/NodeInterface.sol#L21

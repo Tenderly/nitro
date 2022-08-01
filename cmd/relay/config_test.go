@@ -5,7 +5,7 @@ package main
 
 import (
 	"context"
-	"github.com/offchainlabs/nitro/util/testhelpers"
+	"github.com/tenderly/nitro/util/testhelpers"
 	"strings"
 	"testing"
 )

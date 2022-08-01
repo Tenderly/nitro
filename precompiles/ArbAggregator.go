@@ -5,7 +5,7 @@ package precompiles
 
 import (
 	"errors"
-	"github.com/offchainlabs/nitro/arbos/l1pricing"
+	"github.com/tenderly/nitro/arbos/l1pricing"
 	"math/big"
 )
 

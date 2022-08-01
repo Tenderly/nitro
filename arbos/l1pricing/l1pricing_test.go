@@ -8,13 +8,13 @@ import (
 	"math/big"
 	"testing"
 
-	am "github.com/offchainlabs/nitro/util/arbmath"
+	am "github.com/tenderly/nitro/util/arbmath"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/offchainlabs/nitro/arbos/burn"
-	"github.com/offchainlabs/nitro/arbos/storage"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/params"
+	"github.com/tenderly/nitro/arbos/burn"
+	"github.com/tenderly/nitro/arbos/storage"
 )
 
 func TestTxFixedCost(t *testing.T) {
