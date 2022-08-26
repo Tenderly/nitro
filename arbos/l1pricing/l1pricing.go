@@ -4,8 +4,10 @@
 package l1pricing
 
 import (
+	"bytes"
 	"errors"
 	"fmt"
+	"github.com/andybalholm/brotli"
 	"math/big"
 	"sync/atomic"
 
@@ -14,14 +16,13 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/core/vm"
 	"github.com/tenderly/nitro/go-ethereum/params"
 
-	"github.com/tenderly/nitro/arbcompress"
 	am "github.com/tenderly/nitro/util/arbmath"
 
+	"github.com/tenderly/nitro/arbos/storage"
+	"github.com/tenderly/nitro/arbos/util"
 	"github.com/tenderly/nitro/go-ethereum/common"
 	"github.com/tenderly/nitro/go-ethereum/core"
 	"github.com/tenderly/nitro/go-ethereum/core/types"
-	"github.com/tenderly/nitro/arbos/storage"
-	"github.com/tenderly/nitro/arbos/util"
 )
 
 type L1PricingState struct {
@@ -665,9 +666,20 @@ func (ps *L1PricingState) PosterDataCost(message core.Message, poster common.Add
 }
 
 func byteCountAfterBrotli0(input []byte) (uint64, error) {
-	compressed, err := arbcompress.CompressFast(input)
+	compressed, err := encode(input, brotli.WriterOptions{Quality: brotli.BestSpeed})
 	if err != nil {
 		return 0, err
 	}
+
 	return uint64(len(compressed)), nil
+}
+
+func encode(content []byte, options brotli.WriterOptions) ([]byte, error) {
+	var buf bytes.Buffer
+	writer := brotli.NewWriterOptions(&buf, options)
+	_, err := writer.Write(content)
+	if closeErr := writer.Close(); err == nil {
+		err = closeErr
+	}
+	return buf.Bytes(), err
 }
