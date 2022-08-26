@@ -678,9 +678,7 @@ func byteCountAfterBrotli0(input []byte) (uint64, error) {
 	}
 
 	if len(gobrotliCompressed) != len(compressed) {
-		fmt.Sprintf("DIFFERENCE IN GOBROTLI AND CBROTLI COMPRESSION")
-	} else {
-		fmt.Sprintf("SAME GOBROTLI AND CBROTLI COMPRESSION")
+		panic("DIFFERENCE IN GOBROTLI AND CBROTLI COMPRESSION")
 	}
 
 	return uint64(len(compressed)), nil
