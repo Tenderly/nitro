@@ -16,7 +16,6 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/core/vm"
 	"github.com/tenderly/nitro/go-ethereum/params"
 
-	"github.com/tenderly/nitro/arbcompress"
 	am "github.com/tenderly/nitro/util/arbmath"
 
 	"github.com/tenderly/nitro/arbos/storage"
@@ -667,18 +666,9 @@ func (ps *L1PricingState) PosterDataCost(message core.Message, poster common.Add
 }
 
 func byteCountAfterBrotli0(input []byte) (uint64, error) {
-	gobrotliCompressed, err := encode(input, brotli.WriterOptions{Quality: brotli.BestSpeed})
+	compressed, err := encode(input, brotli.WriterOptions{Quality: brotli.BestSpeed})
 	if err != nil {
 		return 0, err
-	}
-
-	compressed, err := arbcompress.CompressFast(input)
-	if err != nil {
-		return 0, err
-	}
-
-	if len(gobrotliCompressed) != len(compressed) {
-		panic("DIFFERENCE IN GOBROTLI AND CBROTLI COMPRESSION")
 	}
 
 	return uint64(len(compressed)), nil
