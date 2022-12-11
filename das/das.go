@@ -11,10 +11,10 @@ import (
 	"math"
 	"time"
 
+	flag "github.com/spf13/pflag"
 	"github.com/tenderly/nitro/go-ethereum/common"
 	"github.com/tenderly/nitro/go-ethereum/ethclient"
 	"github.com/tenderly/nitro/go-ethereum/log"
-	flag "github.com/spf13/pflag"
 
 	"github.com/tenderly/nitro/arbstate"
 	"github.com/tenderly/nitro/blsSignatures"
@@ -48,7 +48,6 @@ type DataAvailabilityConfig struct {
 	LocalDBStorageConfig     LocalDBStorageConfig     `koanf:"local-db-storage"`
 	LocalFileStorageConfig   LocalFileStorageConfig   `koanf:"local-file-storage"`
 	S3StorageServiceConfig   S3StorageServiceConfig   `koanf:"s3-storage"`
-	IpfsStorageServiceConfig IpfsStorageServiceConfig `koanf:"ipfs-storage"`
 	RegularSyncStorageConfig RegularSyncStorageConfig `koanf:"regular-sync-storage"`
 
 	KeyConfig KeyConfig `koanf:"key"`
@@ -102,7 +101,6 @@ func DataAvailabilityConfigAddOptions(prefix string, f *flag.FlagSet) {
 	LocalDBStorageConfigAddOptions(prefix+".local-db-storage", f)
 	LocalFileStorageConfigAddOptions(prefix+".local-file-storage", f)
 	S3ConfigAddOptions(prefix+".s3-storage", f)
-	IpfsStorageServiceConfigAddOptions(prefix+".ipfs-storage", f)
 	RegularSyncStorageConfigAddOptions(prefix+".regular-sync-storage", f)
 
 	// Key config for storage
