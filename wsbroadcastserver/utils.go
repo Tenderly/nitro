@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/gobwas/ws"
 	"github.com/gobwas/ws/wsutil"
 )

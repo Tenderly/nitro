@@ -21,7 +21,7 @@ import (
 	"github.com/pkg/errors"
 	flag "github.com/spf13/pflag"
 
-	"github.com/offchainlabs/nitro/cmd/genericconf"
+	"github.com/tenderly/nitro/cmd/genericconf"
 )
 
 var (

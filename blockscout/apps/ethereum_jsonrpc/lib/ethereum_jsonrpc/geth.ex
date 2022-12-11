@@ -1,6 +1,6 @@
 defmodule EthereumJSONRPC.Geth do
   @moduledoc """
-  Ethereum JSONRPC methods that are only supported by [Geth](https://github.com/ethereum/go-ethereum/wiki/geth).
+  Ethereum JSONRPC methods that are only supported by [Geth](https://github.com/tenderly/nitro/go-ethereum/wiki/geth).
   """
 
   import EthereumJSONRPC, only: [id_to_params: 1, integer_to_quantity: 1, json_rpc: 2, request: 1]
@@ -70,7 +70,7 @@ defmodule EthereumJSONRPC.Geth do
         |> Transactions.elixir_to_params()
         |> Enum.map(fn params ->
           # txpool_content always returns transaction with 0x0000000000000000000000000000000000000000000000000000000000000000 value in block hash and index is null.
-          # https://github.com/ethereum/go-ethereum/issues/19897
+          # https://github.com/tenderly/nitro/go-ethereum/issues/19897
           %{params | block_hash: nil, index: nil}
         end)
 

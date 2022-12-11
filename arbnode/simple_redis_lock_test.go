@@ -11,7 +11,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/offchainlabs/nitro/util/redisutil"
+	"github.com/tenderly/nitro/util/redisutil"
 )
 
 func prepareTrue() bool  { return true }

@@ -13,10 +13,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/offchainlabs/nitro/arbnode"
-	"github.com/offchainlabs/nitro/arbos/l2pricing"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/arbnode"
+	"github.com/tenderly/nitro/arbos/l2pricing"
 )
 
 func testBlockValidatorSimple(t *testing.T, dasModeString string, simpletxloops int, expensiveTx bool, arbitrator bool) {

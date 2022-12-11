@@ -5,10 +5,10 @@ package precompiles
 
 import (
 	"errors"
-	"github.com/offchainlabs/nitro/arbos/l1pricing"
+	"github.com/tenderly/nitro/arbos/l1pricing"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/common"
 )
 
 // ArbOwner precompile provides owners with tools for managing the rollup.

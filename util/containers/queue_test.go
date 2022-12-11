@@ -8,7 +8,7 @@ import (
 	"math"
 	"testing"
 
-	"github.com/offchainlabs/nitro/util/testhelpers"
+	"github.com/tenderly/nitro/util/testhelpers"
 )
 
 // This function calculates the number of elements needed to pop from the queue

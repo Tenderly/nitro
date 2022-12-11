@@ -7,7 +7,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
 	"github.com/pkg/errors"
 )
 

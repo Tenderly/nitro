@@ -11,7 +11,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/log"
 
 	files "github.com/ipfs/go-ipfs-files"
 	ipfspath "github.com/ipfs/go-path"

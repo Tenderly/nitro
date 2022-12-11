@@ -8,7 +8,7 @@ For more information see https://developer.arbitrum.io/docs/public_nitro_devnet
 
 Compile the contracts locally by running
 ```bash
-git clone https://github.com/offchainlabs/nitro
+git clone https://github.com/tenderly/nitro
 cd nitro/contracts
 yarn install
 yarn build

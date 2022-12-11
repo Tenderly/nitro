@@ -104,16 +104,16 @@ pub fn create(opts: &Opts, env: WasmEnvArc) -> (Instance, WasmEnvArc) {
             "syscall/js.copyBytesToGo" => func!(syscall::js_copy_bytes_to_go),
             "syscall/js.copyBytesToJS" => func!(syscall::js_copy_bytes_to_js),
 
-            "github.com/offchainlabs/nitro/wavmio.getGlobalStateBytes32" => func!(wavmio::get_global_state_bytes32),
-            "github.com/offchainlabs/nitro/wavmio.setGlobalStateBytes32" => func!(wavmio::set_global_state_bytes32),
-            "github.com/offchainlabs/nitro/wavmio.getGlobalStateU64" => func!(wavmio::get_global_state_u64),
-            "github.com/offchainlabs/nitro/wavmio.setGlobalStateU64" => func!(wavmio::set_global_state_u64),
-            "github.com/offchainlabs/nitro/wavmio.readInboxMessage" => func!(wavmio::read_inbox_message),
-            "github.com/offchainlabs/nitro/wavmio.readDelayedInboxMessage" => func!(wavmio::read_delayed_inbox_message),
-            "github.com/offchainlabs/nitro/wavmio.resolvePreImage" => func!(wavmio::resolve_preimage),
+            "github.com/tenderly/nitro/wavmio.getGlobalStateBytes32" => func!(wavmio::get_global_state_bytes32),
+            "github.com/tenderly/nitro/wavmio.setGlobalStateBytes32" => func!(wavmio::set_global_state_bytes32),
+            "github.com/tenderly/nitro/wavmio.getGlobalStateU64" => func!(wavmio::get_global_state_u64),
+            "github.com/tenderly/nitro/wavmio.setGlobalStateU64" => func!(wavmio::set_global_state_u64),
+            "github.com/tenderly/nitro/wavmio.readInboxMessage" => func!(wavmio::read_inbox_message),
+            "github.com/tenderly/nitro/wavmio.readDelayedInboxMessage" => func!(wavmio::read_delayed_inbox_message),
+            "github.com/tenderly/nitro/wavmio.resolvePreImage" => func!(wavmio::resolve_preimage),
 
-            "github.com/offchainlabs/nitro/arbcompress.brotliCompress" => func!(arbcompress::brotli_compress),
-            "github.com/offchainlabs/nitro/arbcompress.brotliDecompress" => func!(arbcompress::brotli_decompress),
+            "github.com/tenderly/nitro/arbcompress.brotliCompress" => func!(arbcompress::brotli_compress),
+            "github.com/tenderly/nitro/arbcompress.brotliDecompress" => func!(arbcompress::brotli_decompress),
         },
     };
 

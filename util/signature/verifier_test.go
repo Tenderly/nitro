@@ -8,10 +8,10 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
 
-	"github.com/offchainlabs/nitro/util/contracts"
-	"github.com/offchainlabs/nitro/util/testhelpers"
+	"github.com/tenderly/nitro/util/contracts"
+	"github.com/tenderly/nitro/util/testhelpers"
 )
 
 func TestVerifier(t *testing.T) {

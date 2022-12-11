@@ -9,9 +9,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/tenderly/nitro/go-ethereum/rlp"
 	"github.com/go-redis/redis/v8"
-	"github.com/offchainlabs/nitro/util/signature"
+	"github.com/tenderly/nitro/util/signature"
 )
 
 // RedisStorage requires that Item is RLP encodable/decodable

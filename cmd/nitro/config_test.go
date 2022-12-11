@@ -14,8 +14,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/offchainlabs/nitro/util/colors"
-	"github.com/offchainlabs/nitro/util/testhelpers"
+	"github.com/tenderly/nitro/util/colors"
+	"github.com/tenderly/nitro/util/testhelpers"
 )
 
 func TestSeqConfig(t *testing.T) {

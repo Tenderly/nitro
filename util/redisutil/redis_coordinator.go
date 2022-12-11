@@ -8,9 +8,9 @@ import (
 
 	"github.com/go-redis/redis/v8"
 
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/log"
 
-	"github.com/offchainlabs/nitro/arbutil"
+	"github.com/tenderly/nitro/arbutil"
 )
 
 const CHOSENSEQ_KEY string = "coordinator.chosen"              // Never overwritten. Expires or released only

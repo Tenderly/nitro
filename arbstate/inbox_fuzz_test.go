@@ -9,7 +9,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/offchainlabs/nitro/arbos"
+	"github.com/tenderly/nitro/arbos"
 )
 
 type multiplexerBackend struct {

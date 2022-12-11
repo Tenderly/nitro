@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/tenderly/nitro/go-ethereum/params"
 )
 
 func getStaticChainConfig(chainId *big.Int) (*params.ChainConfig, error) {

@@ -6,11 +6,11 @@ package l1pricing
 import (
 	"testing"
 
-	am "github.com/offchainlabs/nitro/util/arbmath"
+	am "github.com/tenderly/nitro/util/arbmath"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/offchainlabs/nitro/arbos/burn"
-	"github.com/offchainlabs/nitro/arbos/storage"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/arbos/burn"
+	"github.com/tenderly/nitro/arbos/storage"
 )
 
 func TestL1PriceUpdate(t *testing.T) {

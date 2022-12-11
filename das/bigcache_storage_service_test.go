@@ -11,7 +11,7 @@ import (
 	"time"
 
 	"github.com/allegro/bigcache"
-	"github.com/offchainlabs/nitro/das/dastree"
+	"github.com/tenderly/nitro/das/dastree"
 )
 
 func TestBigCacheStorageService(t *testing.T) {

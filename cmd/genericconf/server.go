@@ -8,7 +8,7 @@ import (
 
 	flag "github.com/spf13/pflag"
 
-	"github.com/ethereum/go-ethereum/node"
+	"github.com/tenderly/nitro/go-ethereum/node"
 )
 
 type HTTPConfig struct {
@@ -54,7 +54,7 @@ func (c HTTPConfig) Apply(stackConf *node.Config) {
 	stackConf.HTTPCors = c.CORSDomain
 	stackConf.HTTPVirtualHosts = c.VHosts
 	stackConf.HTTPTimeouts.ReadTimeout = c.ServerTimeouts.ReadTimeout
-	// TODO ReadHeaderTimeout pending on https://github.com/ethereum/go-ethereum/pull/25338
+	// TODO ReadHeaderTimeout pending on https://github.com/tenderly/nitro/go-ethereum/pull/25338
 	// stackConf.HTTPTimeouts.ReadHeaderTimeout = c.ServerTimeouts.ReadHeaderTimeout
 	stackConf.HTTPTimeouts.WriteTimeout = c.ServerTimeouts.WriteTimeout
 	stackConf.HTTPTimeouts.IdleTimeout = c.ServerTimeouts.IdleTimeout

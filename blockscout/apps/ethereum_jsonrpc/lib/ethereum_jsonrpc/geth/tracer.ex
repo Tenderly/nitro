@@ -1,7 +1,7 @@
 defmodule EthereumJSONRPC.Geth.Tracer do
   @moduledoc """
   Elixir implementation of a custom tracer (`priv/js/ethereum_jsonrpc/geth/debug_traceTransaction/tracer.js`)
-  for variants that don't support specifying tracer in [debug_traceTransaction](https://github.com/ethereum/go-ethereum/wiki/Management-APIs#debug_tracetransaction) calls.
+  for variants that don't support specifying tracer in [debug_traceTransaction](https://github.com/tenderly/nitro/go-ethereum/wiki/Management-APIs#debug_tracetransaction) calls.
   """
 
   import EthereumJSONRPC, only: [integer_to_quantity: 1, quantity_to_integer: 1]

@@ -12,7 +12,7 @@ import (
 
 	merkletree "github.com/wealdtech/go-merkletree"
 
-	"github.com/offchainlabs/nitro/arbcompress"
+	"github.com/tenderly/nitro/arbcompress"
 )
 
 // MerkleSample is an example using the Merkle tree to generate and verify proofs.

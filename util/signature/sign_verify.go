@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/offchainlabs/nitro/util/contracts"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
+	"github.com/tenderly/nitro/util/contracts"
 	flag "github.com/spf13/pflag"
 )
 

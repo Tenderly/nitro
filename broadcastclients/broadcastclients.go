@@ -7,11 +7,11 @@ import (
 	"context"
 	"sync/atomic"
 
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/log"
 
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/broadcastclient"
-	"github.com/offchainlabs/nitro/util/contracts"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/broadcastclient"
+	"github.com/tenderly/nitro/util/contracts"
 )
 
 type BroadcastClients struct {

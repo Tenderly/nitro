@@ -3,7 +3,7 @@
 
 package validator
 
-import "github.com/ethereum/go-ethereum/common"
+import "github.com/tenderly/nitro/go-ethereum/common"
 
 type lastBlockValidatedDbInfo struct {
 	BlockNumber   uint64

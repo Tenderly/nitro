@@ -6,7 +6,7 @@
   "license": "BUSL-1.1",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/offchainlabs/nitro.git",
+    "url": "git+https://github.com/tenderly/nitro.git",
     "directory": "contracts"
   },
   "files": [
@@ -15,7 +15,7 @@
     "hardhat.prod-config.js"
   ],
   "bugs": {
-    "url": "https://github.com/offchainlabs/nitro/issues"
+    "url": "https://github.com/tenderly/nitro/issues"
   },
   "scripts": {
     "build": "./scripts/build.bash",

@@ -14,17 +14,17 @@ import (
 	"io"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/ipfs/go-cid"
 	icore "github.com/ipfs/interface-go-ipfs-core"
 	"github.com/ipfs/interface-go-ipfs-core/options"
 	path "github.com/ipfs/interface-go-ipfs-core/path"
 	"github.com/multiformats/go-multihash"
-	"github.com/offchainlabs/nitro/arbstate"
-	"github.com/offchainlabs/nitro/cmd/ipfshelper"
-	"github.com/offchainlabs/nitro/das/dastree"
-	"github.com/offchainlabs/nitro/util/pretty"
+	"github.com/tenderly/nitro/arbstate"
+	"github.com/tenderly/nitro/cmd/ipfshelper"
+	"github.com/tenderly/nitro/das/dastree"
+	"github.com/tenderly/nitro/util/pretty"
 	flag "github.com/spf13/pflag"
 )
 

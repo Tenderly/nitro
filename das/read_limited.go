@@ -7,7 +7,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/offchainlabs/nitro/arbstate"
+	"github.com/tenderly/nitro/arbstate"
 )
 
 // These classes are wrappers implementing das.StorageService and das.DataAvailabilityService.

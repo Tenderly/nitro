@@ -6,7 +6,7 @@ package genericconf
 import (
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/pkg/errors"
 	flag "github.com/spf13/pflag"
 )

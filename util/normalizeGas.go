@@ -4,7 +4,7 @@
 package util
 
 import (
-	"github.com/offchainlabs/nitro/arbos/l2pricing"
+	"github.com/tenderly/nitro/arbos/l2pricing"
 )
 
 // NormalizeL2GasForL1GasInitial is for testing, adjusts an L2 gas amount that represents L1 gas spending, to compensate for

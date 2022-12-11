@@ -6,7 +6,7 @@ package arbmath
 import (
 	"encoding/binary"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/common"
 )
 
 type bytes32 = common.Hash

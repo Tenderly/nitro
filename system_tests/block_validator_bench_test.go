@@ -10,7 +10,7 @@ package arbtest
 import (
 	"testing"
 
-	"github.com/offchainlabs/nitro/das"
+	"github.com/tenderly/nitro/das"
 )
 
 func TestBlockValidatorBenchmark(t *testing.T) {

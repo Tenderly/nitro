@@ -6,7 +6,7 @@ package signature
 import (
 	"crypto/ecdsa"
 
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
 )
 
 type DataSignerFunc func([]byte) ([]byte, error)

@@ -13,9 +13,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/offchainlabs/nitro/arbstate"
-	"github.com/offchainlabs/nitro/cmd/genericconf"
-	"github.com/offchainlabs/nitro/das/dastree"
+	"github.com/tenderly/nitro/arbstate"
+	"github.com/tenderly/nitro/cmd/genericconf"
+	"github.com/tenderly/nitro/das/dastree"
 )
 
 const LocalServerAddressForTest = "localhost"

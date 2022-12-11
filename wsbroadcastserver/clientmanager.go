@@ -18,11 +18,11 @@ import (
 	"github.com/mailru/easygo/netpoll"
 	"github.com/pkg/errors"
 
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/metrics"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/metrics"
 
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/util/stopwaiter"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/util/stopwaiter"
 )
 
 var (

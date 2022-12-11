@@ -3,7 +3,7 @@ package arbnode
 import (
 	"sync/atomic"
 
-	"github.com/offchainlabs/nitro/arbutil"
+	"github.com/tenderly/nitro/arbutil"
 	flag "github.com/spf13/pflag"
 )
 

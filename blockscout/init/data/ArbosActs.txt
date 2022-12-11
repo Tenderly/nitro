@@ -4,7 +4,7 @@ operates its instrumented instance of geth for smart contract execution.
 For more information please see the source code and documentation.
 
 Source Code
-https://github.com/OffchainLabs/nitro
+https://github.com/tenderly/nitro
 
 Documentation
-https://github.com/OffchainLabs/nitro/blob/master/docs/arbos/ArbOS.md
+https://github.com/tenderly/nitro/blob/master/docs/arbos/ArbOS.md
