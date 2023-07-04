@@ -34,7 +34,7 @@ var ReadyEVMForL2 func(evm *vm.EVM, msg Message)
 var InterceptRPCMessage = func(
 	msg types.Message,
 	ctx context.Context,
-	statedb *state.StateDB,
+	statedb vm.StateDB,
 	header *types.Header,
 	backend NodeInterfaceBackendAPI,
 ) (types.Message, *ExecutionResult, error) {

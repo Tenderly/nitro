@@ -8,6 +8,10 @@ import (
 	"errors"
 	"math/big"
 
+	"github.com/tenderly/nitro/arbnode"
+	"github.com/tenderly/nitro/arbos/arbosState"
+	"github.com/tenderly/nitro/arbos/l1pricing"
+	"github.com/tenderly/nitro/arbstate"
 	"github.com/tenderly/nitro/go-ethereum/arbitrum"
 	"github.com/tenderly/nitro/go-ethereum/common"
 	"github.com/tenderly/nitro/go-ethereum/core"
@@ -15,10 +19,6 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/core/types"
 	"github.com/tenderly/nitro/go-ethereum/core/vm"
 	"github.com/tenderly/nitro/go-ethereum/log"
-	"github.com/tenderly/nitro/arbnode"
-	"github.com/tenderly/nitro/arbos/arbosState"
-	"github.com/tenderly/nitro/arbos/l1pricing"
-	"github.com/tenderly/nitro/arbstate"
 	"github.com/tenderly/nitro/precompiles"
 	"github.com/tenderly/nitro/solgen/go/node_interfacegen"
 	"github.com/tenderly/nitro/solgen/go/precompilesgen"
@@ -50,7 +50,7 @@ func init() {
 	core.InterceptRPCMessage = func(
 		msg Message,
 		ctx context.Context,
-		statedb *state.StateDB,
+		statedb vm.StateDB,
 		header *types.Header,
 		backend core.NodeInterfaceBackendAPI,
 	) (Message, *ExecutionResult, error) {
