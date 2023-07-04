@@ -55,5 +55,5 @@ type NodeInterfaceBackendAPI interface {
 	CurrentBlock() *types.Block
 	BlockByNumber(ctx context.Context, number rpc.BlockNumber) (*types.Block, error)
 	GetLogs(ctx context.Context, blockHash common.Hash, number uint64) ([][]*types.Log, error)
-	GetEVM(ctx context.Context, msg Message, state *state.StateDB, header *types.Header, vmConfig *vm.Config) (*vm.EVM, func() error, error)
+	GetEVM(ctx context.Context, msg Message, state vm.StateDB, header *types.Header, vmConfig *vm.Config) (*vm.EVM, func() error, error)
 }
