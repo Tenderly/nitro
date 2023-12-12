@@ -5,9 +5,13 @@ package arbosState
 
 import (
 	"errors"
+	"github.com/tenderly/nitro/go-ethereum/core/vm"
 	"math/big"
 	"sort"
 
+	"github.com/tenderly/nitro/arbos/burn"
+	"github.com/tenderly/nitro/arbos/l2pricing"
+	"github.com/tenderly/nitro/arbos/retryables"
 	"github.com/tenderly/nitro/go-ethereum/common"
 	"github.com/tenderly/nitro/go-ethereum/core/state"
 	"github.com/tenderly/nitro/go-ethereum/core/types"
@@ -15,9 +19,6 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/tenderly/nitro/go-ethereum/params"
 	"github.com/tenderly/nitro/go-ethereum/trie"
-	"github.com/tenderly/nitro/arbos/burn"
-	"github.com/tenderly/nitro/arbos/l2pricing"
-	"github.com/tenderly/nitro/arbos/retryables"
 	"github.com/tenderly/nitro/statetransfer"
 	"github.com/tenderly/nitro/util/arbmath"
 )
@@ -164,7 +165,88 @@ func InitializeArbosInDatabase(db ethdb.Database, initData statetransfer.InitDat
 	return commit()
 }
 
-func initializeRetryables(statedb *state.StateDB, rs *retryables.RetryableState, initData statetransfer.RetryableDataReader, currentTimestamp uint64) error {
+func InitializeArbosInStatedb(statedb vm.StateDB, initData statetransfer.InitDataReader, chainConfig *params.ChainConfig, timestamp uint64, accountsPerSync uint) error {
+	burner := burn.NewSystemBurner(nil, false)
+	arbosState, err := InitializeArbosState(statedb, burner, chainConfig)
+	if err != nil {
+		log.Crit("failed to open the ArbOS state", "error", err)
+	}
+
+	addrTable := arbosState.AddressTable()
+	addrTableSize, err := addrTable.Size()
+	if err != nil {
+		return err
+	}
+	if addrTableSize != 0 {
+		return errors.New("address table must be empty")
+	}
+	addressReader, err := initData.GetAddressTableReader()
+	if err != nil {
+		return err
+	}
+	for i := 0; addressReader.More(); i++ {
+		addr, err := addressReader.GetNext()
+		if err != nil {
+			return err
+		}
+		slot, err := addrTable.Register(*addr)
+		if err != nil {
+			return err
+		}
+		if uint64(i) != slot {
+			return errors.New("address table slot mismatch")
+		}
+	}
+	if err := addressReader.Close(); err != nil {
+		return err
+	}
+
+	log.Info("addresss table import complete")
+
+	retryableReader, err := initData.GetRetryableDataReader()
+	if err != nil {
+		return err
+	}
+	err = initializeRetryables(statedb, arbosState.RetryableState(), retryableReader, timestamp)
+	if err != nil {
+		return err
+	}
+
+	log.Info("retryables import complete")
+
+	accountDataReader, err := initData.GetAccountDataReader()
+	if err != nil {
+		return err
+	}
+	accountsRead := uint(0)
+	for accountDataReader.More() {
+		account, err := accountDataReader.GetNext()
+		if err != nil {
+			return err
+		}
+		err = initializeArbosAccount(statedb, arbosState, *account)
+		if err != nil {
+			return err
+		}
+		// todo(pdrobnjak): probably add SetBalance to interface as solution, temporarily do SubBalance -> AddBalance
+		//statedb.SetBalance(account.Addr, account.EthBalance)
+		statedb.SetNonce(account.Addr, account.Nonce)
+		if account.ContractInfo != nil {
+			statedb.SetCode(account.Addr, account.ContractInfo.Code)
+			for k, v := range account.ContractInfo.ContractStorage {
+				statedb.SetState(account.Addr, k, v)
+			}
+		}
+		accountsRead++
+	}
+	if err := accountDataReader.Close(); err != nil {
+		return err
+	}
+	return nil
+}
+
+
+func initializeRetryables(statedb vm.StateDB, rs *retryables.RetryableState, initData statetransfer.RetryableDataReader, currentTimestamp uint64) error {
 	var retryablesList []*statetransfer.InitializationDataForRetryable
 	for initData.More() {
 		r, err := initData.GetNext()
@@ -199,7 +281,7 @@ func initializeRetryables(statedb *state.StateDB, rs *retryables.RetryableState,
 	return initData.Close()
 }
 
-func initializeArbosAccount(_ *state.StateDB, arbosState *ArbosState, account statetransfer.AccountInitializationInfo) error {
+func initializeArbosAccount(_ vm.StateDB, arbosState *ArbosState, account statetransfer.AccountInitializationInfo) error {
 	l1pState := arbosState.L1PricingState()
 	posterTable := l1pState.BatchPosterTable()
 	if account.AggregatorInfo != nil {
