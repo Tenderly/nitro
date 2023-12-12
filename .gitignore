@@ -12,11 +12,9 @@ node_modules
 .vscode
 cmd/node/data
 cmd/node/node
-solgen/go/
-.make/
 /cmd/statetransfer/statetransfer
 /reproducible-wasm/*.wasm
-target/
+target/bin
 yarn-error.log
 local/
 system_tests/test-data/*
