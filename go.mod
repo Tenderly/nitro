@@ -16,7 +16,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.11.10
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.26.9
 	github.com/cavaliergopher/grab/v3 v3.0.1
-	github.com/cockroachdb/pebble v0.0.0-20230209160836-829675f94811
+	github.com/cockroachdb/pebble v0.0.0-20230906160148-46873a6a7a06
 	github.com/codeclysm/extract/v3 v3.0.2
 	github.com/dgraph-io/badger/v3 v3.2103.2
 	github.com/enescakir/emoji v1.0.0
@@ -94,7 +94,7 @@ require (
 	github.com/dgraph-io/ristretto v0.1.0 // indirect
 	github.com/dlclark/regexp2 v1.7.0 // indirect
 	github.com/docker/go-units v0.5.0 // indirect
-	github.com/dop251/goja v0.0.0-20230605162241-28ee0ee714f3
+	github.com/dop251/goja v0.0.0-20230806174421-c933cf95e127
 	github.com/dustin/go-humanize v1.0.0 // indirect
 	github.com/elastic/gosigar v0.14.2 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
@@ -128,7 +128,7 @@ require (
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/holiman/billy v0.0.0-20230718173358-1c7e68d277a7
-	github.com/huin/goupnp v1.1.0
+	github.com/huin/goupnp v1.3.0
 	github.com/ipfs/bbloom v0.0.4 // indirect
 	github.com/ipfs/go-bitfield v1.1.0 // indirect
 	github.com/ipfs/go-block-format v0.1.1 // indirect
@@ -248,7 +248,7 @@ require (
 	github.com/samber/lo v1.36.0 // indirect
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
 	github.com/supranational/blst v0.3.11
-	github.com/urfave/cli/v2 v2.24.1
+	github.com/urfave/cli/v2 v2.25.7
 	github.com/vmihailenco/msgpack/v5 v5.3.5 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
 	github.com/whyrusleeping/base32 v0.0.0-20170828182744-c30ac30633cc // indirect
@@ -304,13 +304,13 @@ require (
 )
 
 require (
-	github.com/StackExchange/wmi v0.0.0-20180116203802-5d049714c4a6 // indirect
+	github.com/StackExchange/wmi v1.2.1 // indirect
 	github.com/VictoriaMetrics/fastcache v1.6.0
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/davecgh/go-spew v1.1.1
 	github.com/fjl/memsize v0.0.0-20190710130421-bcb5799ab5e5
 	github.com/gballet/go-libpcsclite v0.0.0-20190607065134-2772fd86a8ff
-	github.com/go-ole/go-ole v1.2.1 // indirect
+	github.com/go-ole/go-ole v1.2.5 // indirect
 	github.com/go-redis/redis/v8 v8.11.4
 	github.com/go-stack/stack v1.8.1
 	github.com/golang/snappy v0.0.5-0.20220116011046-fa5810519dcb
@@ -330,8 +330,8 @@ require (
 	github.com/shirou/gopsutil v3.21.4-0.20210419000835-c7a38de76ee5+incompatible
 	github.com/status-im/keycard-go v0.2.0
 	github.com/syndtr/goleveldb v1.0.1-0.20210819022825-2ae1ddf74ef7
-	github.com/tklauser/go-sysconf v0.3.5 // indirect
-	github.com/tklauser/numcpus v0.2.2 // indirect
+	github.com/tklauser/go-sysconf v0.3.12 // indirect
+	github.com/tklauser/numcpus v0.6.1 // indirect
 	github.com/tyler-smith/go-bip39 v1.1.0
 	gopkg.in/natefinch/npipe.v2 v2.0.0-20160621034901-c1b8fa8bdcce
 )
@@ -341,14 +341,15 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/route53 v1.1.1
 	github.com/cespare/cp v0.1.0
 	github.com/cloudflare/cloudflare-go v0.14.0
-	github.com/docker/docker v1.6.2
+	github.com/docker/docker v24.0.5+incompatible
+	github.com/ethereum/go-ethereum v1.13.2
 	github.com/fatih/color v1.7.0
 	github.com/fjl/gencodec v0.0.0-20230517082657-f9840df7b83e
 	github.com/gballet/go-verkle v0.0.0-20230607174250-df487255f46b
 	github.com/google/gofuzz v1.1.1-0.20200604201612-c04b05f3adfa
 	github.com/influxdata/influxdb-client-go/v2 v2.4.0
 	github.com/influxdata/influxdb1-client v0.0.0-20220302092344-a9ab5670611c
-	github.com/jedisct1/go-minisign v0.0.0-20190909160543-45766022959e
+	github.com/jedisct1/go-minisign v0.0.0-20230811132847-661be99b8267
 	github.com/julienschmidt/httprouter v1.3.0
 	github.com/karalabe/usb v0.0.3-0.20230711191512-61db3e06439c
 	github.com/kylelemons/godebug v1.1.0
