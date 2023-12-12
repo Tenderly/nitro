@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/go-redis/redis/v8"
-	"github.com/offchainlabs/nitro/util/redisutil"
+	"github.com/tenderly/nitro/util/redisutil"
 )
 
 // RedisCoordinator builds upon RedisCoordinator of redisutil with additional functionality

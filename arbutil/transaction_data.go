@@ -7,7 +7,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
 )
 
 // GetLogEmitterTxData requires that the tx's data is at least 4 bytes long

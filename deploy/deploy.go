@@ -6,17 +6,17 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/offchainlabs/nitro/cmd/chaininfo"
-	"github.com/offchainlabs/nitro/solgen/go/bridgegen"
-	"github.com/offchainlabs/nitro/solgen/go/challengegen"
-	"github.com/offchainlabs/nitro/solgen/go/ospgen"
-	"github.com/offchainlabs/nitro/solgen/go/rollupgen"
-	"github.com/offchainlabs/nitro/solgen/go/upgrade_executorgen"
-	"github.com/offchainlabs/nitro/util/headerreader"
+	"github.com/tenderly/nitro/go-ethereum/accounts/abi/bind"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
+	"github.com/tenderly/nitro/cmd/chaininfo"
+	"github.com/tenderly/nitro/solgen/go/bridgegen"
+	"github.com/tenderly/nitro/solgen/go/challengegen"
+	"github.com/tenderly/nitro/solgen/go/ospgen"
+	"github.com/tenderly/nitro/solgen/go/rollupgen"
+	"github.com/tenderly/nitro/solgen/go/upgrade_executorgen"
+	"github.com/tenderly/nitro/util/headerreader"
 )
 
 func andTxSucceeded(ctx context.Context, l1Reader *headerreader.HeaderReader, tx *types.Transaction, err error) error {

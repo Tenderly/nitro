@@ -20,9 +20,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/offchainlabs/nitro/arbos/arbostypes"
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/util/arbmath"
+	"github.com/tenderly/nitro/arbos/arbostypes"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/util/arbmath"
 )
 
 func TestGetEmptyCacheMessages(t *testing.T) {

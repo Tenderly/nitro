@@ -10,12 +10,12 @@ import (
 	"time"
 
 	badger "github.com/dgraph-io/badger/v3"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/offchainlabs/nitro/arbstate"
-	"github.com/offchainlabs/nitro/das/dastree"
-	"github.com/offchainlabs/nitro/util/pretty"
-	"github.com/offchainlabs/nitro/util/stopwaiter"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/arbstate"
+	"github.com/tenderly/nitro/das/dastree"
+	"github.com/tenderly/nitro/util/pretty"
+	"github.com/tenderly/nitro/util/stopwaiter"
 	flag "github.com/spf13/pflag"
 )
 

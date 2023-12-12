@@ -9,12 +9,12 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/common"
 
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/solgen/go/bridgegen"
-	"github.com/offchainlabs/nitro/util/headerreader"
-	"github.com/offchainlabs/nitro/util/signature"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/solgen/go/bridgegen"
+	"github.com/tenderly/nitro/util/headerreader"
+	"github.com/tenderly/nitro/util/signature"
 )
 
 // CreatePersistentStorageService creates any storage services that persist to files, database, cloud storage,

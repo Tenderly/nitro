@@ -14,13 +14,13 @@ import (
 	"time"
 
 	"github.com/Knetic/govaluate"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/accounts/keystore"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/rlp"
-	"github.com/ethereum/go-ethereum/signer/core/apitypes"
+	"github.com/tenderly/nitro/go-ethereum/accounts/abi/bind"
+	"github.com/tenderly/nitro/go-ethereum/accounts/keystore"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/common/hexutil"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/rlp"
+	"github.com/tenderly/nitro/go-ethereum/signer/core/apitypes"
 	"github.com/google/go-cmp/cmp"
 )
 
@@ -182,7 +182,7 @@ func setupAccount(dir string) (bind.SignerFn, common.Address, error) {
 // Parameters in Go ethereum RPC calls are marashalled as slices. E.g.
 // eth_sendRawTransaction or eth_signTransaction, marshall transaction as a
 // slice of transactions in a message:
-// https://github.com/ethereum/go-ethereum/blob/0004c6b229b787281760b14fb9460ffd9c2496f1/rpc/client.go#L548
+// https://github.com/tenderly/nitro/go-ethereum/blob/0004c6b229b787281760b14fb9460ffd9c2496f1/rpc/client.go#L548
 func unmarshallFirst(params []byte) (*types.Transaction, error) {
 	var arr []apitypes.SendTxArgs
 	if err := json.Unmarshal(params, &arr); err != nil {

@@ -1,5 +1,5 @@
 // Copyright 2023, Offchain Labs, Inc.
-// For license information, see https://github.com/OffchainLabs/nitro/blob/master/LICENSE
+// For license information, see https://github.com/tenderly/nitro/blob/master/LICENSE
 
 package jsonapi
 
@@ -9,8 +9,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/offchainlabs/nitro/util/testhelpers"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/util/testhelpers"
 )
 
 func Require(t *testing.T, err error, printables ...interface{}) {

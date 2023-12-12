@@ -6,7 +6,7 @@ package staker
 import (
 	"testing"
 
-	"github.com/offchainlabs/nitro/util/testhelpers"
+	"github.com/tenderly/nitro/util/testhelpers"
 )
 
 func Require(t *testing.T, err error, printables ...interface{}) {

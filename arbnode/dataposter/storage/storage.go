@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/rlp"
-	"github.com/offchainlabs/nitro/arbutil"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/rlp"
+	"github.com/tenderly/nitro/arbutil"
 )
 
 var (
@@ -31,7 +31,7 @@ type QueuedTransaction struct {
 }
 
 // LegacyQueuedTransaction is used for backwards compatibility.
-// Before https://github.com/OffchainLabs/nitro/pull/1773: the queuedTransaction
+// Before https://github.com/tenderly/nitro/pull/1773: the queuedTransaction
 // looked like this and was rlp encoded directly. After the pr, we are store
 // rlp encoding of Meta into queuedTransaction and rlp encoding it once more
 // to store it.

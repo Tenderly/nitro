@@ -1,5 +1,5 @@
 // Copyright 2021-2023, Offchain Labs, Inc.
-// For license information, see https://github.com/OffchainLabs/nitro/blob/master/LICENSE
+// For license information, see https://github.com/tenderly/nitro/blob/master/LICENSE
 
 #![allow(clippy::missing_safety_doc, clippy::too_many_arguments)]
 

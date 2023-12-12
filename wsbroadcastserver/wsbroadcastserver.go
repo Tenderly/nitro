@@ -22,9 +22,9 @@ import (
 	"github.com/mailru/easygo/netpoll"
 	flag "github.com/spf13/pflag"
 
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/metrics"
-	"github.com/offchainlabs/nitro/arbutil"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/metrics"
+	"github.com/tenderly/nitro/arbutil"
 )
 
 var (
