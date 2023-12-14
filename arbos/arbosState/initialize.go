@@ -228,8 +228,7 @@ func InitializeArbosInStatedb(statedb vm.StateDB, initData statetransfer.InitDat
 		if err != nil {
 			return err
 		}
-		// todo(pdrobnjak): probably add SetBalance to interface as solution, temporarily do SubBalance -> AddBalance
-		//statedb.SetBalance(account.Addr, account.EthBalance)
+		statedb.SetBalance(account.Addr, account.EthBalance)
 		statedb.SetNonce(account.Addr, account.Nonce)
 		if account.ContractInfo != nil {
 			statedb.SetCode(account.Addr, account.ContractInfo.Code)
