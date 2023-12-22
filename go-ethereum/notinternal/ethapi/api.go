@@ -629,7 +629,7 @@ func (s *BlockChainAPI) GetBalance(ctx context.Context, address common.Address, 
 		}
 		return nil, err
 	}
-	return (*hexutil.Big)(state.GetBalance(address)), state.Error()
+	return (*hexutil.Big)(state.GetBalance(address)), nil
 }
 
 // Result structs for GetProof
@@ -685,9 +685,6 @@ func (s *BlockChainAPI) GetProof(ctx context.Context, address common.Address, st
 	if state == nil || err != nil {
 		return nil, err
 	}
-	if storageTrie, err = state.StorageTrie(address); err != nil {
-		return nil, err
-	}
 
 	// If we have a storageTrie, the account exists and we must update
 	// the storage root hash and the code hash.
@@ -720,21 +717,15 @@ func (s *BlockChainAPI) GetProof(ctx context.Context, address common.Address, st
 		storageProof[i] = StorageResult{outputKey, value, proof}
 	}
 
-	// Create the accountProof.
-	accountProof, proofErr := state.GetProof(address)
-	if proofErr != nil {
-		return nil, proofErr
-	}
-
 	return &AccountResult{
 		Address:      address,
-		AccountProof: toHexSlice(accountProof),
+		AccountProof: toHexSlice(nil),
 		Balance:      (*hexutil.Big)(state.GetBalance(address)),
 		CodeHash:     codeHash,
 		Nonce:        hexutil.Uint64(state.GetNonce(address)),
 		StorageHash:  storageHash,
 		StorageProof: storageProof,
-	}, state.Error()
+	}, nil
 }
 
 // decodeHash parses a hex-encoded 32-byte hash. The input may optionally
@@ -877,7 +868,7 @@ func (s *BlockChainAPI) GetCode(ctx context.Context, address common.Address, blo
 		return nil, err
 	}
 	code := state.GetCode(address)
-	return code, state.Error()
+	return code, nil
 }
 
 // GetStorageAt returns the storage from the state at the given address, key and
@@ -898,7 +889,7 @@ func (s *BlockChainAPI) GetStorageAt(ctx context.Context, address common.Address
 		return nil, err
 	}
 	res := state.GetState(address, key)
-	return res[:], state.Error()
+	return res[:], nil
 }
 
 // OverrideAccount indicates the overriding fields of account during the execution
@@ -919,7 +910,7 @@ type OverrideAccount struct {
 type StateOverride map[common.Address]OverrideAccount
 
 // Apply overrides the fields of specified accounts into the given state.
-func (diff *StateOverride) Apply(state *state.StateDB) error {
+func (diff *StateOverride) Apply(state vm.StateDB) error {
 	if diff == nil {
 		return nil
 	}
@@ -1032,7 +1023,7 @@ func (context *ChainContext) GetHeader(hash common.Hash, number uint64) *types.H
 	return header
 }
 
-func doCall(ctx context.Context, b Backend, args TransactionArgs, state *state.StateDB, header *types.Header, overrides *StateOverride, blockOverrides *BlockOverrides, timeout time.Duration, globalGasCap uint64, runMode core.MessageRunMode) (*core.ExecutionResult, error) {
+func doCall(ctx context.Context, b Backend, args TransactionArgs, state vm.StateDB, header *types.Header, overrides *StateOverride, blockOverrides *BlockOverrides, timeout time.Duration, globalGasCap uint64, runMode core.MessageRunMode) (*core.ExecutionResult, error) {
 	if err := overrides.Apply(state); err != nil {
 		return nil, err
 	}
@@ -1283,7 +1274,7 @@ func DoEstimateGas(ctx context.Context, b Backend, args TransactionArgs, blockNr
 	cap = hi
 
 	// Create a helper to check if a gas allowance results in an executable transaction
-	executable := func(gas uint64, state *state.StateDB, header *types.Header) (bool, *core.ExecutionResult, error) {
+	executable := func(gas uint64, state vm.StateDB, header *types.Header) (bool, *core.ExecutionResult, error) {
 		args.Gas = (*hexutil.Uint64)(&gas)
 
 		result, err := doCall(ctx, b, args, state, header, nil, nil, 0, vanillaGasCap, core.MessageGasEstimationMode)
@@ -1730,7 +1721,7 @@ func AccessList(ctx context.Context, b Backend, blockNrOrHash rpc.BlockNumberOrH
 		log.Trace("Creating access list", "input", accessList)
 
 		// Copy the original db so we don't modify it
-		statedb := db.Copy()
+		statedb := db
 		// Set the accesslist to the last al
 		args.AccessList = &accessList
 		msg, err := args.ToMessage(b.RPCGasCap(), header, statedb, core.MessageEthcallMode)
@@ -1839,7 +1830,7 @@ func (s *TransactionAPI) GetTransactionCount(ctx context.Context, address common
 		return nil, err
 	}
 	nonce := state.GetNonce(address)
-	return (*hexutil.Uint64)(&nonce), state.Error()
+	return (*hexutil.Uint64)(&nonce), nil
 }
 
 // GetTransactionByHash returns the transaction for the given hash
