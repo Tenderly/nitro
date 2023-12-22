@@ -37,7 +37,7 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/core/vm"
 	"github.com/tenderly/nitro/go-ethereum/core/vm/runtime"
 	"github.com/tenderly/nitro/go-ethereum/eth/tracers/logger"
-	"github.com/tenderly/nitro/go-ethereum/internal/flags"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/flags"
 	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/tenderly/nitro/go-ethereum/params"
 	"github.com/urfave/cli/v2"

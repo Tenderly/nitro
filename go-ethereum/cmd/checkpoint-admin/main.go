@@ -23,7 +23,7 @@ import (
 	"os"
 
 	"github.com/tenderly/nitro/go-ethereum/common/fdlimit"
-	"github.com/tenderly/nitro/go-ethereum/internal/flags"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/flags"
 	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/urfave/cli/v2"
 )

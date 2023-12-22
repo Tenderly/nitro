@@ -46,7 +46,7 @@ import (
 	"text/tabwriter"
 
 	"github.com/tenderly/nitro/go-ethereum/crypto"
-	"github.com/tenderly/nitro/go-ethereum/internal/flags"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/flags"
 	"github.com/tenderly/nitro/go-ethereum/p2p"
 	"github.com/tenderly/nitro/go-ethereum/p2p/enode"
 	"github.com/tenderly/nitro/go-ethereum/p2p/simulations"

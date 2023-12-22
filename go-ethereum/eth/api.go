@@ -34,7 +34,7 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/core/rawdb"
 	"github.com/tenderly/nitro/go-ethereum/core/state"
 	"github.com/tenderly/nitro/go-ethereum/core/types"
-	"github.com/tenderly/nitro/go-ethereum/internal/ethapi"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/ethapi"
 	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/tenderly/nitro/go-ethereum/rlp"
 	"github.com/tenderly/nitro/go-ethereum/rpc"

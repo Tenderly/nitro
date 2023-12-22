@@ -28,7 +28,7 @@ import (
 
 	"github.com/tenderly/nitro/go-ethereum/common"
 	"github.com/tenderly/nitro/go-ethereum/core/types"
-	"github.com/tenderly/nitro/go-ethereum/internal/testlog"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/testlog"
 	"github.com/tenderly/nitro/go-ethereum/log"
 )
 

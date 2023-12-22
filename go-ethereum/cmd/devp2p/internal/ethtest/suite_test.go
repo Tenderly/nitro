@@ -23,7 +23,7 @@ import (
 
 	"github.com/tenderly/nitro/go-ethereum/eth"
 	"github.com/tenderly/nitro/go-ethereum/eth/ethconfig"
-	"github.com/tenderly/nitro/go-ethereum/internal/utesting"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/utesting"
 	"github.com/tenderly/nitro/go-ethereum/node"
 	"github.com/tenderly/nitro/go-ethereum/p2p"
 )

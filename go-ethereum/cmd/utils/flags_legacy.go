@@ -20,7 +20,7 @@ import (
 	"fmt"
 
 	"github.com/tenderly/nitro/go-ethereum/eth/ethconfig"
-	"github.com/tenderly/nitro/go-ethereum/internal/flags"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/flags"
 	"github.com/urfave/cli/v2"
 )
 

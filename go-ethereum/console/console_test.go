@@ -31,7 +31,7 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/core"
 	"github.com/tenderly/nitro/go-ethereum/eth"
 	"github.com/tenderly/nitro/go-ethereum/eth/ethconfig"
-	"github.com/tenderly/nitro/go-ethereum/internal/jsre"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/jsre"
 	"github.com/tenderly/nitro/go-ethereum/miner"
 	"github.com/tenderly/nitro/go-ethereum/node"
 )

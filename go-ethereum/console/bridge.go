@@ -29,7 +29,7 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/accounts/usbwallet"
 	"github.com/tenderly/nitro/go-ethereum/common/hexutil"
 	"github.com/tenderly/nitro/go-ethereum/console/prompt"
-	"github.com/tenderly/nitro/go-ethereum/internal/jsre"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/jsre"
 	"github.com/tenderly/nitro/go-ethereum/rpc"
 )
 

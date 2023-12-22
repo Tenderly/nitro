@@ -39,7 +39,7 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/core/vm"
 	"github.com/tenderly/nitro/go-ethereum/ethdb"
 	"github.com/tenderly/nitro/go-ethereum/event"
-	"github.com/tenderly/nitro/go-ethereum/internal/syncx"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/syncx"
 	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/tenderly/nitro/go-ethereum/metrics"
 	"github.com/tenderly/nitro/go-ethereum/params"
