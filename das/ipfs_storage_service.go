@@ -11,22 +11,20 @@ import (
 	"bytes"
 	"context"
 	"errors"
+	"github.com/tenderly/nitro/cmd/ipfshelper"
 	"io"
 	"math/rand"
 	"time"
 
-	"github.com/tenderly/nitro/go-ethereum/common"
-	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/ipfs/go-cid"
-	coreiface "github.com/ipfs/interface-go-ipfs-core"
-	"github.com/ipfs/interface-go-ipfs-core/options"
 	"github.com/ipfs/interface-go-ipfs-core/path"
 	"github.com/multiformats/go-multihash"
-	"github.com/tenderly/nitro/arbstate"
-	"github.com/tenderly/nitro/cmd/ipfshelper"
-	"github.com/tenderly/nitro/das/dastree"
-	"github.com/tenderly/nitro/util/pretty"
 	flag "github.com/spf13/pflag"
+	"github.com/tenderly/nitro/arbstate"
+	"github.com/tenderly/nitro/das/dastree"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/util/pretty"
 )
 
 type IpfsStorageServiceConfig struct {
@@ -64,8 +62,6 @@ func IpfsStorageServiceConfigAddOptions(prefix string, f *flag.FlagSet) {
 
 type IpfsStorageService struct {
 	config     IpfsStorageServiceConfig
-	ipfsHelper *ipfshelper.IpfsHelper
-	ipfsApi    coreiface.CoreAPI
 }
 
 func NewIpfsStorageService(ctx context.Context, config IpfsStorageServiceConfig) (*IpfsStorageService, error) {
@@ -81,8 +77,6 @@ func NewIpfsStorageService(ctx context.Context, config IpfsStorageServiceConfig)
 
 	return &IpfsStorageService{
 		config:     config,
-		ipfsHelper: ipfsHelper,
-		ipfsApi:    ipfsHelper.GetAPI(),
 	}, nil
 }
 
@@ -133,7 +127,6 @@ func (s *IpfsStorageService) GetByHash(ctx context.Context, hash common.Hash) ([
 
 		timeoutCtx, cancel := context.WithTimeout(parentCtx, s.config.ReadTimeout)
 		defer cancel()
-		rdr, err := s.ipfsApi.Block().Get(timeoutCtx, ipfsPath)
 		if err != nil {
 			if timeoutCtx.Err() != nil {
 				return nil, ErrNotFound
@@ -141,16 +134,15 @@ func (s *IpfsStorageService) GetByHash(ctx context.Context, hash common.Hash) ([
 			return nil, err
 		}
 
-		data, err := io.ReadAll(rdr)
+		data, err := io.ReadAll(nil)
 		if err != nil {
 			return nil, err
 		}
 
 		if doPin {
 			go func() {
-				pinCtx, pinCancel := context.WithTimeout(context.Background(), s.config.ReadTimeout)
+				_, pinCancel := context.WithTimeout(context.Background(), s.config.ReadTimeout)
 				defer pinCancel()
-				err := s.ipfsApi.Pin().Add(pinCtx, ipfsPath)
 				// Recursive pinning not needed, each dastree preimage fits in a single
 				// IPFS block.
 				if err != nil {
@@ -188,19 +180,11 @@ func (s *IpfsStorageService) Put(ctx context.Context, data []byte, timeout uint6
 
 	numChunks := len(chunks)
 	resultChan := make(chan error, numChunks)
-	for _, chunk := range chunks {
-		_chunk := chunk
+	for _, _ = range chunks {
 		go func() {
-			blockStat, err := s.ipfsApi.Block().Put(
-				ctx,
-				bytes.NewReader(_chunk),
-				options.Block.CidCodec("raw"), // Store the data in raw form since the hash in the CID must be the hash
-				// of the preimage for our lookup scheme to work.
-				options.Block.Hash(multihash.KECCAK_256, -1), // Use keccak256 to calculate the hash to put in the block's
-				// CID, since it is the same algo used by dastree.
-				options.Block.Pin(true)) // Keep the data in the local IPFS repo, don't GC it.
+			var err error
 			if err == nil {
-				log.Trace("Wrote IPFS path", "path", blockStat.Path().String())
+				log.Trace("Wrote IPFS path", "path", "")
 			}
 			resultChan <- err
 		}()
@@ -228,7 +212,7 @@ func (s *IpfsStorageService) Sync(ctx context.Context) error {
 }
 
 func (s *IpfsStorageService) Close(ctx context.Context) error {
-	return s.ipfsHelper.Close()
+	return nil
 }
 
 func (s *IpfsStorageService) String() string {
