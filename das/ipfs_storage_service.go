@@ -11,7 +11,6 @@ import (
 	"bytes"
 	"context"
 	"errors"
-	"github.com/tenderly/nitro/cmd/ipfshelper"
 	"io"
 	"math/rand"
 	"time"
@@ -65,19 +64,7 @@ type IpfsStorageService struct {
 }
 
 func NewIpfsStorageService(ctx context.Context, config IpfsStorageServiceConfig) (*IpfsStorageService, error) {
-	ipfsHelper, err := ipfshelper.CreateIpfsHelper(ctx, config.RepoDir, false, config.Peers, config.Profiles)
-	if err != nil {
-		return nil, err
-	}
-	addrs, err := ipfsHelper.GetPeerHostAddresses()
-	if err != nil {
-		return nil, err
-	}
-	log.Info("IPFS node started up", "hostAddresses", addrs)
-
-	return &IpfsStorageService{
-		config:     config,
-	}, nil
+	return nil, nil
 }
 
 func hashToCid(hash common.Hash) (cid.Cid, error) {
