@@ -117,7 +117,7 @@ func init() {
 		return msg, nil, nil
 	}
 
-	core.InterceptRPCGasCap = func(gascap *uint64, msg Message, header *types.Header, statedb *state.StateDB) {
+	core.InterceptRPCGasCap = func(gascap *uint64, msg Message, header *types.Header, statedb vm.StateDB) {
 		if *gascap == 0 {
 			// It's already unlimited
 			return

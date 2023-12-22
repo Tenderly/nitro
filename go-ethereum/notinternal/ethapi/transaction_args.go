@@ -21,6 +21,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"github.com/tenderly/nitro/go-ethereum/core/vm"
 	"math/big"
 
 	"github.com/tenderly/nitro/go-ethereum/common"
@@ -201,7 +202,7 @@ func (args *TransactionArgs) setLondonFeeDefaults(ctx context.Context, head *typ
 // ToMessage converts the transaction arguments to the Message type used by the
 // core evm. This method is used in calls and traces that do not require a real
 // live transaction.
-func (args *TransactionArgs) ToMessage(globalGasCap uint64, header *types.Header, state *state.StateDB) (types.Message, error) {
+func (args *TransactionArgs) ToMessage(globalGasCap uint64, header *types.Header, state vm.StateDB) (types.Message, error) {
 	baseFee := header.BaseFee
 
 	// Reject invalid combinations of pre- and post-1559 fee styles
