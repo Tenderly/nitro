@@ -20,7 +20,7 @@ import (
 	"os"
 
 	"github.com/tenderly/nitro/go-ethereum/cmd/devp2p/internal/v4test"
-	"github.com/tenderly/nitro/go-ethereum/internal/utesting"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/utesting"
 	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/urfave/cli/v2"
 )

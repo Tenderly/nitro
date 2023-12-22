@@ -25,7 +25,7 @@ import (
 	"time"
 
 	"github.com/tenderly/nitro/go-ethereum/crypto"
-	"github.com/tenderly/nitro/go-ethereum/internal/utesting"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/utesting"
 	"github.com/tenderly/nitro/go-ethereum/p2p/discover/v4wire"
 )
 

@@ -23,7 +23,7 @@ import (
 	"time"
 
 	"github.com/tenderly/nitro/go-ethereum/common/mclock"
-	"github.com/tenderly/nitro/go-ethereum/internal/testlog"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/testlog"
 	"github.com/tenderly/nitro/go-ethereum/log"
 )
 

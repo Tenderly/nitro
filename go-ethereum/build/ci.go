@@ -55,7 +55,7 @@ import (
 	"github.com/cespare/cp"
 	"github.com/tenderly/nitro/go-ethereum/common"
 	"github.com/tenderly/nitro/go-ethereum/crypto/signify"
-	"github.com/tenderly/nitro/go-ethereum/internal/build"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/build"
 	"github.com/tenderly/nitro/go-ethereum/params"
 )
 
