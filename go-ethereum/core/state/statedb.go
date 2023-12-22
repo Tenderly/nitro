@@ -21,6 +21,7 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
+	"github.com/tenderly/nitro/go-ethereum/core/vm"
 	"math/big"
 	"sort"
 	"time"
@@ -797,7 +798,7 @@ func (s *StateDB) ForEachStorage(addr common.Address, cb func(key, value common.
 
 // Copy creates a deep, independent copy of the state.
 // Snapshots of the copied state cannot be applied to the copy.
-func (s *StateDB) Copy() *StateDB {
+func (s *StateDB) Copy() vm.StateDB {
 	// Copy all the basic fields, initialize the memory ones
 	state := &StateDB{
 		unexpectedBalanceDelta: new(big.Int).Set(s.unexpectedBalanceDelta),

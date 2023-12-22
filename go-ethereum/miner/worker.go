@@ -95,7 +95,7 @@ type environment struct {
 func (env *environment) copy() *environment {
 	cpy := &environment{
 		signer:   env.signer,
-		state:    env.state.Copy(),
+		state:    env.state.Copy().(*state.StateDB),
 		tcount:   env.tcount,
 		coinbase: env.coinbase,
 		header:   types.CopyHeader(env.header),
@@ -334,7 +334,7 @@ func (w *worker) pending() (*types.Block, *state.StateDB) {
 	if w.snapshotState == nil {
 		return nil, nil
 	}
-	return w.snapshotBlock, w.snapshotState.Copy()
+	return w.snapshotBlock, w.snapshotState.Copy().(*state.StateDB)
 }
 
 // pendingBlock returns pending block. The returned block can be nil in case the
@@ -731,7 +731,7 @@ func (w *worker) updateSnapshot(env *environment) {
 		trie.NewStackTrie(nil),
 	)
 	w.snapshotReceipts = copyReceipts(env.receipts)
-	w.snapshotState = env.state.Copy()
+	w.snapshotState = env.state.Copy().(*state.StateDB)
 }
 
 func (w *worker) commitTransaction(env *environment, tx *txpool.Transaction) ([]*types.Log, error) {
