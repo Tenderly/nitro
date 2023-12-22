@@ -28,7 +28,6 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/common/hexutil"
 	"github.com/tenderly/nitro/go-ethereum/common/math"
 	"github.com/tenderly/nitro/go-ethereum/core"
-	"github.com/tenderly/nitro/go-ethereum/core/state"
 	"github.com/tenderly/nitro/go-ethereum/core/types"
 	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/tenderly/nitro/go-ethereum/rpc"
@@ -282,7 +281,7 @@ func (args *TransactionArgs) ToMessage(globalGasCap uint64, header *types.Header
 
 // Raises the vanilla gas cap by the tx's l1 data costs in l2 terms. This creates a new gas cap that after
 // data payments are made, equals the original vanilla cap for the remaining, L2-specific work the tx does.
-func (args *TransactionArgs) L2OnlyGasCap(gasCap uint64, header *types.Header, state *state.StateDB) (uint64, error) {
+func (args *TransactionArgs) L2OnlyGasCap(gasCap uint64, header *types.Header, state vm.StateDB) (uint64, error) {
 	msg, err := args.ToMessage(gasCap, header, nil)
 	if err != nil {
 		return 0, err

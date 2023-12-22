@@ -389,7 +389,7 @@ func (a *APIBackend) StateAndHeaderByNumber(ctx context.Context, number rpc.Bloc
 	return a.stateAndHeaderFromHeader(a.HeaderByNumber(ctx, number))
 }
 
-func (a *APIBackend) StateAndHeaderByNumberOrHash(ctx context.Context, blockNrOrHash rpc.BlockNumberOrHash) (*state.StateDB, *types.Header, error) {
+func (a *APIBackend) StateAndHeaderByNumberOrHash(ctx context.Context, blockNrOrHash rpc.BlockNumberOrHash) (vm.StateDB, *types.Header, error) {
 	return a.stateAndHeaderFromHeader(a.HeaderByNumberOrHash(ctx, blockNrOrHash))
 }
 

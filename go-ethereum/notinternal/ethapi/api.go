@@ -35,7 +35,6 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/consensus/ethash"
 	"github.com/tenderly/nitro/go-ethereum/consensus/misc"
 	"github.com/tenderly/nitro/go-ethereum/core"
-	"github.com/tenderly/nitro/go-ethereum/core/state"
 	"github.com/tenderly/nitro/go-ethereum/core/types"
 	"github.com/tenderly/nitro/go-ethereum/core/vm"
 	"github.com/tenderly/nitro/go-ethereum/crypto"
@@ -627,7 +626,7 @@ func (s *BlockChainAPI) GetBalance(ctx context.Context, address common.Address, 
 		}
 		return nil, err
 	}
-	return (*hexutil.Big)(state.GetBalance(address)), state.Error()
+	return (*hexutil.Big)(state.GetBalance(address)), nil
 }
 
 // Result structs for GetProof
@@ -654,47 +653,28 @@ func (s *BlockChainAPI) GetProof(ctx context.Context, address common.Address, st
 		return nil, err
 	}
 
-	storageTrie := state.StorageTrie(address)
 	storageHash := types.EmptyRootHash
 	codeHash := state.GetCodeHash(address)
 	storageProof := make([]StorageResult, len(storageKeys))
 
-	// if we have a storageTrie, (which means the account exists), we can update the storagehash
-	if storageTrie != nil {
-		storageHash = storageTrie.Hash()
-	} else {
-		// no storageTrie means the account does not exist, so the codeHash is the hash of an empty bytearray.
-		codeHash = crypto.Keccak256Hash(nil)
-	}
+
+	// no storageTrie means the account does not exist, so the codeHash is the hash of an empty bytearray.
+	codeHash = crypto.Keccak256Hash(nil)
 
 	// create the proof for the storageKeys
 	for i, key := range storageKeys {
-		if storageTrie != nil {
-			proof, storageError := state.GetStorageProof(address, common.HexToHash(key))
-			if storageError != nil {
-				return nil, storageError
-			}
-			storageProof[i] = StorageResult{key, (*hexutil.Big)(state.GetState(address, common.HexToHash(key)).Big()), toHexSlice(proof)}
-		} else {
-			storageProof[i] = StorageResult{key, &hexutil.Big{}, []string{}}
-		}
-	}
-
-	// create the accountProof
-	accountProof, proofErr := state.GetProof(address)
-	if proofErr != nil {
-		return nil, proofErr
+		storageProof[i] = StorageResult{key, &hexutil.Big{}, []string{}}
 	}
 
 	return &AccountResult{
 		Address:      address,
-		AccountProof: toHexSlice(accountProof),
+		AccountProof: nil,
 		Balance:      (*hexutil.Big)(state.GetBalance(address)),
 		CodeHash:     codeHash,
 		Nonce:        hexutil.Uint64(state.GetNonce(address)),
 		StorageHash:  storageHash,
 		StorageProof: storageProof,
-	}, state.Error()
+	}, nil
 }
 
 // GetHeaderByNumber returns the requested canonical block header.
@@ -814,7 +794,7 @@ func (s *BlockChainAPI) GetCode(ctx context.Context, address common.Address, blo
 		return nil, err
 	}
 	code := state.GetCode(address)
-	return code, state.Error()
+	return code, nil
 }
 
 // GetStorageAt returns the storage from the state at the given address, key and
@@ -831,7 +811,7 @@ func (s *BlockChainAPI) GetStorageAt(ctx context.Context, address common.Address
 		return nil, err
 	}
 	res := state.GetState(address, common.HexToHash(key))
-	return res[:], state.Error()
+	return res[:], nil
 }
 
 // OverrideAccount indicates the overriding fields of account during the execution
@@ -852,7 +832,7 @@ type OverrideAccount struct {
 type StateOverride map[common.Address]OverrideAccount
 
 // Apply overrides the fields of specified accounts into the given state.
-func (diff *StateOverride) Apply(state *state.StateDB) error {
+func (diff *StateOverride) Apply(state vm.StateDB) error {
 	if diff == nil {
 		return nil
 	}
@@ -1612,7 +1592,7 @@ func AccessList(ctx context.Context, b Backend, blockNrOrHash rpc.BlockNumberOrH
 		log.Trace("Creating access list", "input", accessList)
 
 		// Copy the original db so we don't modify it
-		statedb := db.Copy()
+		statedb := db
 		// Set the accesslist to the last al
 		args.AccessList = &accessList
 		msg, err := args.ToMessage(b.RPCGasCap(), header, statedb)
@@ -1724,7 +1704,7 @@ func (s *TransactionAPI) GetTransactionCount(ctx context.Context, address common
 		return nil, err
 	}
 	nonce := state.GetNonce(address)
-	return (*hexutil.Uint64)(&nonce), state.Error()
+	return (*hexutil.Uint64)(&nonce), nil
 }
 
 // GetTransactionByHash returns the transaction for the given hash
