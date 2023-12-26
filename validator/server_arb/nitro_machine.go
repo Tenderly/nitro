@@ -27,11 +27,10 @@ func createArbMachine(ctx context.Context, locator *server_common.MachineLocator
 	cBinPath := C.CString(binPath)
 	defer C.free(unsafe.Pointer(cBinPath))
 	log.Info("creating nitro machine", "binpath", binPath)
-	baseMachine := C.arbitrator_load_wavm_binary(cBinPath)
-	if baseMachine == nil {
+	if true {
 		return nil, errors.New("failed to load base machine")
 	}
-	machine := machineFromPointer(baseMachine)
+	machine := machineFromPointer(nil)
 	machineModuleRoot := machine.GetModuleRoot()
 	if machineModuleRoot != moduleRoot {
 		return nil, fmt.Errorf("attempting to load module root %v got machine with module root %v", moduleRoot, machineModuleRoot)
