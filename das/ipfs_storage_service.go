@@ -15,18 +15,17 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/tenderly/nitro/go-ethereum/common"
-	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/ipfs/go-cid"
 	coreiface "github.com/ipfs/interface-go-ipfs-core"
 	"github.com/ipfs/interface-go-ipfs-core/options"
 	"github.com/ipfs/interface-go-ipfs-core/path"
 	"github.com/multiformats/go-multihash"
-	"github.com/tenderly/nitro/arbstate"
-	"github.com/tenderly/nitro/cmd/ipfshelper"
-	"github.com/tenderly/nitro/das/dastree"
-	"github.com/tenderly/nitro/util/pretty"
 	flag "github.com/spf13/pflag"
+	"github.com/tenderly/nitro/arbstate"
+	"github.com/tenderly/nitro/das/dastree"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/util/pretty"
 )
 
 type IpfsStorageServiceConfig struct {
@@ -64,25 +63,12 @@ func IpfsStorageServiceConfigAddOptions(prefix string, f *flag.FlagSet) {
 
 type IpfsStorageService struct {
 	config     IpfsStorageServiceConfig
-	ipfsHelper *ipfshelper.IpfsHelper
 	ipfsApi    coreiface.CoreAPI
 }
 
-func NewIpfsStorageService(ctx context.Context, config IpfsStorageServiceConfig) (*IpfsStorageService, error) {
-	ipfsHelper, err := ipfshelper.CreateIpfsHelper(ctx, config.RepoDir, false, config.Peers, config.Profiles)
-	if err != nil {
-		return nil, err
-	}
-	addrs, err := ipfsHelper.GetPeerHostAddresses()
-	if err != nil {
-		return nil, err
-	}
-	log.Info("IPFS node started up", "hostAddresses", addrs)
-
+func NewIpfsStorageService(_ context.Context, config IpfsStorageServiceConfig) (*IpfsStorageService, error) {
 	return &IpfsStorageService{
 		config:     config,
-		ipfsHelper: ipfsHelper,
-		ipfsApi:    ipfsHelper.GetAPI(),
 	}, nil
 }
 
@@ -227,8 +213,8 @@ func (s *IpfsStorageService) Sync(ctx context.Context) error {
 	return nil
 }
 
-func (s *IpfsStorageService) Close(ctx context.Context) error {
-	return s.ipfsHelper.Close()
+func (s *IpfsStorageService) Close(_ context.Context) error {
+	return nil
 }
 
 func (s *IpfsStorageService) String() string {
