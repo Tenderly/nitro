@@ -37,7 +37,7 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/crypto"
 	"github.com/tenderly/nitro/go-ethereum/eth/ethconfig"
 	"github.com/tenderly/nitro/go-ethereum/ethdb"
-	"github.com/tenderly/nitro/go-ethereum/internal/debug"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/debug"
 	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/tenderly/nitro/go-ethereum/node"
 	"github.com/tenderly/nitro/go-ethereum/rlp"

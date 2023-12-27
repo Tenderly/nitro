@@ -27,7 +27,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tenderly/nitro/go-ethereum/internal/testlog"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/testlog"
 	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/tenderly/nitro/go-ethereum/p2p/discover/v5wire"
 	"github.com/tenderly/nitro/go-ethereum/p2p/enode"

@@ -35,7 +35,7 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/core/state/snapshot"
 	"github.com/tenderly/nitro/go-ethereum/crypto"
 	"github.com/tenderly/nitro/go-ethereum/ethdb"
-	"github.com/tenderly/nitro/go-ethereum/internal/flags"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/flags"
 	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/tenderly/nitro/go-ethereum/trie"
 	"github.com/olekukonko/tablewriter"

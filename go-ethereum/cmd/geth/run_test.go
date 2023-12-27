@@ -24,7 +24,7 @@ import (
 	"time"
 
 	"github.com/docker/docker/pkg/reexec"
-	"github.com/tenderly/nitro/go-ethereum/internal/cmdtest"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/cmdtest"
 	"github.com/tenderly/nitro/go-ethereum/rpc"
 )
 
