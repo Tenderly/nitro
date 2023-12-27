@@ -27,6 +27,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 	"github.com/tenderly/nitro/go-ethereum"
 	"github.com/tenderly/nitro/go-ethereum/accounts"
 	"github.com/tenderly/nitro/go-ethereum/common"
@@ -42,11 +44,9 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/crypto"
 	"github.com/tenderly/nitro/go-ethereum/ethdb"
 	"github.com/tenderly/nitro/go-ethereum/event"
-    "github.com/tenderly/nitro/go-ethereum/notinternal/blocktest"
+	"github.com/tenderly/nitro/go-ethereum/notinternal/blocktest"
 	"github.com/tenderly/nitro/go-ethereum/params"
 	"github.com/tenderly/nitro/go-ethereum/rpc"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
 	"golang.org/x/exp/slices"
 )
 
@@ -451,7 +451,7 @@ func (b testBackend) StateAndHeaderByNumber(ctx context.Context, number rpc.Bloc
 	stateDb, err := b.chain.StateAt(header.Root)
 	return stateDb, header, err
 }
-func (b testBackend) StateAndHeaderByNumberOrHash(ctx context.Context, blockNrOrHash rpc.BlockNumberOrHash) (*state.StateDB, *types.Header, error) {
+func (b testBackend) StateAndHeaderByNumberOrHash(ctx context.Context, blockNrOrHash rpc.BlockNumberOrHash) (vm.StateDB, *types.Header, error) {
 	if blockNr, ok := blockNrOrHash.Number(); ok {
 		return b.StateAndHeaderByNumber(ctx, blockNr)
 	}
@@ -472,7 +472,7 @@ func (b testBackend) GetTd(ctx context.Context, hash common.Hash) *big.Int {
 	}
 	return big.NewInt(1)
 }
-func (b testBackend) GetEVM(ctx context.Context, msg *core.Message, state *state.StateDB, header *types.Header, vmConfig *vm.Config, blockContext *vm.BlockContext) (*vm.EVM, func() error) {
+func (b testBackend) GetEVM(ctx context.Context, msg *core.Message, state vm.StateDB, header *types.Header, vmConfig *vm.Config, blockContext *vm.BlockContext) (*vm.EVM, func() error) {
 	vmError := func() error { return nil }
 	if vmConfig == nil {
 		vmConfig = b.chain.GetVMConfig()
