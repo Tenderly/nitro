@@ -6,12 +6,12 @@ package staker
 import (
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
 
-	"github.com/offchainlabs/nitro/solgen/go/rollupgen"
-	"github.com/offchainlabs/nitro/util/arbmath"
-	"github.com/offchainlabs/nitro/validator"
+	"github.com/tenderly/nitro/solgen/go/rollupgen"
+	"github.com/tenderly/nitro/util/arbmath"
+	"github.com/tenderly/nitro/validator"
 )
 
 func NewAssertionFromSolidity(assertion rollupgen.Assertion) *Assertion {

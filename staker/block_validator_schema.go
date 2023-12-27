@@ -4,8 +4,8 @@
 package staker
 
 import (
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/offchainlabs/nitro/validator"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/validator"
 )
 
 type legacyLastBlockValidatedDbInfo struct {

@@ -19,7 +19,7 @@ package state
 import (
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/common"
 )
 
 // journalEntry is a modification entry in the state change journal that can be
@@ -185,7 +185,7 @@ func (ch resetObjectChange) dirtied() *common.Address {
 	// That's because, unlike for go-ethereum, whether this account is dirty or not is relevant for Arbitrum.
 	// Arbitrum hooks manipulate the state in some ways that go-ethereum doesn't which cause that relevance,
 	// e.g. subtracting balance from an account that hasn't been otherwise touched.
-	// See https://github.com/OffchainLabs/nitro/pull/1976 for details
+	// See https://github.com/tenderly/nitro/pull/1976 for details
 	return nil
 }
 

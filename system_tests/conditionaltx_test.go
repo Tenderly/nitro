@@ -12,16 +12,16 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/arbitrum"
-	"github.com/ethereum/go-ethereum/arbitrum_types"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/math"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/rpc"
-	"github.com/offchainlabs/nitro/execution/gethexec"
-	"github.com/offchainlabs/nitro/solgen/go/mocksgen"
+	"github.com/tenderly/nitro/go-ethereum/accounts/abi"
+	"github.com/tenderly/nitro/go-ethereum/arbitrum"
+	"github.com/tenderly/nitro/go-ethereum/arbitrum_types"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/common/math"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
+	"github.com/tenderly/nitro/go-ethereum/rpc"
+	"github.com/tenderly/nitro/execution/gethexec"
+	"github.com/tenderly/nitro/solgen/go/mocksgen"
 )
 
 func getStorageRootHash(t *testing.T, execNode *gethexec.ExecutionNode, address common.Address) common.Hash {

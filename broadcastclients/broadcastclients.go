@@ -8,13 +8,13 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/log"
 
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/broadcastclient"
-	m "github.com/offchainlabs/nitro/broadcaster/message"
-	"github.com/offchainlabs/nitro/util/contracts"
-	"github.com/offchainlabs/nitro/util/stopwaiter"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/broadcastclient"
+	m "github.com/tenderly/nitro/broadcaster/message"
+	"github.com/tenderly/nitro/util/contracts"
+	"github.com/tenderly/nitro/util/stopwaiter"
 )
 
 const ROUTER_QUEUE_SIZE = 1024

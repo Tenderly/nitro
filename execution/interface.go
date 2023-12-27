@@ -5,10 +5,10 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/offchainlabs/nitro/arbos/arbostypes"
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/validator"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/arbos/arbostypes"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/validator"
 )
 
 type MessageResult struct {

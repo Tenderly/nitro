@@ -20,13 +20,13 @@ import (
 	"github.com/gobwas/ws/wsutil"
 	"github.com/mailru/easygo/netpoll"
 
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/metrics"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/metrics"
 
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/broadcaster/backlog"
-	m "github.com/offchainlabs/nitro/broadcaster/message"
-	"github.com/offchainlabs/nitro/util/stopwaiter"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/broadcaster/backlog"
+	m "github.com/tenderly/nitro/broadcaster/message"
+	"github.com/tenderly/nitro/util/stopwaiter"
 )
 
 var (

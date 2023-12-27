@@ -11,8 +11,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/offchainlabs/nitro/das/dastree"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/das/dastree"
 )
 
 func runAddAndGetTest(t *testing.T, ctx context.Context, svc *IpfsStorageService, size int) {

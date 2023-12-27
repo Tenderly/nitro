@@ -7,9 +7,9 @@ import (
 	"context"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/offchainlabs/nitro/arbutil"
+	"github.com/tenderly/nitro/go-ethereum/core/rawdb"
+	"github.com/tenderly/nitro/go-ethereum/ethdb"
+	"github.com/tenderly/nitro/arbutil"
 )
 
 func TestMessagePrunerWithPruningEligibleMessagePresent(t *testing.T) {

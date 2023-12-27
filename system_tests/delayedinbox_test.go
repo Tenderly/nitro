@@ -9,10 +9,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/offchainlabs/nitro/arbos"
-	"github.com/offchainlabs/nitro/solgen/go/bridgegen"
+	"github.com/tenderly/nitro/go-ethereum/accounts/abi"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/arbos"
+	"github.com/tenderly/nitro/solgen/go/bridgegen"
 )
 
 var inboxABI abi.ABI

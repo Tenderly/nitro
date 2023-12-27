@@ -10,10 +10,10 @@ import (
 
 	flag "github.com/spf13/pflag"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
 
-	"github.com/offchainlabs/nitro/util/contracts"
+	"github.com/tenderly/nitro/util/contracts"
 )
 
 type Verifier struct {
