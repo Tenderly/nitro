@@ -127,7 +127,13 @@ func New(file string, cache int, handles int, namespace string, readonly bool) (
 		handles = minHandles
 	}
 	logger := log.New("database", file)
-	logger.Info("Allocated cache and file handles", "cache", common.StorageSize(cache*1024*1024), "handles", handles)
+	logger.Info(
+		"Allocated cache and file handles",
+		"cache",
+		common.StorageSize(cache*1024*1024),
+		"handles",
+		handles,
+	)
 
 	// The max memtable size is limited by the uint32 offsets stored in
 	// internal/arenaskl.node, DeferredBatchOp, and flushableBatchEntry.
@@ -155,7 +161,7 @@ func New(file string, cache int, handles int, namespace string, readonly bool) (
 
 		// The size of memory table(as well as the write buffer).
 		// Note, there may have more than two memory tables in the system.
-		MemTableSize: memTableSize,
+		MemTableSize: uint64(memTableSize),
 
 		// MemTableStopWritesThreshold places a hard limit on the size
 		// of the existent MemTables(including the frozen one).
@@ -482,7 +488,11 @@ func (d *Database) meter(refresh time.Duration) {
 			d.diskWriteMeter.Mark(nWrites[i%2] - nWrites[(i-1)%2])
 		}
 		// See https://github.com/cockroachdb/pebble/pull/1628#pullrequestreview-1026664054
-		manuallyAllocated := metrics.BlockCache.Size + int64(metrics.MemTable.Size) + int64(metrics.MemTable.ZombieSize)
+		manuallyAllocated := metrics.BlockCache.Size + int64(
+			metrics.MemTable.Size,
+		) + int64(
+			metrics.MemTable.ZombieSize,
+		)
 		d.manualMemAllocGauge.Update(manuallyAllocated)
 		d.memCompGauge.Update(metrics.Flush.Count)
 		d.nonlevel0CompGauge.Update(nonLevel0CompCount)
@@ -579,10 +589,13 @@ type pebbleIterator struct {
 // of database content with a particular key prefix, starting at a particular
 // initial key (or after, if it does not exist).
 func (d *Database) NewIterator(prefix []byte, start []byte) ethdb.Iterator {
-	iter := d.db.NewIter(&pebble.IterOptions{
+	iter, err := d.db.NewIter(&pebble.IterOptions{
 		LowerBound: append(prefix, start...),
 		UpperBound: upperBound(prefix),
 	})
+	if err != nil {
+		panic(err)
+	}
 	iter.First()
 	return &pebbleIterator{iter: iter, moved: true, released: false}
 }
