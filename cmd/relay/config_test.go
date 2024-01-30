@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/offchainlabs/nitro/relay"
-	"github.com/offchainlabs/nitro/util/testhelpers"
+	"github.com/tenderly/nitro/relay"
+	"github.com/tenderly/nitro/util/testhelpers"
 )
 
 func TestRelayConfig(t *testing.T) {

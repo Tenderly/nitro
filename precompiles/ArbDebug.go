@@ -6,7 +6,7 @@ package precompiles
 import (
 	"errors"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/common"
 )
 
 // All calls to this precompile are authorized by the DebugPrecompile wrapper,

@@ -5,8 +5,8 @@ import (
 	"errors"
 	"sync/atomic"
 
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/execution"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/execution"
 	flag "github.com/spf13/pflag"
 )
 

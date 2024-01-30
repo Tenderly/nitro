@@ -10,7 +10,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/offchainlabs/nitro/arbnode/dataposter/storage"
+	"github.com/tenderly/nitro/arbnode/dataposter/storage"
 )
 
 type Storage struct {

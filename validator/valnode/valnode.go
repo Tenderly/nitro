@@ -3,16 +3,16 @@ package valnode
 import (
 	"context"
 
-	"github.com/offchainlabs/nitro/validator"
+	"github.com/tenderly/nitro/validator"
 
-	"github.com/ethereum/go-ethereum/node"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/tenderly/nitro/go-ethereum/node"
+	"github.com/tenderly/nitro/go-ethereum/rpc"
 	flag "github.com/spf13/pflag"
 
-	"github.com/offchainlabs/nitro/validator/server_api"
-	"github.com/offchainlabs/nitro/validator/server_arb"
-	"github.com/offchainlabs/nitro/validator/server_common"
-	"github.com/offchainlabs/nitro/validator/server_jit"
+	"github.com/tenderly/nitro/validator/server_api"
+	"github.com/tenderly/nitro/validator/server_arb"
+	"github.com/tenderly/nitro/validator/server_common"
+	"github.com/tenderly/nitro/validator/server_jit"
 )
 
 type WasmConfig struct {

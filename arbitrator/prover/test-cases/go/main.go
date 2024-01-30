@@ -11,12 +11,12 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/common"
 	merkletree "github.com/wealdtech/go-merkletree"
 
-	"github.com/offchainlabs/nitro/arbcompress"
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/wavmio"
+	"github.com/tenderly/nitro/arbcompress"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/wavmio"
 )
 
 // MerkleSample is an example using the Merkle tree to generate and verify proofs.

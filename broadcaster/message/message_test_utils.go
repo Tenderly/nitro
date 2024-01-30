@@ -1,8 +1,8 @@
 package message
 
 import (
-	"github.com/offchainlabs/nitro/arbos/arbostypes"
-	"github.com/offchainlabs/nitro/arbutil"
+	"github.com/tenderly/nitro/arbos/arbostypes"
+	"github.com/tenderly/nitro/arbutil"
 )
 
 func CreateDummyBroadcastMessage(seqNums []arbutil.MessageIndex) *BroadcastMessage {

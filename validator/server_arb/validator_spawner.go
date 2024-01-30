@@ -13,15 +13,15 @@ import (
 
 	flag "github.com/spf13/pflag"
 
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/util/containers"
-	"github.com/offchainlabs/nitro/util/stopwaiter"
-	"github.com/offchainlabs/nitro/validator"
-	"github.com/offchainlabs/nitro/validator/server_common"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/util/containers"
+	"github.com/tenderly/nitro/util/stopwaiter"
+	"github.com/tenderly/nitro/validator"
+	"github.com/tenderly/nitro/validator/server_common"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/metrics"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/metrics"
 )
 
 var arbitratorValidationSteps = metrics.NewRegisteredHistogram("arbitrator/validation/steps", nil, metrics.NewBoundedHistogramSample())

@@ -19,11 +19,11 @@ import (
 	"sync/atomic"
 	"unsafe"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/util/containers"
-	"github.com/offchainlabs/nitro/validator"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/util/containers"
+	"github.com/tenderly/nitro/validator"
 )
 
 type MachineInterface interface {

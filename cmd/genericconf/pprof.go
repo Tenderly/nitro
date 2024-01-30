@@ -7,9 +7,9 @@ import (
 	// Blank import pprof registers its HTTP handlers.
 	_ "net/http/pprof" // #nosec G108
 
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/metrics"
-	"github.com/ethereum/go-ethereum/metrics/exp"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/metrics"
+	"github.com/tenderly/nitro/go-ethereum/metrics/exp"
 )
 
 func StartPprof(address string) {
