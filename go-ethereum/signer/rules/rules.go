@@ -24,8 +24,8 @@ import (
 	"strings"
 
 	"github.com/dop251/goja"
-	"github.com/tenderly/nitro/go-ethereum/internal/ethapi"
-	"github.com/tenderly/nitro/go-ethereum/internal/jsre/deps"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/ethapi"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/jsre/deps"
 	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/tenderly/nitro/go-ethereum/signer/core"
 	"github.com/tenderly/nitro/go-ethereum/signer/storage"
