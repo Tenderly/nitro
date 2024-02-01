@@ -10,6 +10,12 @@ import (
 	"math/big"
 	"sort"
 
+	"github.com/tenderly/nitro/arbnode"
+	"github.com/tenderly/nitro/arbos"
+	"github.com/tenderly/nitro/arbos/l1pricing"
+	"github.com/tenderly/nitro/arbos/retryables"
+	"github.com/tenderly/nitro/arbos/util"
+	"github.com/tenderly/nitro/arbutil"
 	"github.com/tenderly/nitro/go-ethereum/arbitrum"
 	"github.com/tenderly/nitro/go-ethereum/common"
 	"github.com/tenderly/nitro/go-ethereum/common/hexutil"
@@ -18,12 +24,6 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/core/types"
 	"github.com/tenderly/nitro/go-ethereum/crypto"
 	"github.com/tenderly/nitro/go-ethereum/rpc"
-	"github.com/tenderly/nitro/arbnode"
-	"github.com/tenderly/nitro/arbos"
-	"github.com/tenderly/nitro/arbos/l1pricing"
-	"github.com/tenderly/nitro/arbos/retryables"
-	"github.com/tenderly/nitro/arbos/util"
-	"github.com/tenderly/nitro/arbutil"
 	"github.com/tenderly/nitro/staker"
 	"github.com/tenderly/nitro/util/arbmath"
 	"github.com/tenderly/nitro/util/merkletree"
@@ -454,7 +454,7 @@ func (n NodeInterface) GasEstimateL1Component(
 	args.Gas = (*hexutil.Uint64)(&randomGas)
 
 	// We set the run mode to eth_call mode here because we want an exact estimate, not a padded estimate
-	msg, err := args.ToMessage(randomGas, n.header, evm.StateDB.(*state.StateDB), core.MessageEthcallMode)
+	msg, err := args.ToMessage(randomGas, n.header, evm.StateDB, core.MessageEthcallMode)
 	if err != nil {
 		return 0, nil, nil, err
 	}
