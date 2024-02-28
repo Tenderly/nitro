@@ -50,7 +50,7 @@ func init() {
 	core.InterceptRPCMessage = func(
 		msg *core.Message,
 		ctx context.Context,
-		statedb *state.StateDB,
+		statedb vm.StateDB,
 		header *types.Header,
 		backend core.NodeInterfaceBackendAPI,
 		blockCtx *vm.BlockContext,
@@ -115,7 +115,7 @@ func init() {
 		return msg, nil, nil
 	}
 
-	core.InterceptRPCGasCap = func(gascap *uint64, msg *core.Message, header *types.Header, statedb *state.StateDB) {
+	core.InterceptRPCGasCap = func(gascap *uint64, msg *core.Message, header *types.Header, statedb vm.StateDB) {
 		if *gascap == 0 {
 			// It's already unlimited
 			return

@@ -630,7 +630,7 @@ func (s *BlockChainAPI) GetBalance(ctx context.Context, address common.Address, 
 		}
 		return nil, err
 	}
-	return (*hexutil.Big)(state.GetBalance(address)), state.Error()
+	return (*hexutil.Big)(state.GetBalance(address)), nil
 }
 
 // Result structs for GetProof
@@ -686,14 +686,7 @@ func (s *BlockChainAPI) GetProof(ctx context.Context, address common.Address, st
 	if state == nil || err != nil {
 		return nil, err
 	}
-	if storageRoot := state.GetStorageRoot(address); storageRoot != types.EmptyRootHash && storageRoot != (common.Hash{}) {
-		id := trie.StorageTrieID(header.Root, crypto.Keccak256Hash(address.Bytes()), storageRoot)
-		tr, err := trie.NewStateTrie(id, state.Database().TrieDB())
-		if err != nil {
-			return nil, err
-		}
-		storageTrie = tr
-	}
+
 	// If we have a storageTrie, the account exists and we must update
 	// the storage root hash and the code hash.
 	if storageTrie != nil {
@@ -726,7 +719,7 @@ func (s *BlockChainAPI) GetProof(ctx context.Context, address common.Address, st
 	}
 
 	// Create the accountProof.
-	tr, err := trie.NewStateTrie(trie.StateTrieID(header.Root), state.Database().TrieDB())
+	tr, err := trie.NewStateTrie(trie.StateTrieID(header.Root), nil)
 	if err != nil {
 		return nil, err
 	}
@@ -742,7 +735,7 @@ func (s *BlockChainAPI) GetProof(ctx context.Context, address common.Address, st
 		Nonce:        hexutil.Uint64(state.GetNonce(address)),
 		StorageHash:  storageHash,
 		StorageProof: storageProof,
-	}, state.Error()
+	}, nil
 }
 
 // decodeHash parses a hex-encoded 32-byte hash. The input may optionally
@@ -885,7 +878,7 @@ func (s *BlockChainAPI) GetCode(ctx context.Context, address common.Address, blo
 		return nil, err
 	}
 	code := state.GetCode(address)
-	return code, state.Error()
+	return code, nil
 }
 
 // GetStorageAt returns the storage from the state at the given address, key and
@@ -906,7 +899,7 @@ func (s *BlockChainAPI) GetStorageAt(ctx context.Context, address common.Address
 		return nil, err
 	}
 	res := state.GetState(address, key)
-	return res[:], state.Error()
+	return res[:], nil
 }
 
 // GetBlockReceipts returns the block receipts for the given block hash or number or tag.
@@ -958,7 +951,7 @@ type OverrideAccount struct {
 type StateOverride map[common.Address]OverrideAccount
 
 // Apply overrides the fields of specified accounts into the given state.
-func (diff *StateOverride) Apply(state *state.StateDB) error {
+func (diff *StateOverride) Apply(state vm.StateDB) error {
 	if diff == nil {
 		return nil
 	}
@@ -1075,7 +1068,7 @@ func (context *ChainContext) GetHeader(hash common.Hash, number uint64) *types.H
 	return header
 }
 
-func doCall(ctx context.Context, b Backend, args TransactionArgs, state *state.StateDB, header *types.Header, overrides *StateOverride, blockOverrides *BlockOverrides, timeout time.Duration, globalGasCap uint64, runMode core.MessageRunMode) (*core.ExecutionResult, error) {
+func doCall(ctx context.Context, b Backend, args TransactionArgs, state vm.StateDB, header *types.Header, overrides *StateOverride, blockOverrides *BlockOverrides, timeout time.Duration, globalGasCap uint64, runMode core.MessageRunMode) (*core.ExecutionResult, error) {
 	if err := overrides.Apply(state); err != nil {
 		return nil, err
 	}
@@ -1269,7 +1262,7 @@ func (s *BlockChainAPI) Call(ctx context.Context, args TransactionArgs, blockNrO
 // executeEstimate is a helper that executes the transaction under a given gas limit and returns
 // true if the transaction fails for a reason that might be related to not enough gas. A non-nil
 // error means execution failed due to reasons unrelated to the gas limit.
-func executeEstimate(ctx context.Context, b Backend, args TransactionArgs, state *state.StateDB, header *types.Header, gasCap uint64, gasLimit uint64) (bool, *core.ExecutionResult, error) {
+func executeEstimate(ctx context.Context, b Backend, args TransactionArgs, state vm.StateDB, header *types.Header, gasCap uint64, gasLimit uint64) (bool, *core.ExecutionResult, error) {
 	args.Gas = (*hexutil.Uint64)(&gasLimit)
 	result, err := doCall(ctx, b, args, state, header, nil, nil, 0, gasCap, core.MessageGasEstimationMode)
 	if err != nil {
@@ -1372,7 +1365,9 @@ func DoEstimateGas(ctx context.Context, b Backend, args TransactionArgs, blockNr
 
 	// We first execute the transaction at the highest allowable gas limit, since if this fails we
 	// can return error immediately.
-	failed, result, err := executeEstimate(ctx, b, args, state.Copy(), header, vanillaGasCap, hi)
+	snapshot := state.Snapshot()
+	failed, result, err := executeEstimate(ctx, b, args, state, header, vanillaGasCap, hi)
+	state.RevertToSnapshot(snapshot)
 	if err != nil {
 		return 0, err
 	}
@@ -1400,7 +1395,9 @@ func DoEstimateGas(ctx context.Context, b Backend, args TransactionArgs, blockNr
 			// range here is skewed to favor the low side.
 			mid = lo * 2
 		}
-		failed, _, err = executeEstimate(ctx, b, args, state.Copy(), header, gasCap, mid)
+		snapshot := state.Snapshot()
+		failed, _, err = executeEstimate(ctx, b, args, state, header, gasCap, mid)
+		state.RevertToSnapshot(snapshot)
 		if err != nil {
 			// This should not happen under normal conditions since if we make it this far the
 			// transaction had run without error at least once before.
@@ -1844,18 +1841,20 @@ func AccessList(ctx context.Context, b Backend, blockNrOrHash rpc.BlockNumberOrH
 		log.Trace("Creating access list", "input", accessList)
 
 		// Copy the original db so we don't modify it
-		statedb := db.Copy()
+		snapshot := db.Snapshot()
 		// Set the accesslist to the last al
 		args.AccessList = &accessList
-		msg, err := args.ToMessage(b.RPCGasCap(), header, statedb, core.MessageEthcallMode)
+		msg, err := args.ToMessage(b.RPCGasCap(), header, db, core.MessageEthcallMode)
 		if err != nil {
+			db.RevertToSnapshot(snapshot)
 			return nil, 0, nil, err
 		}
 
 		// Apply the transaction with the access list tracer
 		tracer := logger.NewAccessListTracer(accessList, args.from(), to, precompiles)
 		config := vm.Config{Tracer: tracer, NoBaseFee: true}
-		vmenv, _ := b.GetEVM(ctx, msg, statedb, header, &config, nil)
+		vmenv, _ := b.GetEVM(ctx, msg, db, header, &config, nil)
+		db.RevertToSnapshot(snapshot)
 		res, err := core.ApplyMessage(vmenv, msg, new(core.GasPool).AddGas(msg.GasLimit))
 		if err != nil {
 			return nil, 0, nil, fmt.Errorf("failed to apply transaction: %v err: %v", args.toTransaction().Hash(), err)
@@ -1953,7 +1952,7 @@ func (s *TransactionAPI) GetTransactionCount(ctx context.Context, address common
 		return nil, err
 	}
 	nonce := state.GetNonce(address)
-	return (*hexutil.Uint64)(&nonce), state.Error()
+	return (*hexutil.Uint64)(&nonce), nil
 }
 
 // GetTransactionByHash returns the transaction for the given hash

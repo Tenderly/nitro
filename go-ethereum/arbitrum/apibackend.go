@@ -466,7 +466,7 @@ func (a *APIBackend) StateAndHeaderByNumber(ctx context.Context, number rpc.Bloc
 	return a.stateAndHeaderFromHeader(ctx, header, err)
 }
 
-func (a *APIBackend) StateAndHeaderByNumberOrHash(ctx context.Context, blockNrOrHash rpc.BlockNumberOrHash) (*state.StateDB, *types.Header, error) {
+func (a *APIBackend) StateAndHeaderByNumberOrHash(ctx context.Context, blockNrOrHash rpc.BlockNumberOrHash) (vm.StateDB, *types.Header, error) {
 	header, err := a.HeaderByNumberOrHash(ctx, blockNrOrHash)
 	return a.stateAndHeaderFromHeader(ctx, header, err)
 }
@@ -498,7 +498,7 @@ func (a *APIBackend) GetTd(ctx context.Context, hash common.Hash) *big.Int {
 	return nil
 }
 
-func (a *APIBackend) GetEVM(ctx context.Context, msg *core.Message, state *state.StateDB, header *types.Header, vmConfig *vm.Config, blockCtx *vm.BlockContext) (*vm.EVM, func() error) {
+func (a *APIBackend) GetEVM(ctx context.Context, msg *core.Message, state vm.StateDB, header *types.Header, vmConfig *vm.Config, blockCtx *vm.BlockContext) (*vm.EVM, func() error) {
 	vmError := func() error { return nil }
 	if vmConfig == nil {
 		vmConfig = a.BlockChain().GetVMConfig()
