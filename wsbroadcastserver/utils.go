@@ -12,10 +12,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
 	"github.com/gobwas/ws"
 	"github.com/gobwas/ws/wsflate"
 	"github.com/gobwas/ws/wsutil"
+	"github.com/tenderly/nitro/go-ethereum/log"
 )
 
 func init() {

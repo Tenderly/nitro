@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/ethclient"
+	"github.com/tenderly/nitro/go-ethereum/ethclient"
 )
 
 func TestIpcRpc(t *testing.T) {

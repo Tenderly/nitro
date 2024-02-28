@@ -9,11 +9,11 @@ import (
 	"time"
 
 	"github.com/Knetic/govaluate"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/params"
 	"github.com/google/go-cmp/cmp"
-	"github.com/offchainlabs/nitro/arbnode/dataposter/externalsignertest"
+	"github.com/tenderly/nitro/arbnode/dataposter/externalsignertest"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/params"
 )
 
 func TestParseReplacementTimes(t *testing.T) {

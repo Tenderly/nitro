@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/offchainlabs/nitro/solgen/go/bridgegen"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/solgen/go/bridgegen"
 )
 
 func TestMeaninglessBatchReorg(t *testing.T) {

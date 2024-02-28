@@ -1,13 +1,13 @@
 package arbos
 
 import (
-	"github.com/ethereum/go-ethereum/arbitrum_types"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/offchainlabs/nitro/arbos/arbosState"
+	"github.com/tenderly/nitro/arbos/arbosState"
+	"github.com/tenderly/nitro/go-ethereum/arbitrum_types"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core"
+	"github.com/tenderly/nitro/go-ethereum/core/state"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/params"
 )
 
 // extraPreTxFilter should be modified by chain operators to enforce additional pre-transaction validity rules

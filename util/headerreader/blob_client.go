@@ -14,13 +14,13 @@ import (
 	"os"
 	"path"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/crypto/kzg4844"
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/util/blobs"
-	"github.com/offchainlabs/nitro/util/jsonapi"
-	"github.com/offchainlabs/nitro/util/pretty"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/common/hexutil"
+	"github.com/tenderly/nitro/go-ethereum/crypto/kzg4844"
+	"github.com/tenderly/nitro/util/blobs"
+	"github.com/tenderly/nitro/util/jsonapi"
+	"github.com/tenderly/nitro/util/pretty"
 
 	"github.com/spf13/pflag"
 )

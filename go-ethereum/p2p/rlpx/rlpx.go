@@ -34,10 +34,10 @@ import (
 	"net"
 	"time"
 
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/crypto/ecies"
-	"github.com/ethereum/go-ethereum/rlp"
 	"github.com/golang/snappy"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
+	"github.com/tenderly/nitro/go-ethereum/crypto/ecies"
+	"github.com/tenderly/nitro/go-ethereum/rlp"
 	"golang.org/x/crypto/sha3"
 )
 

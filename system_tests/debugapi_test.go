@@ -2,17 +2,17 @@ package arbtest
 
 import (
 	"context"
-	"github.com/ethereum/go-ethereum/eth/tracers"
+	"github.com/tenderly/nitro/go-ethereum/eth/tracers"
 	"testing"
 
 	"encoding/json"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/eth"
-	"github.com/ethereum/go-ethereum/rpc"
-	"github.com/offchainlabs/nitro/solgen/go/precompilesgen"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/common/hexutil"
+	"github.com/tenderly/nitro/go-ethereum/core/state"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/eth"
+	"github.com/tenderly/nitro/go-ethereum/rpc"
+	"github.com/tenderly/nitro/solgen/go/precompilesgen"
 )
 
 func TestDebugAPI(t *testing.T) {

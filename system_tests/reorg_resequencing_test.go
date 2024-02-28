@@ -8,11 +8,11 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/params"
 
-	"github.com/offchainlabs/nitro/arbos/arbostypes"
-	"github.com/offchainlabs/nitro/util/arbmath"
+	"github.com/tenderly/nitro/arbos/arbostypes"
+	"github.com/tenderly/nitro/util/arbmath"
 )
 
 func TestReorgResequencing(t *testing.T) {

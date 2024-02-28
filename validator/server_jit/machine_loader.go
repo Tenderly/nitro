@@ -8,8 +8,8 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/offchainlabs/nitro/validator/server_common"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/validator/server_common"
 )
 
 type JitMachineConfig struct {

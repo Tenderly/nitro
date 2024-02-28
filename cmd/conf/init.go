@@ -3,8 +3,8 @@ package conf
 import (
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
 	"github.com/spf13/pflag"
+	"github.com/tenderly/nitro/go-ethereum/log"
 )
 
 type InitConfig struct {

@@ -11,19 +11,19 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/offchainlabs/nitro/execution"
-	"github.com/offchainlabs/nitro/util/rpcclient"
-	"github.com/offchainlabs/nitro/validator/server_api"
+	"github.com/tenderly/nitro/execution"
+	"github.com/tenderly/nitro/util/rpcclient"
+	"github.com/tenderly/nitro/validator/server_api"
 
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/validator"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/validator"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/node"
-	"github.com/offchainlabs/nitro/arbos/arbostypes"
-	"github.com/offchainlabs/nitro/arbstate"
+	"github.com/tenderly/nitro/arbos/arbostypes"
+	"github.com/tenderly/nitro/arbstate"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/ethdb"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/node"
 )
 
 type StatelessBlockValidator struct {

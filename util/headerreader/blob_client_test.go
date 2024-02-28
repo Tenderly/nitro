@@ -11,8 +11,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/offchainlabs/nitro/util/testhelpers"
 	"github.com/r3labs/diff/v3"
+	"github.com/tenderly/nitro/util/testhelpers"
 )
 
 func TestSaveBlobsToDisk(t *testing.T) {

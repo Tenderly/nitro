@@ -7,9 +7,9 @@ import (
 	"errors"
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/node"
 	flag "github.com/spf13/pflag"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/node"
 )
 
 type ConfConfig struct {

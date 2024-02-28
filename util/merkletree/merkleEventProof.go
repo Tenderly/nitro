@@ -4,8 +4,8 @@
 package merkletree
 
 import (
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/offchainlabs/nitro/arbos/merkleAccumulator"
+	"github.com/tenderly/nitro/arbos/merkleAccumulator"
+	"github.com/tenderly/nitro/go-ethereum/common"
 )
 
 func NewMerkleTreeFromAccumulator(acc *merkleAccumulator.MerkleAccumulator) (MerkleTree, error) {

@@ -5,11 +5,11 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/offchainlabs/nitro/arbnode"
-	blocksreexecutor "github.com/offchainlabs/nitro/blocks_reexecutor"
-	"github.com/offchainlabs/nitro/execution/gethexec"
+	"github.com/tenderly/nitro/arbnode"
+	blocksreexecutor "github.com/tenderly/nitro/blocks_reexecutor"
+	"github.com/tenderly/nitro/execution/gethexec"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/params"
 )
 
 func TestBlocksReExecutorModes(t *testing.T) {

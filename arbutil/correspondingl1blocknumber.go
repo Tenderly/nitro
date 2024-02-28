@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
 )
 
 func ParentHeaderToL1BlockNumber(header *types.Header) uint64 {

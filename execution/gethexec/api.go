@@ -13,14 +13,14 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ethereum/go-ethereum/arbitrum"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/rpc"
-	"github.com/offchainlabs/nitro/arbos/arbosState"
-	"github.com/offchainlabs/nitro/arbos/retryables"
-	"github.com/offchainlabs/nitro/util/arbmath"
+	"github.com/tenderly/nitro/arbos/arbosState"
+	"github.com/tenderly/nitro/arbos/retryables"
+	"github.com/tenderly/nitro/go-ethereum/arbitrum"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/rpc"
+	"github.com/tenderly/nitro/util/arbmath"
 )
 
 type ArbAPI struct {

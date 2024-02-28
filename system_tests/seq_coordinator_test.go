@@ -13,14 +13,14 @@ import (
 
 	"github.com/go-redis/redis/v8"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/common"
 
-	"github.com/offchainlabs/nitro/arbnode"
-	"github.com/offchainlabs/nitro/arbos/arbostypes"
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/execution"
-	"github.com/offchainlabs/nitro/execution/gethexec"
-	"github.com/offchainlabs/nitro/util/redisutil"
+	"github.com/tenderly/nitro/arbnode"
+	"github.com/tenderly/nitro/arbos/arbostypes"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/execution"
+	"github.com/tenderly/nitro/execution/gethexec"
+	"github.com/tenderly/nitro/util/redisutil"
 )
 
 func initRedisForTest(t *testing.T, ctx context.Context, redisUrl string, nodeNames []string) {

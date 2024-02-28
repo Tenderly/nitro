@@ -13,15 +13,15 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/broadcaster/backlog"
-	m "github.com/offchainlabs/nitro/broadcaster/message"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/broadcaster/backlog"
+	m "github.com/tenderly/nitro/broadcaster/message"
+	"github.com/tenderly/nitro/go-ethereum/log"
 
 	"github.com/gobwas/ws"
 	"github.com/gobwas/ws/wsflate"
 	"github.com/mailru/easygo/netpoll"
-	"github.com/offchainlabs/nitro/util/stopwaiter"
+	"github.com/tenderly/nitro/util/stopwaiter"
 )
 
 var errContextDone = errors.New("context done")

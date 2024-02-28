@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/offchainlabs/nitro/cmd/ipfshelper"
+	"github.com/tenderly/nitro/cmd/ipfshelper"
+	"github.com/tenderly/nitro/go-ethereum/log"
 )
 
 func GetL2ChainInfoIpfsFile(ctx context.Context, l2ChainInfoIpfsUrl string, l2ChainInfoIpfsDownloadPath string) (string, error) {

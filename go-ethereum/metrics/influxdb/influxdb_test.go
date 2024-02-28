@@ -26,9 +26,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/metrics"
-	"github.com/ethereum/go-ethereum/metrics/internal"
 	influxdb2 "github.com/influxdata/influxdb-client-go/v2"
+	"github.com/tenderly/nitro/go-ethereum/metrics"
+	"github.com/tenderly/nitro/go-ethereum/metrics/internal"
 )
 
 func TestMain(m *testing.M) {

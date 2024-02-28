@@ -15,10 +15,10 @@ import (
 	"time"
 
 	"github.com/alicebob/miniredis/v2"
-	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/offchainlabs/nitro/arbnode"
-	"github.com/offchainlabs/nitro/execution/gethexec"
-	"github.com/offchainlabs/nitro/util/redisutil"
+	"github.com/tenderly/nitro/arbnode"
+	"github.com/tenderly/nitro/execution/gethexec"
+	"github.com/tenderly/nitro/go-ethereum/ethclient"
+	"github.com/tenderly/nitro/util/redisutil"
 )
 
 var transferAmount = big.NewInt(1e12) // amount of ether to use for transactions in tests

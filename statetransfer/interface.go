@@ -6,7 +6,7 @@ package statetransfer
 import (
 	"errors"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/common"
 )
 
 var errNoMore = errors.New("no more elements")
