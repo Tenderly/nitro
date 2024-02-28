@@ -480,7 +480,7 @@ func (n NodeInterface) GasEstimateL1Component(
 	args.Gas = (*hexutil.Uint64)(&randomGas)
 
 	// We set the run mode to eth_call mode here because we want an exact estimate, not a padded estimate
-	msg, err := args.ToMessage(randomGas, n.header, evm.StateDB.(*state.StateDB), core.MessageEthcallMode)
+	msg, err := args.ToMessage(randomGas, n.header, evm.StateDB, core.MessageEthcallMode)
 	if err != nil {
 		return 0, nil, nil, err
 	}
