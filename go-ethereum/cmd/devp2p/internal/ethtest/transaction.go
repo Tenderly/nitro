@@ -26,7 +26,7 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/common"
 	"github.com/tenderly/nitro/go-ethereum/core/types"
 	"github.com/tenderly/nitro/go-ethereum/crypto"
-	"github.com/tenderly/nitro/go-ethereum/internal/utesting"
+	"github.com/tenderly/nitro/go-ethereum/notinternal/utesting"
 	"github.com/tenderly/nitro/go-ethereum/params"
 )
 

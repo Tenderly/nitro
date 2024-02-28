@@ -27,7 +27,7 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/cmd/devp2p/internal/v4test"
 	"github.com/tenderly/nitro/go-ethereum/common"
 	"github.com/tenderly/nitro/go-ethereum/crypto"
-	"github.com/tenderly/nitro/go-ethereum/internal/flags"
+	"github.com/tenderly/nitro/go-ethereum/notinternal/flags"
 	"github.com/tenderly/nitro/go-ethereum/p2p/discover"
 	"github.com/tenderly/nitro/go-ethereum/p2p/enode"
 	"github.com/tenderly/nitro/go-ethereum/params"

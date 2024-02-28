@@ -31,8 +31,8 @@ import (
 	"github.com/golang-jwt/jwt/v4"
 	"github.com/gorilla/websocket"
 	"github.com/stretchr/testify/assert"
-	"github.com/tenderly/nitro/go-ethereum/internal/testlog"
 	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/notinternal/testlog"
 	"github.com/tenderly/nitro/go-ethereum/rpc"
 )
 

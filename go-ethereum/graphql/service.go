@@ -27,8 +27,8 @@ import (
 	"github.com/graph-gophers/graphql-go"
 	gqlErrors "github.com/graph-gophers/graphql-go/errors"
 	"github.com/tenderly/nitro/go-ethereum/eth/filters"
-	"github.com/tenderly/nitro/go-ethereum/internal/ethapi"
 	"github.com/tenderly/nitro/go-ethereum/node"
+	"github.com/tenderly/nitro/go-ethereum/notinternal/ethapi"
 	"github.com/tenderly/nitro/go-ethereum/rpc"
 )
 

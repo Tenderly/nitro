@@ -10,8 +10,8 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/eth/filters"
 	"github.com/tenderly/nitro/go-ethereum/ethdb"
 	"github.com/tenderly/nitro/go-ethereum/event"
-	"github.com/tenderly/nitro/go-ethereum/internal/shutdowncheck"
 	"github.com/tenderly/nitro/go-ethereum/node"
+	"github.com/tenderly/nitro/go-ethereum/notinternal/shutdowncheck"
 )
 
 type Backend struct {

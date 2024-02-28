@@ -30,8 +30,8 @@ import (
 	"time"
 
 	"github.com/tenderly/nitro/go-ethereum/crypto"
-	"github.com/tenderly/nitro/go-ethereum/internal/testlog"
 	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/notinternal/testlog"
 	"github.com/tenderly/nitro/go-ethereum/p2p/enode"
 	"github.com/tenderly/nitro/go-ethereum/p2p/enr"
 	"github.com/tenderly/nitro/go-ethereum/p2p/rlpx"

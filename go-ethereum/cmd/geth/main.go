@@ -33,12 +33,12 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/eth"
 	"github.com/tenderly/nitro/go-ethereum/eth/downloader"
 	"github.com/tenderly/nitro/go-ethereum/ethclient"
-	"github.com/tenderly/nitro/go-ethereum/internal/debug"
-	"github.com/tenderly/nitro/go-ethereum/internal/ethapi"
-	"github.com/tenderly/nitro/go-ethereum/internal/flags"
 	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/tenderly/nitro/go-ethereum/metrics"
 	"github.com/tenderly/nitro/go-ethereum/node"
+	"github.com/tenderly/nitro/go-ethereum/notinternal/debug"
+	"github.com/tenderly/nitro/go-ethereum/notinternal/ethapi"
+	"github.com/tenderly/nitro/go-ethereum/notinternal/flags"
 	"go.uber.org/automaxprocs/maxprocs"
 
 	// Force-load the tracer engines to trigger registration

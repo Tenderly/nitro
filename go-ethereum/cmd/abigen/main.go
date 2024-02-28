@@ -28,8 +28,8 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/cmd/utils"
 	"github.com/tenderly/nitro/go-ethereum/common/compiler"
 	"github.com/tenderly/nitro/go-ethereum/crypto"
-	"github.com/tenderly/nitro/go-ethereum/internal/flags"
 	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/notinternal/flags"
 	"github.com/urfave/cli/v2"
 )
 

@@ -22,8 +22,8 @@ import (
 
 	"github.com/tenderly/nitro/go-ethereum/common"
 	"github.com/tenderly/nitro/go-ethereum/common/hexutil"
-	"github.com/tenderly/nitro/go-ethereum/internal/ethapi"
 	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/notinternal/ethapi"
 	"github.com/tenderly/nitro/go-ethereum/signer/core/apitypes"
 )
 

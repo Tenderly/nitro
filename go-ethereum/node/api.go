@@ -23,8 +23,8 @@ import (
 
 	"github.com/tenderly/nitro/go-ethereum/common/hexutil"
 	"github.com/tenderly/nitro/go-ethereum/crypto"
-	"github.com/tenderly/nitro/go-ethereum/internal/debug"
 	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/notinternal/debug"
 	"github.com/tenderly/nitro/go-ethereum/p2p"
 	"github.com/tenderly/nitro/go-ethereum/p2p/enode"
 	"github.com/tenderly/nitro/go-ethereum/rpc"

@@ -29,10 +29,10 @@ import (
 	"github.com/fjl/memsize/memsizeui"
 	"github.com/mattn/go-colorable"
 	"github.com/mattn/go-isatty"
-	"github.com/tenderly/nitro/go-ethereum/internal/flags"
 	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/tenderly/nitro/go-ethereum/metrics"
 	"github.com/tenderly/nitro/go-ethereum/metrics/exp"
+	"github.com/tenderly/nitro/go-ethereum/notinternal/flags"
 	"github.com/urfave/cli/v2"
 	"gopkg.in/natefinch/lumberjack.v2"
 )

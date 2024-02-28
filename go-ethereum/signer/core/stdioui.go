@@ -19,8 +19,8 @@ package core
 import (
 	"context"
 
-	"github.com/tenderly/nitro/go-ethereum/internal/ethapi"
 	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/notinternal/ethapi"
 	"github.com/tenderly/nitro/go-ethereum/rpc"
 )
 

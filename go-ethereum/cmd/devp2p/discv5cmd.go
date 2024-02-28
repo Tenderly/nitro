@@ -23,7 +23,7 @@ import (
 
 	"github.com/tenderly/nitro/go-ethereum/cmd/devp2p/internal/v5test"
 	"github.com/tenderly/nitro/go-ethereum/common"
-	"github.com/tenderly/nitro/go-ethereum/internal/flags"
+	"github.com/tenderly/nitro/go-ethereum/notinternal/flags"
 	"github.com/tenderly/nitro/go-ethereum/p2p/discover"
 	"github.com/urfave/cli/v2"
 )

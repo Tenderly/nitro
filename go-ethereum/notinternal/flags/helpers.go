@@ -24,8 +24,8 @@ import (
 	"strings"
 
 	"github.com/mattn/go-isatty"
-	"github.com/tenderly/nitro/go-ethereum/internal/version"
 	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/notinternal/version"
 	"github.com/tenderly/nitro/go-ethereum/params"
 	"github.com/urfave/cli/v2"
 )
