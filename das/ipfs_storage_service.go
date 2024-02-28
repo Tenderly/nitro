@@ -22,7 +22,6 @@ import (
 	"github.com/multiformats/go-multihash"
 	flag "github.com/spf13/pflag"
 	"github.com/tenderly/nitro/arbstate"
-	"github.com/tenderly/nitro/cmd/ipfshelper"
 	"github.com/tenderly/nitro/das/dastree"
 	"github.com/tenderly/nitro/go-ethereum/common"
 	"github.com/tenderly/nitro/go-ethereum/log"
@@ -63,26 +62,13 @@ func IpfsStorageServiceConfigAddOptions(prefix string, f *flag.FlagSet) {
 }
 
 type IpfsStorageService struct {
-	config     IpfsStorageServiceConfig
-	ipfsHelper *ipfshelper.IpfsHelper
-	ipfsApi    coreiface.CoreAPI
+	config  IpfsStorageServiceConfig
+	ipfsApi coreiface.CoreAPI
 }
 
 func NewIpfsStorageService(ctx context.Context, config IpfsStorageServiceConfig) (*IpfsStorageService, error) {
-	ipfsHelper, err := ipfshelper.CreateIpfsHelper(ctx, config.RepoDir, false, config.Peers, config.Profiles)
-	if err != nil {
-		return nil, err
-	}
-	addrs, err := ipfsHelper.GetPeerHostAddresses()
-	if err != nil {
-		return nil, err
-	}
-	log.Info("IPFS node started up", "hostAddresses", addrs)
-
 	return &IpfsStorageService{
-		config:     config,
-		ipfsHelper: ipfsHelper,
-		ipfsApi:    ipfsHelper.GetAPI(),
+		config: config,
 	}, nil
 }
 
@@ -228,7 +214,7 @@ func (s *IpfsStorageService) Sync(ctx context.Context) error {
 }
 
 func (s *IpfsStorageService) Close(ctx context.Context) error {
-	return s.ipfsHelper.Close()
+	return nil
 }
 
 func (s *IpfsStorageService) String() string {

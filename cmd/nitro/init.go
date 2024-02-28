@@ -32,7 +32,6 @@ import (
 	"github.com/tenderly/nitro/arbutil"
 	"github.com/tenderly/nitro/cmd/chaininfo"
 	"github.com/tenderly/nitro/cmd/conf"
-	"github.com/tenderly/nitro/cmd/ipfshelper"
 	"github.com/tenderly/nitro/cmd/pruning"
 	"github.com/tenderly/nitro/cmd/staterecovery"
 	"github.com/tenderly/nitro/cmd/util"
@@ -47,25 +46,6 @@ func downloadInit(ctx context.Context, initConfig *conf.InitConfig) (string, err
 	}
 	if strings.HasPrefix(initConfig.Url, "file:") {
 		return initConfig.Url[5:], nil
-	}
-	if ipfshelper.CanBeIpfsPath(initConfig.Url) {
-		ipfsNode, err := ipfshelper.CreateIpfsHelper(ctx, initConfig.DownloadPath, false, []string{}, ipfshelper.DefaultIpfsProfiles)
-		if err != nil {
-			return "", err
-		}
-		log.Info("Downloading initial database via IPFS", "url", initConfig.Url)
-		initFile, downloadErr := ipfsNode.DownloadFile(ctx, initConfig.Url, initConfig.DownloadPath)
-		closeErr := ipfsNode.Close()
-		if downloadErr != nil {
-			if closeErr != nil {
-				log.Error("Failed to close IPFS node after download error", "err", closeErr)
-			}
-			return "", fmt.Errorf("Failed to download file from IPFS: %w", downloadErr)
-		}
-		if closeErr != nil {
-			return "", fmt.Errorf("Failed to close IPFS node: %w", err)
-		}
-		return initFile, nil
 	}
 	grabclient := grab.NewClient()
 	log.Info("Downloading initial database", "url", initConfig.Url)
