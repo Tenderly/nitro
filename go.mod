@@ -343,6 +343,7 @@ require (
 	github.com/cespare/cp v0.1.0
 	github.com/cloudflare/cloudflare-go v0.79.0
 	github.com/docker/docker v24.0.5+incompatible
+	github.com/ethereum/go-ethereum v1.13.10
 	github.com/fatih/color v1.13.0
 	github.com/fjl/gencodec v0.0.0-20230517082657-f9840df7b83e
 	github.com/google/gofuzz v1.2.0
@@ -363,9 +364,13 @@ require (
 require (
 	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.7.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/internal v1.3.0 // indirect
+	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.17.3 // indirect
 	github.com/deepmap/oapi-codegen v1.6.0 // indirect
-	github.com/ethereum/go-ethereum v1.13.10 // indirect
 	github.com/garslo/gogen v0.0.0-20170306192744-1d203ffc1f61 // indirect
+	github.com/goccy/go-json v0.10.2 // indirect
+	github.com/google/go-querystring v1.1.0 // indirect
+	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
+	github.com/hashicorp/go-retryablehttp v0.7.4 // indirect
 	github.com/influxdata/line-protocol v0.0.0-20200327222509-2487e7298839 // indirect
 	github.com/juju/loggo v0.0.0-20180524022052-584905176618 // indirect
 	github.com/kilic/bls12-381 v0.1.0 // indirect
