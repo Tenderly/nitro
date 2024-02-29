@@ -5,14 +5,12 @@ package server_arb
 
 /*
 #cgo CFLAGS: -g -Wall -I../../target/include/
-#include "arbitrator.h"
 #include <stdlib.h>
 */
 import "C"
 import (
 	"context"
 	"errors"
-	"fmt"
 	"os"
 	"path/filepath"
 	"unsafe"
@@ -27,20 +25,8 @@ func createArbMachine(ctx context.Context, locator *server_common.MachineLocator
 	cBinPath := C.CString(binPath)
 	defer C.free(unsafe.Pointer(cBinPath))
 	log.Info("creating nitro machine", "binpath", binPath)
-	baseMachine := C.arbitrator_load_wavm_binary(cBinPath)
-	if baseMachine == nil {
-		return nil, errors.New("failed to load base machine")
-	}
-	machine := machineFromPointer(baseMachine)
-	machineModuleRoot := machine.GetModuleRoot()
-	if machineModuleRoot != moduleRoot {
-		return nil, fmt.Errorf("attempting to load module root %v got machine with module root %v", moduleRoot, machineModuleRoot)
-	}
-	result := &arbMachines{
-		zeroStep: machine,
-	}
+	result := &arbMachines{}
 	result.zeroStep.Freeze()
-	machine = result.zeroStep.Clone()
 
 	// We try to store/load state before first host_io to a file.
 	// We will chicken out of that if something fails, but still try to calculate the machine
@@ -49,30 +35,12 @@ func createArbMachine(ctx context.Context, locator *server_common.MachineLocator
 	if err == nil {
 		log.Info("found cached machine until host io state", "moduleRoot", moduleRoot)
 
-		err := machine.DeserializeAndReplaceState(statePath)
-		if err != nil {
-			// Safe as if DeserializeAndReplaceState returns an error it will not have mutated the machine
-			log.Warn("failed to load machine until host io state; will reexecute", "err", err)
-		} else {
-			result.hostIo = machine
-			result.hostIo.Freeze()
-			return result, nil
-		}
 	} else if errors.Is(err, os.ErrNotExist) {
 		log.Info("didn't find cached machine until host io state", "path", statePath)
 	} else {
 		log.Warn("error checking if machine until host io state is cached", "path", statePath, "err", err)
 	}
 
-	if err := machine.StepUntilHostIo(ctx); err != nil {
-		return nil, err
-	}
-
-	if machine.IsErrored() {
-		return nil, errors.New("machine entered errored state while caching execution up to host io")
-	}
-
-	result.hostIo = machine
 	result.hostIo.Freeze()
 	return result, nil
 }
