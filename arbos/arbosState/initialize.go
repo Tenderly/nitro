@@ -5,6 +5,7 @@ package arbosState
 
 import (
 	"errors"
+	"github.com/tenderly/nitro/go-ethereum/core/vm"
 	"math/big"
 	"sort"
 
@@ -48,6 +49,104 @@ func MakeGenesisBlock(parentHash common.Hash, blockNumber uint64, timestamp uint
 	genesisHeaderInfo.UpdateHeaderWithInfo(head)
 
 	return types.NewBlock(head, nil, nil, nil, trie.NewStackTrie(nil))
+}
+
+func InitializeArbosInStatedb(statedb vm.StateDB, initData statetransfer.InitDataReader, chainConfig *params.ChainConfig, initMessage *arbostypes.ParsedInitMessage, timestamp uint64, accountsPerSync uint) (common.Hash, error) {
+
+	commit := func() (common.Hash, error) {
+		return common.Hash{}, nil
+	}
+
+	burner := burn.NewSystemBurner(nil, false)
+	arbosState, err := InitializeArbosState(statedb, burner, chainConfig, initMessage)
+	if err != nil {
+		log.Crit("failed to open the ArbOS state", "error", err)
+	}
+
+	addrTable := arbosState.AddressTable()
+	addrTableSize, err := addrTable.Size()
+	if err != nil {
+		return common.Hash{}, err
+	}
+	if addrTableSize != 0 {
+		return common.Hash{}, errors.New("address table must be empty")
+	}
+	addressReader, err := initData.GetAddressTableReader()
+	if err != nil {
+		return common.Hash{}, err
+	}
+	for i := 0; addressReader.More(); i++ {
+		addr, err := addressReader.GetNext()
+		if err != nil {
+			return common.Hash{}, err
+		}
+		slot, err := addrTable.Register(*addr)
+		if err != nil {
+			return common.Hash{}, err
+		}
+		if uint64(i) != slot {
+			return common.Hash{}, errors.New("address table slot mismatch")
+		}
+	}
+	if err := addressReader.Close(); err != nil {
+		return common.Hash{}, err
+	}
+
+	log.Info("addresss table import complete")
+
+	retryableReader, err := initData.GetRetryableDataReader()
+	if err != nil {
+		return common.Hash{}, err
+	}
+	err = initializeRetryables(statedb, arbosState.RetryableState(), retryableReader, timestamp)
+	if err != nil {
+		return common.Hash{}, err
+	}
+
+	log.Info("retryables import complete")
+
+	if accountsPerSync > 0 {
+		_, err := commit()
+		if err != nil {
+			return common.Hash{}, err
+		}
+	}
+
+	accountDataReader, err := initData.GetAccountDataReader()
+	if err != nil {
+		return common.Hash{}, err
+	}
+	accountsRead := uint(0)
+	for accountDataReader.More() {
+		account, err := accountDataReader.GetNext()
+		if err != nil {
+			return common.Hash{}, err
+		}
+		err = initializeArbosAccount(statedb, arbosState, *account)
+		if err != nil {
+			return common.Hash{}, err
+		}
+		statedb.SetBalance(account.Addr, account.EthBalance)
+		statedb.SetNonce(account.Addr, account.Nonce)
+		if account.ContractInfo != nil {
+			statedb.SetCode(account.Addr, account.ContractInfo.Code)
+			for k, v := range account.ContractInfo.ContractStorage {
+				statedb.SetState(account.Addr, k, v)
+			}
+		}
+		accountsRead++
+		if accountsPerSync > 0 && (accountsRead%accountsPerSync == 0) {
+			log.Info("imported accounts", "count", accountsRead)
+			_, err := commit()
+			if err != nil {
+				return common.Hash{}, err
+			}
+		}
+	}
+	if err := accountDataReader.Close(); err != nil {
+		return common.Hash{}, err
+	}
+	return commit()
 }
 
 func InitializeArbosInDatabase(db ethdb.Database, initData statetransfer.InitDataReader, chainConfig *params.ChainConfig, initMessage *arbostypes.ParsedInitMessage, timestamp uint64, accountsPerSync uint) (common.Hash, error) {
@@ -165,7 +264,7 @@ func InitializeArbosInDatabase(db ethdb.Database, initData statetransfer.InitDat
 	return commit()
 }
 
-func initializeRetryables(statedb *state.StateDB, rs *retryables.RetryableState, initData statetransfer.RetryableDataReader, currentTimestamp uint64) error {
+func initializeRetryables(statedb vm.StateDB, rs *retryables.RetryableState, initData statetransfer.RetryableDataReader, currentTimestamp uint64) error {
 	var retryablesList []*statetransfer.InitializationDataForRetryable
 	for initData.More() {
 		r, err := initData.GetNext()
@@ -201,7 +300,7 @@ func initializeRetryables(statedb *state.StateDB, rs *retryables.RetryableState,
 	return initData.Close()
 }
 
-func initializeArbosAccount(_ *state.StateDB, arbosState *ArbosState, account statetransfer.AccountInitializationInfo) error {
+func initializeArbosAccount(_ vm.StateDB, arbosState *ArbosState, account statetransfer.AccountInitializationInfo) error {
 	l1pState := arbosState.L1PricingState()
 	posterTable := l1pState.BatchPosterTable()
 	if account.AggregatorInfo != nil {
