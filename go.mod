@@ -33,7 +33,6 @@ require (
 	github.com/dop251/goja v0.0.0-20230806174421-c933cf95e127
 	github.com/enescakir/emoji v1.0.0
 	github.com/ethereum/c-kzg-4844 v0.4.0
-	github.com/ethereum/go-ethereum v1.10.26
 	github.com/fatih/color v1.7.0
 	github.com/fatih/structtag v1.2.0
 	github.com/fjl/gencodec v0.0.0-20220412091415-8bb9e558978c
