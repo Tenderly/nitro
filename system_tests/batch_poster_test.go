@@ -14,17 +14,17 @@ import (
 	"time"
 
 	"github.com/andybalholm/brotli"
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/accounts/abi"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/log"
 
-	"github.com/offchainlabs/nitro/arbnode"
-	"github.com/offchainlabs/nitro/arbnode/dataposter"
-	"github.com/offchainlabs/nitro/arbnode/dataposter/externalsignertest"
-	"github.com/offchainlabs/nitro/solgen/go/bridgegen"
-	"github.com/offchainlabs/nitro/solgen/go/upgrade_executorgen"
-	"github.com/offchainlabs/nitro/util/redisutil"
+	"github.com/tenderly/nitro/arbnode"
+	"github.com/tenderly/nitro/arbnode/dataposter"
+	"github.com/tenderly/nitro/arbnode/dataposter/externalsignertest"
+	"github.com/tenderly/nitro/solgen/go/bridgegen"
+	"github.com/tenderly/nitro/solgen/go/upgrade_executorgen"
+	"github.com/tenderly/nitro/util/redisutil"
 )
 
 func TestBatchPosterParallel(t *testing.T) {

@@ -6,7 +6,7 @@ package programs
 import (
 	"math"
 
-	"github.com/offchainlabs/nitro/util/arbmath"
+	"github.com/tenderly/nitro/util/arbmath"
 )
 
 type MemoryModel struct {

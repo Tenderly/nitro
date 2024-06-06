@@ -12,8 +12,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/offchainlabs/nitro/solgen/go/mocksgen"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/solgen/go/mocksgen"
 )
 
 func TestBenchmarkGas(t *testing.T) {

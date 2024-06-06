@@ -1,8 +1,8 @@
 package validator
 
 import (
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/log"
 )
 
 func SpawnerSupportsModule(spawner ValidationSpawner, requested common.Hash) bool {

@@ -12,9 +12,9 @@ import (
 	"strconv"
 
 	"github.com/cockroachdb/pebble"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/ethdb/memorydb"
-	"github.com/offchainlabs/nitro/arbnode/dataposter/storage"
+	"github.com/tenderly/nitro/go-ethereum/ethdb"
+	"github.com/tenderly/nitro/go-ethereum/ethdb/memorydb"
+	"github.com/tenderly/nitro/arbnode/dataposter/storage"
 	"github.com/syndtr/goleveldb/leveldb"
 )
 

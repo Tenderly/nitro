@@ -1,10 +1,10 @@
-module github.com/offchainlabs/nitro
+module github.com/tenderly/nitro
 
 go 1.21
 
 replace github.com/VictoriaMetrics/fastcache => ./fastcache
 
-replace github.com/ethereum/go-ethereum => ./go-ethereum
+replace github.com/tenderly/nitro/go-ethereum => ./go-ethereum
 
 require (
 	github.com/Knetic/govaluate v3.0.1-0.20171022003610-9aa49832a739+incompatible
@@ -21,7 +21,7 @@ require (
 	github.com/codeclysm/extract/v3 v3.0.2
 	github.com/dgraph-io/badger/v4 v4.2.0
 	github.com/enescakir/emoji v1.0.0
-	github.com/ethereum/go-ethereum v1.10.26
+	github.com/tenderly/nitro/go-ethereum v1.10.26
 	github.com/fatih/structtag v1.2.0
 	github.com/gdamore/tcell/v2 v2.7.1
 	github.com/go-redis/redis/v8 v8.11.5

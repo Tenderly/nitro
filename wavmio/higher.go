@@ -9,8 +9,8 @@ package wavmio
 import (
 	"unsafe"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/offchainlabs/nitro/arbutil"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/arbutil"
 )
 
 const INITIAL_CAPACITY = 128

@@ -5,7 +5,7 @@ package noop
 import (
 	"context"
 
-	"github.com/offchainlabs/nitro/arbnode/dataposter/storage"
+	"github.com/tenderly/nitro/arbnode/dataposter/storage"
 )
 
 // Storage implements noop storage for dataposter. This is for clients that want

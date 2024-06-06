@@ -9,15 +9,15 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/core/vm"
-	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/tenderly/nitro/go-ethereum"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/core/vm"
+	"github.com/tenderly/nitro/go-ethereum/ethclient"
+	"github.com/tenderly/nitro/go-ethereum/params"
 
-	"github.com/offchainlabs/nitro/util/arbmath"
+	"github.com/tenderly/nitro/util/arbmath"
 )
 
 func testContractDeployment(t *testing.T, ctx context.Context, client *ethclient.Client, contractCode []byte, accountInfo *AccountInfo, expectedEstimateGasError error) {

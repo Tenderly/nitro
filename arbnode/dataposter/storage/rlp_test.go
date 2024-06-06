@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/rlp"
 )
 
 func TestTimeEncoding(t *testing.T) {
