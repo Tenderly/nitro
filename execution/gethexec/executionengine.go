@@ -5,7 +5,8 @@ package gethexec
 
 /*
 #cgo CFLAGS: -g -Wall -I../../target/include/
-#cgo LDFLAGS: ${SRCDIR}/../../target/lib/libstylus.a -ldl -lm
+#cgo amd64 LDFLAGS: ${SRCDIR}/../../target/lib/amd64/libstylus.a -ldl -lm
+#cgo arm64 LDFLAGS: ${SRCDIR}/../../target/lib/arm64/libstylus.a -ldl -lm
 #include "arbitrator.h"
 */
 import "C"
@@ -18,18 +19,18 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tenderly/nitro/go-ethereum/core"
-	"github.com/tenderly/nitro/go-ethereum/core/state"
-	"github.com/tenderly/nitro/go-ethereum/core/types"
-	"github.com/tenderly/nitro/go-ethereum/log"
-	"github.com/tenderly/nitro/go-ethereum/metrics"
-	"github.com/tenderly/nitro/go-ethereum/params"
 	"github.com/tenderly/nitro/arbos"
 	"github.com/tenderly/nitro/arbos/arbosState"
 	"github.com/tenderly/nitro/arbos/arbostypes"
 	"github.com/tenderly/nitro/arbos/l1pricing"
 	"github.com/tenderly/nitro/arbutil"
 	"github.com/tenderly/nitro/execution"
+	"github.com/tenderly/nitro/go-ethereum/core"
+	"github.com/tenderly/nitro/go-ethereum/core/state"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/metrics"
+	"github.com/tenderly/nitro/go-ethereum/params"
 	"github.com/tenderly/nitro/util/arbmath"
 	"github.com/tenderly/nitro/util/sharedmetrics"
 	"github.com/tenderly/nitro/util/stopwaiter"

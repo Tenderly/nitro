@@ -8,7 +8,8 @@ package programs
 
 /*
 #cgo CFLAGS: -g -Wall -I../../target/include/
-#cgo LDFLAGS: ${SRCDIR}/../../target/lib/libstylus.a -ldl -lm
+#cgo amd64 LDFLAGS: ${SRCDIR}/../../target/lib/amd64/libstylus.a -ldl -lm
+#cgo arm64 LDFLAGS: ${SRCDIR}/../../target/lib/arm64/libstylus.a -ldl -lm
 #include "arbitrator.h"
 
 typedef uint16_t u16;
@@ -27,10 +28,10 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/tenderly/nitro/go-ethereum/core/vm"
-	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/tenderly/nitro/arbos/util"
 	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/go-ethereum/core/vm"
+	"github.com/tenderly/nitro/go-ethereum/log"
 )
 
 var apiObjects sync.Map

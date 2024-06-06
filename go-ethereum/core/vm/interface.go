@@ -19,11 +19,11 @@ package vm
 import (
 	"math/big"
 
+	"github.com/holiman/uint256"
 	"github.com/tenderly/nitro/go-ethereum/common"
 	"github.com/tenderly/nitro/go-ethereum/core/state"
 	"github.com/tenderly/nitro/go-ethereum/core/types"
 	"github.com/tenderly/nitro/go-ethereum/params"
-	"github.com/holiman/uint256"
 )
 
 // StateDB is an EVM database for full state querying.
@@ -93,7 +93,13 @@ type StateDB interface {
 	// AddSlotToAccessList adds the given (address,slot) to the access list. This operation is safe to perform
 	// even if the feature/fork is not active yet
 	AddSlotToAccessList(addr common.Address, slot common.Hash)
-	Prepare(rules params.Rules, sender, coinbase common.Address, dest *common.Address, precompiles []common.Address, txAccesses types.AccessList)
+	Prepare(
+		rules params.Rules,
+		sender, coinbase common.Address,
+		dest *common.Address,
+		precompiles []common.Address,
+		txAccesses types.AccessList,
+	)
 
 	RevertToSnapshot(int)
 	Snapshot() int
@@ -102,6 +108,10 @@ type StateDB interface {
 	AddPreimage(common.Hash, []byte)
 
 	GetCurrentTxLogs() []*types.Log
+
+	Error() error
+	Copy() *state.StateDB
+	GetStorageRoot(common.Address) common.Hash
 }
 
 // CallContext provides a basic interface for the EVM calling conventions. The EVM
