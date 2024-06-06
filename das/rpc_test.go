@@ -12,9 +12,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/offchainlabs/nitro/blsSignatures"
-	"github.com/offchainlabs/nitro/cmd/genericconf"
-	"github.com/offchainlabs/nitro/util/testhelpers"
+	"github.com/tenderly/nitro/blsSignatures"
+	"github.com/tenderly/nitro/cmd/genericconf"
+	"github.com/tenderly/nitro/util/testhelpers"
 )
 
 func blsPubToBase64(pubkey *blsSignatures.PublicKey) string {

@@ -3,8 +3,8 @@ package arbutil
 import (
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
 )
 
 // PaddedKeccak256 pads each argument to 32 bytes, concatenates and returns

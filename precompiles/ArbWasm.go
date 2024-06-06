@@ -4,10 +4,10 @@
 package precompiles
 
 import (
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/offchainlabs/nitro/arbos/programs"
-	"github.com/offchainlabs/nitro/arbos/util"
-	"github.com/offchainlabs/nitro/util/arbmath"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/arbos/programs"
+	"github.com/tenderly/nitro/arbos/util"
+	"github.com/tenderly/nitro/util/arbmath"
 )
 
 type ArbWasm struct {

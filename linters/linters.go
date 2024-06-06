@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/offchainlabs/nitro/linters/koanf"
-	"github.com/offchainlabs/nitro/linters/pointercheck"
-	"github.com/offchainlabs/nitro/linters/rightshift"
-	"github.com/offchainlabs/nitro/linters/structinit"
+	"github.com/tenderly/nitro/linters/koanf"
+	"github.com/tenderly/nitro/linters/pointercheck"
+	"github.com/tenderly/nitro/linters/rightshift"
+	"github.com/tenderly/nitro/linters/structinit"
 	"golang.org/x/tools/go/analysis/multichecker"
 )
 

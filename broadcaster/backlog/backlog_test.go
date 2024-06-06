@@ -6,10 +6,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/offchainlabs/nitro/arbutil"
-	m "github.com/offchainlabs/nitro/broadcaster/message"
-	"github.com/offchainlabs/nitro/util/arbmath"
-	"github.com/offchainlabs/nitro/util/containers"
+	"github.com/tenderly/nitro/arbutil"
+	m "github.com/tenderly/nitro/broadcaster/message"
+	"github.com/tenderly/nitro/util/arbmath"
+	"github.com/tenderly/nitro/util/containers"
 )
 
 func validateBacklog(t *testing.T, b *backlog, count, start, end uint64, lookupKeys []arbutil.MessageIndex) {

@@ -10,13 +10,13 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/offchainlabs/nitro/arbos/l1pricing"
-	"github.com/offchainlabs/nitro/arbos/programs"
-	"github.com/offchainlabs/nitro/util/arbmath"
-	am "github.com/offchainlabs/nitro/util/arbmath"
+	"github.com/tenderly/nitro/arbos/l1pricing"
+	"github.com/tenderly/nitro/arbos/programs"
+	"github.com/tenderly/nitro/util/arbmath"
+	am "github.com/tenderly/nitro/util/arbmath"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/params"
 )
 
 // ArbOwner precompile provides owners with tools for managing the rollup.
