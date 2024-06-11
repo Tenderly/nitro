@@ -22,14 +22,14 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/tenderly/nitro/arbos/burn"
+	"github.com/tenderly/nitro/arbos/util"
+	"github.com/tenderly/nitro/arbutil"
 	"github.com/tenderly/nitro/go-ethereum/common"
 	"github.com/tenderly/nitro/go-ethereum/core"
 	"github.com/tenderly/nitro/go-ethereum/core/state"
 	"github.com/tenderly/nitro/go-ethereum/core/vm"
 	"github.com/tenderly/nitro/go-ethereum/log"
-	"github.com/tenderly/nitro/arbos/burn"
-	"github.com/tenderly/nitro/arbos/util"
-	"github.com/tenderly/nitro/arbutil"
 )
 
 type u8 = C.uint8_t
@@ -58,6 +58,15 @@ func activateProgram(
 	moduleHash := &bytes32{}
 	stylusData := &C.StylusData{}
 	codeHash := hashToBytes32(codehash)
+
+	fmt.Printf("activateProgram: db: %v\n", db)
+	fmt.Printf("activateProgram: program: %v\n", program)
+	fmt.Printf("activateProgram: wasm: %v\n", len(wasm))
+	fmt.Printf("activateProgram: codehash: %v\n", codehash)
+	fmt.Printf("activateProgram: page_limit: %v\n", page_limit)
+	fmt.Printf("activateProgram: version: %v\n", version)
+	fmt.Printf("activateProgram: debug: %v\n", debug)
+	fmt.Printf("activateProgram: burner: %v\n", burner)
 
 	status := userStatus(C.stylus_activate(
 		goSlice(wasm),
