@@ -60,14 +60,16 @@ func activateProgram(
 	stylusData := &C.StylusData{}
 	codeHash := hashToBytes32(codehash)
 
-	fmt.Printf("activateProgram: db: %v\n", db)
-	fmt.Printf("activateProgram: program: %v\n", program)
-	fmt.Printf("activateProgram: wasm: %v\n", len(wasm))
-	fmt.Printf("activateProgram: codehash: %v\n", codehash)
-	fmt.Printf("activateProgram: page_limit: %v\n", page_limit)
-	fmt.Printf("activateProgram: version: %v\n", version)
-	fmt.Printf("activateProgram: debug: %v\n", debug)
-	fmt.Printf("activateProgram: burner: %v\n", burner)
+	fmt.Printf("activateProgram: arg = %v", goSlice(wasm))
+	fmt.Printf("activateProgram: arg = %v", u16(page_limit))
+	fmt.Printf("activateProgram: arg = %v", u16(version))
+	fmt.Printf("activateProgram: arg = %v", cbool(debug))
+	fmt.Printf("activateProgram: arg = %v", output)
+	fmt.Printf("activateProgram: arg = %v", &asmLen)
+	fmt.Printf("activateProgram: arg = %v", &codeHash)
+	fmt.Printf("activateProgram: arg = %v", moduleHash)
+	fmt.Printf("activateProgram: arg = %v", stylusData)
+	fmt.Printf("activateProgram: arg = %v", (*u64)(burner.GasLeft()))
 
 	status := userStatus(C.stylus_activate(
 		goSlice(wasm),
