@@ -8,7 +8,8 @@ package arbcompress
 
 /*
 #cgo CFLAGS: -g -Wall -I${SRCDIR}/../target/include/
-#cgo LDFLAGS: ${SRCDIR}/../target/lib/libstylus.a -lm
+#cgo arm64 LDFLAGS: ${SRCDIR}/../target/lib/arm64/libstylus.a -lm
+#cgo amd64 LDFLAGS: ${SRCDIR}/../target/lib/amd64/libstylus.a -lm
 #include "arbitrator.h"
 */
 import "C"
