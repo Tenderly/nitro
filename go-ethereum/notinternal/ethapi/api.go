@@ -1197,7 +1197,7 @@ func doCall(
 	ctx context.Context,
 	b Backend,
 	args TransactionArgs,
-	state vm.StateDB,
+	state *state.StateDB,
 	header *types.Header,
 	overrides *StateOverride,
 	blockOverrides *BlockOverrides,
@@ -1350,13 +1350,13 @@ func DoCall(
 		time.Now(),
 	)
 
-	state, header, err := b.StateAndHeaderByNumberOrHash(ctx, blockNrOrHash)
-	if state == nil || err != nil {
+	s, header, err := b.StateAndHeaderByNumberOrHash(ctx, blockNrOrHash)
+	if s == nil || err != nil {
 		return nil, err
 	}
 	header = updateHeaderForPendingBlocks(blockNrOrHash, header)
 
-	return doCall(ctx, b, args, state, header, overrides, blockOverrides, timeout, globalGasCap, runMode)
+	return doCall(ctx, b, args, s.(*state.StateDB), header, overrides, blockOverrides, timeout, globalGasCap, runMode)
 }
 
 // Call executes the given transaction on the state for the given block number.
@@ -1414,12 +1414,12 @@ func DoEstimateGas(
 	overrides *StateOverride,
 	gasCap uint64,
 ) (hexutil.Uint64, error) {
-	// Retrieve the base state and mutate it with any overrides
-	state, header, err := b.StateAndHeaderByNumberOrHash(ctx, blockNrOrHash)
-	if state == nil || err != nil {
+	// Retrieve the base s and mutate it with any overrides
+	s, header, err := b.StateAndHeaderByNumberOrHash(ctx, blockNrOrHash)
+	if s == nil || err != nil {
 		return 0, err
 	}
-	if err = overrides.Apply(state); err != nil {
+	if err = overrides.Apply(s.(*state.StateDB)); err != nil {
 		return 0, err
 	}
 	header = updateHeaderForPendingBlocks(blockNrOrHash, header)
@@ -1429,25 +1429,25 @@ func DoEstimateGas(
 		Config:           b.ChainConfig(),
 		Chain:            NewChainContext(ctx, b),
 		Header:           header,
-		State:            state,
+		State:            s.(*state.StateDB),
 		Backend:          b,
 		ErrorRatio:       gasestimator.EstimateGasErrorRatio,
 		RunScheduledTxes: runScheduledTxes,
 	}
 	// Run the gas estimation andwrap any revertals into a custom return
 	// Arbitrum: this also appropriately recursively calls another args.ToMessage with increased gasCap by posterCostInL2Gas amount
-	call, err := args.ToMessage(gasCap, header, state, core.MessageGasEstimationMode)
+	call, err := args.ToMessage(gasCap, header, s.(*state.StateDB), core.MessageGasEstimationMode)
 	if err != nil {
 		return 0, err
 	}
 
 	// Arbitrum: raise the gas cap to ignore L1 costs so that it's compute-only
 	{
-		state, header, err := b.StateAndHeaderByNumberOrHash(ctx, blockNrOrHash)
-		if state == nil || err != nil {
+		s, header, err := b.StateAndHeaderByNumberOrHash(ctx, blockNrOrHash)
+		if s == nil || err != nil {
 			return 0, err
 		}
-		gasCap, err = args.L2OnlyGasCap(gasCap, header, state, core.MessageGasEstimationMode)
+		gasCap, err = args.L2OnlyGasCap(gasCap, header, s.(*state.StateDB), core.MessageGasEstimationMode)
 		if err != nil {
 			return 0, err
 		}
@@ -1938,7 +1938,7 @@ func AccessList(
 		log.Trace("Creating access list", "input", accessList)
 
 		// Copy the original db so we don't modify it
-		statedb := db.Copy()
+		statedb := db.(*state.StateDB).Copy()
 		// Set the accesslist to the last al
 		args.AccessList = &accessList
 		msg, err := args.ToMessage(b.RPCGasCap(), header, statedb, core.MessageEthcallMode)
