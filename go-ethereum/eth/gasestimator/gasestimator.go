@@ -25,7 +25,6 @@ import (
 
 	"github.com/tenderly/nitro/go-ethereum/common"
 	"github.com/tenderly/nitro/go-ethereum/core"
-	"github.com/tenderly/nitro/go-ethereum/core/state"
 	"github.com/tenderly/nitro/go-ethereum/core/types"
 	"github.com/tenderly/nitro/go-ethereum/core/vm"
 	"github.com/tenderly/nitro/go-ethereum/log"
@@ -45,9 +44,9 @@ type Options struct {
 	Config           *params.ChainConfig // Chain configuration for hard fork selection
 	Chain            core.ChainContext   // Chain context to access past block hashes
 	Header           *types.Header       // Header defining the block context to execute in
-	State            *state.StateDB      // Pre-state on top of which to estimate the gas
+	State            vm.StateDB          // Pre-state on top of which to estimate the gas
 	Backend          core.NodeInterfaceBackendAPI
-	RunScheduledTxes func(context.Context, core.NodeInterfaceBackendAPI, *state.StateDB, *types.Header, vm.BlockContext, core.MessageRunMode, *core.ExecutionResult) (*core.ExecutionResult, error)
+	RunScheduledTxes func(context.Context, core.NodeInterfaceBackendAPI, vm.StateDB, *types.Header, vm.BlockContext, core.MessageRunMode, *core.ExecutionResult) (*core.ExecutionResult, error)
 
 	ErrorRatio float64 // Allowed overestimation ratio for faster estimation termination
 }

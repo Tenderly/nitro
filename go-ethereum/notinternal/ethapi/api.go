@@ -1075,7 +1075,7 @@ type OverrideAccount struct {
 type StateOverride map[common.Address]OverrideAccount
 
 // Apply overrides the fields of specified accounts into the given state.
-func (diff *StateOverride) Apply(state *state.StateDB) error {
+func (diff *StateOverride) Apply(state vm.StateDB) error {
 	if diff == nil {
 		return nil
 	}
@@ -1200,7 +1200,7 @@ func doCall(
 	ctx context.Context,
 	b Backend,
 	args TransactionArgs,
-	state *state.StateDB,
+	state vm.StateDB,
 	header *types.Header,
 	overrides *StateOverride,
 	blockOverrides *BlockOverrides,
@@ -1277,7 +1277,7 @@ func doCall(
 func runScheduledTxes(
 	ctx context.Context,
 	b core.NodeInterfaceBackendAPI,
-	state *state.StateDB,
+	state vm.StateDB,
 	header *types.Header,
 	blockCtx vm.BlockContext,
 	runMode core.MessageRunMode,
@@ -1367,7 +1367,7 @@ func DoCall(
 		ctx,
 		b,
 		args,
-		s.(*state.StateDB),
+		s,
 		header,
 		overrides,
 		blockOverrides,
@@ -1437,7 +1437,7 @@ func DoEstimateGas(
 	if s == nil || err != nil {
 		return 0, err
 	}
-	if err = overrides.Apply(s.(*state.StateDB)); err != nil {
+	if err = overrides.Apply(s); err != nil {
 		return 0, err
 	}
 	header = updateHeaderForPendingBlocks(blockNrOrHash, header)
@@ -1447,14 +1447,14 @@ func DoEstimateGas(
 		Config:           b.ChainConfig(),
 		Chain:            NewChainContext(ctx, b),
 		Header:           header,
-		State:            s.(*state.StateDB),
+		State:            s,
 		Backend:          b,
 		ErrorRatio:       gasestimator.EstimateGasErrorRatio,
 		RunScheduledTxes: runScheduledTxes,
 	}
 	// Run the gas estimation andwrap any revertals into a custom return
 	// Arbitrum: this also appropriately recursively calls another args.ToMessage with increased gasCap by posterCostInL2Gas amount
-	call, err := args.ToMessage(gasCap, header, s.(*state.StateDB), core.MessageGasEstimationMode)
+	call, err := args.ToMessage(gasCap, header, s, core.MessageGasEstimationMode)
 	if err != nil {
 		return 0, err
 	}
@@ -1465,7 +1465,7 @@ func DoEstimateGas(
 		if s == nil || err != nil {
 			return 0, err
 		}
-		gasCap, err = args.L2OnlyGasCap(gasCap, header, s.(*state.StateDB), core.MessageGasEstimationMode)
+		gasCap, err = args.L2OnlyGasCap(gasCap, header, s, core.MessageGasEstimationMode)
 		if err != nil {
 			return 0, err
 		}

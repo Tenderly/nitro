@@ -24,18 +24,18 @@ import (
 	"fmt"
 	"math/big"
 
+	"github.com/holiman/uint256"
 	"github.com/tenderly/nitro/go-ethereum/common"
 	"github.com/tenderly/nitro/go-ethereum/common/hexutil"
 	"github.com/tenderly/nitro/go-ethereum/common/math"
 	"github.com/tenderly/nitro/go-ethereum/consensus/misc/eip4844"
 	"github.com/tenderly/nitro/go-ethereum/core"
-	"github.com/tenderly/nitro/go-ethereum/core/state"
 	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/core/vm"
 	"github.com/tenderly/nitro/go-ethereum/crypto/kzg4844"
 	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/tenderly/nitro/go-ethereum/params"
 	"github.com/tenderly/nitro/go-ethereum/rpc"
-	"github.com/holiman/uint256"
 )
 
 var (
@@ -362,7 +362,7 @@ func (args *TransactionArgs) setBlobTxSidecar(ctx context.Context, b Backend) er
 // ToMessage converts the transaction arguments to the Message type used by the
 // core evm. This method is used in calls and traces that do not require a real
 // live transaction.
-func (args *TransactionArgs) ToMessage(globalGasCap uint64, header *types.Header, state *state.StateDB, runMode core.MessageRunMode) (*core.Message, error) {
+func (args *TransactionArgs) ToMessage(globalGasCap uint64, header *types.Header, state vm.StateDB, runMode core.MessageRunMode) (*core.Message, error) {
 	baseFee := header.BaseFee
 	// Reject invalid combinations of pre- and post-1559 fee styles
 	if args.GasPrice != nil && (args.MaxFeePerGas != nil || args.MaxPriorityFeePerGas != nil) {
@@ -467,7 +467,7 @@ func (args *TransactionArgs) ToMessage(globalGasCap uint64, header *types.Header
 
 // Raises the vanilla gas cap by the tx's l1 data costs in l2 terms. This creates a new gas cap that after
 // data payments are made, equals the original vanilla cap for the remaining, L2-specific work the tx does.
-func (args *TransactionArgs) L2OnlyGasCap(gasCap uint64, header *types.Header, state *state.StateDB, runMode core.MessageRunMode) (uint64, error) {
+func (args *TransactionArgs) L2OnlyGasCap(gasCap uint64, header *types.Header, state vm.StateDB, runMode core.MessageRunMode) (uint64, error) {
 	msg, err := args.ToMessage(gasCap, header, nil, runMode)
 	if err != nil {
 		return 0, err

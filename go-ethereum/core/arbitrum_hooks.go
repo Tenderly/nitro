@@ -34,7 +34,7 @@ var ReadyEVMForL2 func(evm *vm.EVM, msg *Message)
 var InterceptRPCMessage = func(
 	msg *Message,
 	ctx context.Context,
-	statedb *state.StateDB,
+	statedb vm.StateDB,
 	header *types.Header,
 	backend NodeInterfaceBackendAPI,
 	blockCtx *vm.BlockContext,
@@ -46,7 +46,7 @@ var InterceptRPCMessage = func(
 var GetArbOSSpeedLimitPerSecond func(statedb *state.StateDB) (uint64, error)
 
 // Allows ArbOS to update the gas cap so that it ignores the message's specific L1 poster costs.
-var InterceptRPCGasCap = func(gascap *uint64, msg *Message, header *types.Header, statedb *state.StateDB) {}
+var InterceptRPCGasCap = func(gascap *uint64, msg *Message, header *types.Header, statedb vm.StateDB) {}
 
 // Renders a solidity error in human-readable form
 var RenderRPCError func(data []byte) error
