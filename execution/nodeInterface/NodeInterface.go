@@ -10,6 +10,11 @@ import (
 	"math/big"
 	"sort"
 
+	"github.com/tenderly/nitro/arbos"
+	"github.com/tenderly/nitro/arbos/l1pricing"
+	"github.com/tenderly/nitro/arbos/retryables"
+	"github.com/tenderly/nitro/arbos/util"
+	"github.com/tenderly/nitro/arbutil"
 	"github.com/tenderly/nitro/go-ethereum/accounts/abi/bind"
 	"github.com/tenderly/nitro/go-ethereum/arbitrum"
 	"github.com/tenderly/nitro/go-ethereum/common"
@@ -20,11 +25,6 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/crypto"
 	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/tenderly/nitro/go-ethereum/rpc"
-	"github.com/tenderly/nitro/arbos"
-	"github.com/tenderly/nitro/arbos/l1pricing"
-	"github.com/tenderly/nitro/arbos/retryables"
-	"github.com/tenderly/nitro/arbos/util"
-	"github.com/tenderly/nitro/arbutil"
 	"github.com/tenderly/nitro/solgen/go/node_interfacegen"
 	"github.com/tenderly/nitro/util/arbmath"
 	"github.com/tenderly/nitro/util/merkletree"
@@ -138,24 +138,36 @@ func (n NodeInterface) GetL1Confirmations(c ctx, evm mech, blockHash bytes32) (u
 
 	if node.ParentChainReader.IsParentChainArbitrum() {
 		parentChainClient := node.ParentChainReader.Client()
-		parentNodeInterface, err := node_interfacegen.NewNodeInterface(types.NodeInterfaceAddress, parentChainClient)
+		parentNodeInterface, err := node_interfacegen.NewNodeInterface(
+			types.NodeInterfaceAddress,
+			parentChainClient,
+		)
 		if err != nil {
 			return 0, err
 		}
-		parentChainBlock, err := parentChainClient.BlockByNumber(n.context, new(big.Int).SetUint64(parentChainBlockNum))
+		parentChainBlock, err := parentChainClient.BlockByNumber(
+			n.context,
+			new(big.Int).SetUint64(parentChainBlockNum),
+		)
 		if err != nil {
 			// Hide the parent chain RPC error from the client in case it contains sensitive information.
 			// Likely though, this error is just "not found" because the block got reorg'd.
 			return 0, fmt.Errorf("failed to get parent chain block %v containing batch", parentChainBlockNum)
 		}
-		confs, err := parentNodeInterface.GetL1Confirmations(&bind.CallOpts{Context: n.context}, parentChainBlock.Hash())
+		confs, err := parentNodeInterface.GetL1Confirmations(
+			&bind.CallOpts{Context: n.context},
+			parentChainBlock.Hash(),
+		)
 		if err != nil {
 			log.Warn(
 				"Failed to get L1 confirmations from parent chain",
 				"blockNumber", parentChainBlockNum,
 				"blockHash", parentChainBlock.Hash(), "err", err,
 			)
-			return 0, fmt.Errorf("failed to get L1 confirmations from parent chain for block %v", parentChainBlock.Hash())
+			return 0, fmt.Errorf(
+				"failed to get L1 confirmations from parent chain for block %v",
+				parentChainBlock.Hash(),
+			)
 		}
 		return confs, nil
 	}
@@ -213,7 +225,12 @@ func (n NodeInterface) EstimateRetryableTicket(
 	}
 
 	// ArbitrumSubmitRetryableTx is unsigned so the following won't panic
-	msg, err := core.TransactionToMessage(types.NewTx(submitTx), types.NewArbitrumSigner(nil), nil, core.MessageGasEstimationMode)
+	msg, err := core.TransactionToMessage(
+		types.NewTx(submitTx),
+		types.NewArbitrumSigner(nil),
+		nil,
+		core.MessageGasEstimationMode,
+	)
 	if err != nil {
 		return err
 	}
@@ -223,7 +240,11 @@ func (n NodeInterface) EstimateRetryableTicket(
 	return nil
 }
 
-func (n NodeInterface) ConstructOutboxProof(c ctx, evm mech, size, leaf uint64) (bytes32, bytes32, []bytes32, error) {
+func (n NodeInterface) ConstructOutboxProof(
+	c ctx,
+	evm mech,
+	size, leaf uint64,
+) (bytes32, bytes32, []bytes32, error) {
 
 	hash0 := bytes32{}
 
@@ -319,7 +340,8 @@ func (n NodeInterface) ConstructOutboxProof(c ctx, evm mech, size, leaf uint64) 
 					// L2ToL1TransactionEventID is deprecated in upgrade 4, but it should to safe to make this code handle
 					// both events ignoring the version.
 					// TODO: Remove L2ToL1Transaction handling on next chain reset
-					if log.Topics[0] != merkleTopic && log.Topics[0] != l2ToL1TxTopic && log.Topics[0] != l2ToL1TransactionTopic {
+					if log.Topics[0] != merkleTopic && log.Topics[0] != l2ToL1TxTopic &&
+						log.Topics[0] != l2ToL1TransactionTopic {
 						// log is unrelated
 						continue
 					}
@@ -516,7 +538,7 @@ func (n NodeInterface) GasEstimateL1Component(
 	args.Gas = (*hexutil.Uint64)(&randomGas)
 
 	// We set the run mode to eth_call mode here because we want an exact estimate, not a padded estimate
-	msg, err := args.ToMessage(randomGas, n.header, evm.StateDB.(*state.StateDB), core.MessageEthcallMode)
+	msg, err := args.ToMessage(randomGas, n.header, evm.StateDB, core.MessageEthcallMode)
 	if err != nil {
 		return 0, nil, nil, err
 	}
@@ -660,7 +682,12 @@ func (n NodeInterface) matchL2BlockNumWithL1(c ctx, evm mech, l2BlockNum uint64,
 		return fmt.Errorf("failed to get the L1 block number of the L2 block: %v. Error: %w", l2BlockNum, err)
 	}
 	if blockL1Num != l1BlockNum {
-		return fmt.Errorf("no L2 block was found with the given L1 block number. Found L2 block: %v with L1 block number: %v, given L1 block number: %v", l2BlockNum, blockL1Num, l1BlockNum)
+		return fmt.Errorf(
+			"no L2 block was found with the given L1 block number. Found L2 block: %v with L1 block number: %v, given L1 block number: %v",
+			l2BlockNum,
+			blockL1Num,
+			l1BlockNum,
+		)
 	}
 	return nil
 }
@@ -700,11 +727,19 @@ func (n NodeInterface) L2BlockRangeForL1(c ctx, evm mech, l1BlockNum uint64) (ui
 
 	firstBlock, err := firstL2BlockForL1(l1BlockNum)
 	if err != nil {
-		return 0, 0, fmt.Errorf("failed to get the first L2 block with the L1 block: %v. Error: %w", l1BlockNum, err)
+		return 0, 0, fmt.Errorf(
+			"failed to get the first L2 block with the L1 block: %v. Error: %w",
+			l1BlockNum,
+			err,
+		)
 	}
 	lastBlock, err := firstL2BlockForL1(l1BlockNum + 1)
 	if err != nil {
-		return 0, 0, fmt.Errorf("failed to get the last L2 block with the L1 block: %v. Error: %w", l1BlockNum, err)
+		return 0, 0, fmt.Errorf(
+			"failed to get the last L2 block with the L1 block: %v. Error: %w",
+			l1BlockNum,
+			err,
+		)
 	}
 
 	if err := n.matchL2BlockNumWithL1(c, evm, firstBlock, l1BlockNum); err != nil {

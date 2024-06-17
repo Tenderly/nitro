@@ -110,8 +110,6 @@ type StateDB interface {
 	GetCurrentTxLogs() []*types.Log
 
 	Error() error
-	Copy() *state.StateDB
-	GetStorageRoot(common.Address) common.Hash
 	SetBalance(common.Address, *uint256.Int)
 	SetStorage(common.Address, map[common.Hash]common.Hash)
 	Finalise(bool)

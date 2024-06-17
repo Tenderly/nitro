@@ -763,7 +763,7 @@ func (s *BlockChainAPI) GetProof(
 		return nil, err
 	}
 	codeHash := statedb.GetCodeHash(address)
-	storageRoot := statedb.GetStorageRoot(address)
+	var storageRoot common.Hash
 
 	if len(keys) > 0 {
 		var storageTrie state.Trie
@@ -1454,7 +1454,7 @@ func DoEstimateGas(
 	}
 	// Run the gas estimation andwrap any revertals into a custom return
 	// Arbitrum: this also appropriately recursively calls another args.ToMessage with increased gasCap by posterCostInL2Gas amount
-	call, err := args.ToMessage(gasCap, header, s, core.MessageGasEstimationMode)
+	call, err := args.ToMessage(gasCap, header, s, core.MessageEthcallMode)
 	if err != nil {
 		return 0, err
 	}
@@ -1951,12 +1951,13 @@ func AccessList(
 		prevTracer = logger.NewAccessListTracer(*args.AccessList, args.from(), to, precompiles)
 	}
 	for {
+		snapshot := db.Snapshot()
 		// Retrieve the current access list to expand
 		accessList := prevTracer.AccessList()
 		log.Trace("Creating access list", "input", accessList)
 
 		// Copy the original db so we don't modify it
-		statedb := db.Copy()
+		statedb := db
 		// Set the accesslist to the last al
 		args.AccessList = &accessList
 		msg, err := args.ToMessage(b.RPCGasCap(), header, statedb, core.MessageEthcallMode)
@@ -1976,6 +1977,7 @@ func AccessList(
 				err,
 			)
 		}
+		db.RevertToSnapshot(snapshot)
 		if tracer.Equal(prevTracer) {
 			return accessList, res.UsedGas, res.Err, nil
 		}
