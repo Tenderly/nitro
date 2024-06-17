@@ -7,7 +7,7 @@ import (
 	"context"
 	"errors"
 
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/log"
 )
 
 type Writer interface {

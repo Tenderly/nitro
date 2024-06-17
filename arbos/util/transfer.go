@@ -9,11 +9,11 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/vm"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core/vm"
+	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/holiman/uint256"
-	"github.com/offchainlabs/nitro/util/arbmath"
+	"github.com/tenderly/nitro/util/arbmath"
 )
 
 // TransferBalance represents a balance change occurring aside from a call.

@@ -8,11 +8,11 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/util/colors"
-	"github.com/offchainlabs/nitro/util/pretty"
-	"github.com/offchainlabs/nitro/util/testhelpers"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/util/colors"
+	"github.com/tenderly/nitro/util/pretty"
+	"github.com/tenderly/nitro/util/testhelpers"
 )
 
 func TestDASTree(t *testing.T) {

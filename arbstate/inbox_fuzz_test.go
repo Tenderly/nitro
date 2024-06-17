@@ -9,9 +9,9 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/offchainlabs/nitro/arbos/arbostypes"
-	"github.com/offchainlabs/nitro/arbstate/daprovider"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/arbos/arbostypes"
+	"github.com/tenderly/nitro/arbstate/daprovider"
 )
 
 type multiplexerBackend struct {

@@ -7,10 +7,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/go-redis/redis/v8"
 	"github.com/google/uuid"
-	"github.com/offchainlabs/nitro/util/stopwaiter"
+	"github.com/tenderly/nitro/util/stopwaiter"
 	"github.com/spf13/pflag"
 )
 

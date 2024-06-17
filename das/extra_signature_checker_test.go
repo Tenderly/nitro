@@ -11,11 +11,11 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
 
-	"github.com/offchainlabs/nitro/arbstate/daprovider"
-	"github.com/offchainlabs/nitro/util/signature"
+	"github.com/tenderly/nitro/arbstate/daprovider"
+	"github.com/tenderly/nitro/util/signature"
 )
 
 type StubSignatureCheckDAS struct {

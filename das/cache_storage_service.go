@@ -7,14 +7,14 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/offchainlabs/nitro/arbstate/daprovider"
-	"github.com/offchainlabs/nitro/das/dastree"
-	"github.com/offchainlabs/nitro/util/pretty"
+	"github.com/tenderly/nitro/arbstate/daprovider"
+	"github.com/tenderly/nitro/das/dastree"
+	"github.com/tenderly/nitro/util/pretty"
 	flag "github.com/spf13/pflag"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/lru"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/common/lru"
+	"github.com/tenderly/nitro/go-ethereum/log"
 )
 
 type CacheConfig struct {

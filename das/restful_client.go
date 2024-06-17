@@ -13,9 +13,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/offchainlabs/nitro/arbstate/daprovider"
-	"github.com/offchainlabs/nitro/das/dastree"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/arbstate/daprovider"
+	"github.com/tenderly/nitro/das/dastree"
 )
 
 // RestfulDasClient implements daprovider.DASReader

@@ -5,9 +5,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/offchainlabs/nitro/arbutil"
-	"github.com/offchainlabs/nitro/util/stopwaiter"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/arbutil"
+	"github.com/tenderly/nitro/util/stopwaiter"
 	flag "github.com/spf13/pflag"
 )
 

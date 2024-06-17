@@ -10,11 +10,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/offchainlabs/nitro/arbnode/redislock"
-	"github.com/offchainlabs/nitro/execution"
-	"github.com/offchainlabs/nitro/util/stopwaiter"
+	"github.com/tenderly/nitro/go-ethereum/ethdb"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/arbnode/redislock"
+	"github.com/tenderly/nitro/execution"
+	"github.com/tenderly/nitro/util/stopwaiter"
 	flag "github.com/spf13/pflag"
 )
 

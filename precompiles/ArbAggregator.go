@@ -7,7 +7,7 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/offchainlabs/nitro/arbos/l1pricing"
+	"github.com/tenderly/nitro/arbos/l1pricing"
 )
 
 // ArbAggregator provides aggregators and their users methods for configuring how they participate in L1 aggregation.

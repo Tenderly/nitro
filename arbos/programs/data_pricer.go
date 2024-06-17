@@ -6,8 +6,8 @@ package programs
 import (
 	"math/big"
 
-	"github.com/offchainlabs/nitro/arbos/storage"
-	"github.com/offchainlabs/nitro/util/arbmath"
+	"github.com/tenderly/nitro/arbos/storage"
+	"github.com/tenderly/nitro/util/arbmath"
 )
 
 type DataPricer struct {

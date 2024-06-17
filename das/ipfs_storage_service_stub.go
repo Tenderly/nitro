@@ -13,8 +13,8 @@ import (
 	"context"
 	"errors"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/offchainlabs/nitro/arbstate/daprovider"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/arbstate/daprovider"
 	flag "github.com/spf13/pflag"
 )
 

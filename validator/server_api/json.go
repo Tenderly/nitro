@@ -9,12 +9,12 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/offchainlabs/nitro/arbutil"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core/state"
+	"github.com/tenderly/nitro/arbutil"
 
-	"github.com/offchainlabs/nitro/util/jsonapi"
-	"github.com/offchainlabs/nitro/validator"
+	"github.com/tenderly/nitro/util/jsonapi"
+	"github.com/tenderly/nitro/validator"
 )
 
 const Namespace string = "validation"

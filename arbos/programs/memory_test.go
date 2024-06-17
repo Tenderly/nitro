@@ -7,8 +7,8 @@ import (
 	"math"
 	"testing"
 
-	"github.com/offchainlabs/nitro/util/arbmath"
-	"github.com/offchainlabs/nitro/util/testhelpers"
+	"github.com/tenderly/nitro/util/arbmath"
+	"github.com/tenderly/nitro/util/testhelpers"
 )
 
 func TestTables(t *testing.T) {

@@ -8,17 +8,17 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/core/vm"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/offchainlabs/nitro/arbcompress"
-	"github.com/offchainlabs/nitro/arbos/addressSet"
-	"github.com/offchainlabs/nitro/arbos/storage"
-	"github.com/offchainlabs/nitro/arbos/util"
-	"github.com/offchainlabs/nitro/arbutil"
-	am "github.com/offchainlabs/nitro/util/arbmath"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/core"
+	"github.com/tenderly/nitro/go-ethereum/core/state"
+	"github.com/tenderly/nitro/go-ethereum/core/vm"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/arbcompress"
+	"github.com/tenderly/nitro/arbos/addressSet"
+	"github.com/tenderly/nitro/arbos/storage"
+	"github.com/tenderly/nitro/arbos/util"
+	"github.com/tenderly/nitro/arbutil"
+	am "github.com/tenderly/nitro/util/arbmath"
 )
 
 type Programs struct {

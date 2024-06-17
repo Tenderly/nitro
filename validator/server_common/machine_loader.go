@@ -4,8 +4,8 @@ import (
 	"context"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/offchainlabs/nitro/util/containers"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/util/containers"
 )
 
 type MachineStatus[M any] struct {

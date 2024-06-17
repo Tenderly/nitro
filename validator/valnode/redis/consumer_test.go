@@ -5,9 +5,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/offchainlabs/nitro/util/redisutil"
-	"github.com/offchainlabs/nitro/util/testhelpers"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/util/redisutil"
+	"github.com/tenderly/nitro/util/testhelpers"
 )
 
 func TestTimeout(t *testing.T) {

@@ -12,16 +12,16 @@ import (
 	"io"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/rlp"
 
-	"github.com/offchainlabs/nitro/arbcompress"
-	"github.com/offchainlabs/nitro/arbos/arbosState"
-	"github.com/offchainlabs/nitro/arbos/arbostypes"
-	"github.com/offchainlabs/nitro/arbos/l1pricing"
-	"github.com/offchainlabs/nitro/arbstate/daprovider"
-	"github.com/offchainlabs/nitro/zeroheavy"
+	"github.com/tenderly/nitro/arbcompress"
+	"github.com/tenderly/nitro/arbos/arbosState"
+	"github.com/tenderly/nitro/arbos/arbostypes"
+	"github.com/tenderly/nitro/arbos/l1pricing"
+	"github.com/tenderly/nitro/arbstate/daprovider"
+	"github.com/tenderly/nitro/zeroheavy"
 )
 
 type InboxBackend interface {

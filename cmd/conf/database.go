@@ -12,7 +12,7 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/ethereum/go-ethereum/ethdb/pebble"
+	"github.com/tenderly/nitro/go-ethereum/ethdb/pebble"
 	flag "github.com/spf13/pflag"
 )
 
