@@ -1454,7 +1454,7 @@ func DoEstimateGas(
 	}
 	// Run the gas estimation andwrap any revertals into a custom return
 	// Arbitrum: this also appropriately recursively calls another args.ToMessage with increased gasCap by posterCostInL2Gas amount
-	call, err := args.ToMessage(gasCap, header, s, core.MessageEthcallMode)
+	call, err := args.ToMessage(gasCap, header, s, core.MessageGasEstimationMode)
 	if err != nil {
 		return 0, err
 	}
