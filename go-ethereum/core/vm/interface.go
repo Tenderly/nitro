@@ -19,11 +19,11 @@ package vm
 import (
 	"math/big"
 
+	"github.com/holiman/uint256"
 	"github.com/tenderly/nitro/go-ethereum/common"
 	"github.com/tenderly/nitro/go-ethereum/core/state"
 	"github.com/tenderly/nitro/go-ethereum/core/types"
 	"github.com/tenderly/nitro/go-ethereum/params"
-	"github.com/holiman/uint256"
 )
 
 // StateDB is an EVM database for full state querying.
@@ -102,6 +102,13 @@ type StateDB interface {
 	AddPreimage(common.Hash, []byte)
 
 	GetCurrentTxLogs() []*types.Log
+
+	SetBalance(common.Address, *uint256.Int)
+	SetStorage(common.Address, map[common.Hash]common.Hash)
+
+	Finalise(bool)
+
+	Error() error
 }
 
 // CallContext provides a basic interface for the EVM calling conventions. The EVM
