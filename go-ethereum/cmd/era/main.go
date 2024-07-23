@@ -28,9 +28,9 @@ import (
 
 	"github.com/tenderly/nitro/go-ethereum/common"
 	"github.com/tenderly/nitro/go-ethereum/core/types"
-	"github.com/tenderly/nitro/go-ethereum/internal/era"
-	"github.com/tenderly/nitro/go-ethereum/internal/ethapi"
-	"github.com/tenderly/nitro/go-ethereum/internal/flags"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/era"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/ethapi"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/flags"
 	"github.com/tenderly/nitro/go-ethereum/params"
 	"github.com/tenderly/nitro/go-ethereum/trie"
 	"github.com/urfave/cli/v2"

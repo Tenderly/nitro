@@ -25,7 +25,7 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/common"
 	"github.com/tenderly/nitro/go-ethereum/common/math"
 	"github.com/tenderly/nitro/go-ethereum/crypto"
-	"github.com/tenderly/nitro/go-ethereum/internal/blocktest"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/blocktest"
 	"github.com/tenderly/nitro/go-ethereum/params"
 	"github.com/tenderly/nitro/go-ethereum/rlp"
 )

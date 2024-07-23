@@ -32,7 +32,7 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/tenderly/nitro/go-ethereum/internal/reexec"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/reexec"
 )
 
 func NewTestCmd(t *testing.T, data interface{}) *TestCmd {

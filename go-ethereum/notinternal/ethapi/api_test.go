@@ -50,7 +50,7 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/eth/gasestimator"
 	"github.com/tenderly/nitro/go-ethereum/ethdb"
 	"github.com/tenderly/nitro/go-ethereum/event"
-	"github.com/tenderly/nitro/go-ethereum/internal/blocktest"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/blocktest"
 	"github.com/tenderly/nitro/go-ethereum/params"
 	"github.com/tenderly/nitro/go-ethereum/rpc"
 	"github.com/holiman/uint256"

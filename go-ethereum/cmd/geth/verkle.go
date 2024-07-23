@@ -26,7 +26,7 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/cmd/utils"
 	"github.com/tenderly/nitro/go-ethereum/common"
 	"github.com/tenderly/nitro/go-ethereum/core/rawdb"
-	"github.com/tenderly/nitro/go-ethereum/internal/flags"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/flags"
 	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/gballet/go-verkle"
 	cli "github.com/urfave/cli/v2"

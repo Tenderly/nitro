@@ -33,7 +33,7 @@ import (
 	"github.com/tenderly/nitro/go-ethereum/core/types"
 	"github.com/tenderly/nitro/go-ethereum/core/vm"
 	"github.com/tenderly/nitro/go-ethereum/crypto"
-	"github.com/tenderly/nitro/go-ethereum/internal/era"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/era"
 	"github.com/tenderly/nitro/go-ethereum/params"
 	"github.com/tenderly/nitro/go-ethereum/trie"
 )

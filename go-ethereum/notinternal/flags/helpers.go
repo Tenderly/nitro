@@ -23,7 +23,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/tenderly/nitro/go-ethereum/internal/version"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/version"
 	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/tenderly/nitro/go-ethereum/params"
 	"github.com/mattn/go-isatty"

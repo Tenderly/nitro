@@ -24,7 +24,7 @@ import (
 
 	"github.com/tenderly/nitro/go-ethereum/common"
 	"github.com/tenderly/nitro/go-ethereum/core/types"
-	"github.com/tenderly/nitro/go-ethereum/internal/era/e2store"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/era/e2store"
 	"github.com/tenderly/nitro/go-ethereum/rlp"
 	"github.com/golang/snappy"
 )

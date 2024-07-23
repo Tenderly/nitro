@@ -26,7 +26,7 @@ import (
 	"strconv"
 
 	"github.com/tenderly/nitro/go-ethereum/crypto"
-	"github.com/tenderly/nitro/go-ethereum/internal/reexec"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/reexec"
 	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/tenderly/nitro/go-ethereum/node"
 	"github.com/tenderly/nitro/go-ethereum/p2p"

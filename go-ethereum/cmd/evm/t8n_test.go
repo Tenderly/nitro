@@ -25,8 +25,8 @@ import (
 	"testing"
 
 	"github.com/tenderly/nitro/go-ethereum/cmd/evm/internal/t8ntool"
-	"github.com/tenderly/nitro/go-ethereum/internal/cmdtest"
-	"github.com/tenderly/nitro/go-ethereum/internal/reexec"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/cmdtest"
+    "github.com/tenderly/nitro/go-ethereum/notinternal/reexec"
 )
 
 func TestMain(m *testing.M) {
