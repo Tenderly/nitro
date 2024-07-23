@@ -8,7 +8,8 @@ package programs
 
 /*
 #cgo CFLAGS: -g -Wall -I../../target/include/
-#cgo LDFLAGS: ${SRCDIR}/../../target/lib/libstylus.a -ldl -lm
+#cgo arm64 LDFLAGS: ${SRCDIR}/../../target/lib/arm64/libstylus.a -ldl -lm
+#cgo amd64 LDFLAGS: ${SRCDIR}/../../target/lib/amd64/libstylus.a -ldl -lm
 #include "arbitrator.h"
 
 typedef uint8_t u8;
