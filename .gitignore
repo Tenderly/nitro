@@ -12,7 +12,6 @@ node_modules
 .vscode
 cmd/node/data
 cmd/node/node
-solgen/go/
 .make/
 /cmd/statetransfer/statetransfer
 /reproducible-wasm/*.wasm
