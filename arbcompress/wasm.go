@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"unsafe"
 
-	"github.com/offchainlabs/nitro/arbutil"
+	"github.com/tenderly/nitro/arbutil"
 )
 
 type brotliStatus = uint32

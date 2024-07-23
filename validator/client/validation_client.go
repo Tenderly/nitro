@@ -1,5 +1,5 @@
 // Copyright 2023-2024, Offchain Labs, Inc.
-// For license information, see https://github.com/OffchainLabs/nitro/blob/master/LICENSE
+// For license information, see https://github.com/tenderly/nitro/blob/master/LICENSE
 
 package client
 
@@ -11,18 +11,18 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/offchainlabs/nitro/validator"
+	"github.com/tenderly/nitro/validator"
 
-	"github.com/offchainlabs/nitro/util/containers"
-	"github.com/offchainlabs/nitro/util/rpcclient"
-	"github.com/offchainlabs/nitro/util/stopwaiter"
+	"github.com/tenderly/nitro/util/containers"
+	"github.com/tenderly/nitro/util/rpcclient"
+	"github.com/tenderly/nitro/util/stopwaiter"
 
-	"github.com/offchainlabs/nitro/validator/server_api"
-	"github.com/offchainlabs/nitro/validator/server_common"
+	"github.com/tenderly/nitro/validator/server_api"
+	"github.com/tenderly/nitro/validator/server_common"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/node"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/node"
 )
 
 type ValidationClient struct {

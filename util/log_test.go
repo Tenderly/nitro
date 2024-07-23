@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/log"
 )
 
 func compareFunctions(f1, f2 func(msg string, ctx ...interface{})) bool {

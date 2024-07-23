@@ -8,7 +8,7 @@ import (
 	"os"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/log"
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 

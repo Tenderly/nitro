@@ -7,7 +7,7 @@ import (
 	"io"
 	"time"
 
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/tenderly/nitro/go-ethereum/rlp"
 )
 
 // time.Time doesn't encode as anything in RLP. This fixes that.

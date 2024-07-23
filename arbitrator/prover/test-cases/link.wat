@@ -1,5 +1,5 @@
 ;; Copyright 2023, Offchain Labs, Inc.
-;; For license information, see https://github.com/OffchainLabs/nitro/blob/master/LICENSE
+;; For license information, see https://github.com/tenderly/nitro/blob/master/LICENSE
 
 (module
     (import "hostio" "wavm_link_module"        (func $link (param i32) (result i32)))

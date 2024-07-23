@@ -11,7 +11,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/offchainlabs/nitro/das/dastree"
+	"github.com/tenderly/nitro/das/dastree"
 )
 
 func getByHashAndCheck(t *testing.T, s *LocalFileStorageService, xs ...string) {

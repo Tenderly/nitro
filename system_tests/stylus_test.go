@@ -1,5 +1,5 @@
 // Copyright 2023, Offchain Labs, Inc.
-// For license information, see https://github.com/OffchainLabs/nitro/blob/master/LICENSE
+// For license information, see https://github.com/tenderly/nitro/blob/master/LICENSE
 
 //go:build stylustest && !race
 // +build stylustest,!race
@@ -9,7 +9,7 @@ package arbtest
 import (
 	"testing"
 
-	"github.com/ethereum/go-ethereum/core/vm"
+	"github.com/tenderly/nitro/go-ethereum/core/vm"
 )
 
 func TestProgramArbitratorKeccak(t *testing.T) {

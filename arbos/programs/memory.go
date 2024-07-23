@@ -1,12 +1,12 @@
 // Copyright 2023, Offchain Labs, Inc.
-// For license information, see https://github.com/OffchainLabs/nitro/blob/master/LICENSE
+// For license information, see https://github.com/tenderly/nitro/blob/master/LICENSE
 
 package programs
 
 import (
 	"math"
 
-	"github.com/offchainlabs/nitro/util/arbmath"
+	"github.com/tenderly/nitro/util/arbmath"
 )
 
 type MemoryModel struct {

@@ -3,7 +3,7 @@ package pubsub
 import (
 	"context"
 
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/log"
 	"github.com/go-redis/redis/v8"
 )
 

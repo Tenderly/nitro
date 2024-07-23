@@ -10,10 +10,10 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
 
-	"github.com/offchainlabs/nitro/arbstate/daprovider"
-	"github.com/offchainlabs/nitro/util/signature"
+	"github.com/tenderly/nitro/arbstate/daprovider"
+	"github.com/tenderly/nitro/util/signature"
 )
 
 func checkSig(keyDir string, message []byte, timeout uint64, sig []byte) (*daprovider.DataAvailabilityCertificate, error) {

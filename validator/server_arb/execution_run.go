@@ -9,13 +9,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/crypto"
 
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/offchainlabs/nitro/util/containers"
-	"github.com/offchainlabs/nitro/util/stopwaiter"
-	"github.com/offchainlabs/nitro/validator"
+	"github.com/tenderly/nitro/go-ethereum/log"
+	"github.com/tenderly/nitro/util/containers"
+	"github.com/tenderly/nitro/util/stopwaiter"
+	"github.com/tenderly/nitro/validator"
 )
 
 type executionRun struct {

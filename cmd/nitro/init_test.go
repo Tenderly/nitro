@@ -19,9 +19,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/node"
-	"github.com/offchainlabs/nitro/cmd/conf"
-	"github.com/offchainlabs/nitro/util/testhelpers"
+	"github.com/tenderly/nitro/go-ethereum/node"
+	"github.com/tenderly/nitro/cmd/conf"
+	"github.com/tenderly/nitro/util/testhelpers"
 )
 
 const (

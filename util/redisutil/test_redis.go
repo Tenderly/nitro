@@ -10,7 +10,7 @@ import (
 	"testing"
 
 	"github.com/alicebob/miniredis/v2"
-	"github.com/offchainlabs/nitro/util/testhelpers"
+	"github.com/tenderly/nitro/util/testhelpers"
 )
 
 // CreateTestRedis Provides external redis url, this is only done in TEST_REDIS env,

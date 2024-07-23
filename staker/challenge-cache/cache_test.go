@@ -11,7 +11,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/common"
 )
 
 var _ HistoryCommitmentCacher = (*Cache)(nil)

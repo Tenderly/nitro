@@ -10,12 +10,12 @@ import (
 	"math"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/nitro/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum/ethclient"
+	"github.com/tenderly/nitro/go-ethereum/log"
 	flag "github.com/spf13/pflag"
 
-	"github.com/offchainlabs/nitro/arbstate/daprovider"
+	"github.com/tenderly/nitro/arbstate/daprovider"
 )
 
 type DataAvailabilityServiceWriter interface {

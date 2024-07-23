@@ -10,13 +10,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/go-ethereum/ethclient"
+	"github.com/tenderly/nitro/go-ethereum/params"
 
-	"github.com/offchainlabs/nitro/arbnode"
-	"github.com/offchainlabs/nitro/arbos/l2pricing"
-	"github.com/offchainlabs/nitro/util"
+	"github.com/tenderly/nitro/arbnode"
+	"github.com/tenderly/nitro/arbos/l2pricing"
+	"github.com/tenderly/nitro/util"
 )
 
 func TestSnapSync(t *testing.T) {

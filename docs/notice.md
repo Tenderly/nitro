@@ -1,1 +1,1 @@
-**Note**: Docs now live at https://github.com/OffchainLabs/nitro-docs
+**Note**: Docs now live at https://github.com/tenderly/nitro-docs

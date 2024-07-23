@@ -1,5 +1,5 @@
 # Copyright 2021-2024, Offchain Labs, Inc.
-# For license information, see https://github.com/OffchainLabs/nitro/blob/master/LICENSE
+# For license information, see https://github.com/tenderly/nitro/blob/master/LICENSE
 
 # Docker builds mess up file timestamps. Then again, in docker builds we never
 # have to update an existing file. So - for docker, convert all dependencies
@@ -16,15 +16,15 @@ endif
 
 
 ifneq ($(origin NITRO_VERSION),undefined)
- GOLANG_LDFLAGS += -X github.com/offchainlabs/nitro/cmd/util/confighelpers.version=$(NITRO_VERSION)
+ GOLANG_LDFLAGS += -X github.com/tenderly/nitro/cmd/util/confighelpers.version=$(NITRO_VERSION)
 endif
 
 ifneq ($(origin NITRO_DATETIME),undefined)
- GOLANG_LDFLAGS += -X github.com/offchainlabs/nitro/cmd/util/confighelpers.datetime=$(NITRO_DATETIME)
+ GOLANG_LDFLAGS += -X github.com/tenderly/nitro/cmd/util/confighelpers.datetime=$(NITRO_DATETIME)
 endif
 
 ifneq ($(origin NITRO_MODIFIED),undefined)
- GOLANG_LDFLAGS += -X github.com/offchainlabs/nitro/cmd/util/confighelpers.modified=$(NITRO_MODIFIED)
+ GOLANG_LDFLAGS += -X github.com/tenderly/nitro/cmd/util/confighelpers.modified=$(NITRO_MODIFIED)
 endif
 
 ifneq ($(origin GOLANG_LDFLAGS),undefined)

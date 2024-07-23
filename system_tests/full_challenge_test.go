@@ -1,5 +1,5 @@
 // Copyright 2021-2023, Offchain Labs, Inc.
-// For license information, see https://github.com/OffchainLabs/nitro/blob/master/LICENSE
+// For license information, see https://github.com/tenderly/nitro/blob/master/LICENSE
 
 //go:build challengetest
 // +build challengetest
@@ -10,7 +10,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/offchainlabs/nitro/util/testhelpers/github"
+	"github.com/tenderly/nitro/util/testhelpers/github"
 )
 
 func TestChallengeManagerFullAsserterIncorrect(t *testing.T) {

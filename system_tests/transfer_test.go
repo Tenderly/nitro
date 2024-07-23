@@ -10,8 +10,8 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/tenderly/nitro/go-ethereum"
+	"github.com/tenderly/nitro/go-ethereum/common"
 )
 
 func TestTransfer(t *testing.T) {

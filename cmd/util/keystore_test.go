@@ -8,10 +8,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/accounts"
-	"github.com/ethereum/go-ethereum/accounts/keystore"
+	"github.com/tenderly/nitro/go-ethereum/accounts"
+	"github.com/tenderly/nitro/go-ethereum/accounts/keystore"
 
-	"github.com/offchainlabs/nitro/cmd/genericconf"
+	"github.com/tenderly/nitro/cmd/genericconf"
 )
 
 func openTestKeystore(description string, walletConfig *genericconf.WalletConfig, getPassword func() (string, error)) (*keystore.KeyStore, *accounts.Account, error) {

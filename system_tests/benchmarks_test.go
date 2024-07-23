@@ -1,5 +1,5 @@
 // Copyright 2022-2023, Offchain Labs, Inc.
-// For license information, see https://github.com/OffchainLabs/nitro/blob/master/LICENSE
+// For license information, see https://github.com/tenderly/nitro/blob/master/LICENSE
 
 //go:build benchmarks
 // +build benchmarks
@@ -12,8 +12,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/offchainlabs/nitro/solgen/go/mocksgen"
+	"github.com/tenderly/nitro/go-ethereum/core/types"
+	"github.com/tenderly/nitro/solgen/go/mocksgen"
 )
 
 func TestBenchmarkGas(t *testing.T) {
